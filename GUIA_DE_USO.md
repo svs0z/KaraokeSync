@@ -471,12 +471,25 @@ aparece la canción con todas sus líneas y sus horas:
 | Quiero… | Cómo |
 |---|---|
 | Oír dónde cae una línea | Clic en la línea: salta a ese instante y la marca |
+| Oír **solo** una línea | Botón 🔊 de esa línea: la reproduce desde medio segundo antes |
 | Mover una línea | Botones `−250` `−50` `+50` `+250` de esa línea |
 | Marcar el inicio «aquí» | Reproduce y pulsa `T` (o «Inicio aquí») |
 | Mover **toda** la letra | Botones «Desplazar TODA la letra» de la barra |
 | Corregir el texto | Clic en el texto y escribe |
-| Deshacer | `Ctrl+Z` |
-| Guardar | «Descargar .lrc» (y «.json» si lo quieres) |
+| Añadir una línea | Botón **＋** de la línea anterior (o «＋ Añadir línea» arriba) |
+| Borrar una línea | Botón **✕** de esa línea |
+| Ver la letra como en un karaoke | El recuadro grande de arriba, mientras suena |
+| Deshacer | `Ctrl+Z` (también deshace añadir y borrar) |
+| Guardar | «💾 Guardar cambios» o «📁 Guardar en carpeta» |
+
+**Guardar sin pasar por Descargas.** El botón **📁 Guardar en carpeta** te pide la
+carpeta **una sola vez** y escribe ahí los dos archivos (`cancion.lrc` y
+`cancion_editor.json`), sobrescribiendo los que ya hubiera: así el `.lrc` que
+generó el análisis queda actualizado, sin `cancion (1).lrc` sueltos. Los botones
+`⬇ .lrc` y `⬇ .json` hacen lo mismo de uno en uno, y el navegador **recuerda** la
+carpeta que elegiste la última vez. En el editor, debajo de la barra, tienes la
+ruta de la carpeta del reporte y un botón **Copiar ruta** para pegarla la primera
+vez.
 
 La barra de tiempo de arriba muestra **dónde está cada línea**: así se ven de un
 vistazo los huecos y los montones, que son los dos fallos típicos. Y si dejas
