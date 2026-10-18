@@ -1,0 +1,67 @@
+KaraokeSync — Licencia de uso
+=============================
+
+Copyright (c) 2026 Sara Valentina Sepúlveda Ortiz (svs0z). Todos los derechos
+reservados.
+
+Este programa NO es software libre ni de código abierto: es software
+propietario que se publica para que se pueda usar. Las condiciones son las de
+abajo.
+
+-------------------------------------------------------------------------------
+1. LO QUE SÍ SE PERMITE
+-------------------------------------------------------------------------------
+
+  a) Descargar, instalar y EJECUTAR el programa para uso personal, educativo o
+     de evaluación.
+
+  b) Leer el código fuente publicado, para entender qué hace y comprobar que es
+     seguro.
+
+  c) Citar el proyecto y enlazarlo (por ejemplo, en un blog o en un foro),
+     indicando la autoría.
+
+-------------------------------------------------------------------------------
+2. LO QUE NO SE PERMITE SIN AUTORIZACIÓN ESCRITA DEL TITULAR
+-------------------------------------------------------------------------------
+
+  a) Usar el programa, o cualquier parte de su código, con fines COMERCIALES
+     (incluido ofrecerlo como servicio, integrarlo en un producto de pago o
+     usarlo para prestar un servicio remunerado).
+
+  b) VENDER, alquilar, sublicenciar o REDISTRIBUIR el programa o una versión
+     modificada, ni incluirlo en un paquete o repositorio de terceros.
+
+  c) Publicar el código fuente como propio, o presentar el programa como si lo
+     hubiera desarrollado otra persona.
+
+  d) Quitar o alterar los avisos de autoría y esta licencia.
+
+-------------------------------------------------------------------------------
+3. SIN GARANTÍA
+-------------------------------------------------------------------------------
+
+EL PROGRAMA SE OFRECE "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA NI
+IMPLÍCITA, INCLUIDAS, ENTRE OTRAS, LAS DE COMERCIABILIDAD, IDONEIDAD PARA UN FIN
+CONCRETO Y NO INFRACCIÓN.
+
+EN NINGÚN CASO EL TITULAR SERÁ RESPONSABLE DE DAÑOS DIRECTOS, INDIRECTOS,
+INCIDENTALES O CONSECUENTES DERIVADOS DEL USO DEL PROGRAMA, INCLUIDA LA PÉRDIDA
+DE DATOS.
+
+-------------------------------------------------------------------------------
+4. TERCEROS
+-------------------------------------------------------------------------------
+
+El programa usa bibliotecas y modelos de terceros con sus propias licencias
+(PyTorch, Demucs, faster-whisper/CTranslate2, Silero VAD, stable-ts, FFmpeg,
+entre otros). Esta licencia cubre el código de KaraokeSync, no esas piezas, y no
+otorga ningún derecho sobre una letra de canción ni sobre una grabación: cada
+obra tiene su autor y sus derechos.
+
+-------------------------------------------------------------------------------
+5. CONTACTO
+-------------------------------------------------------------------------------
+
+Para pedir permiso para cualquier uso no recogido aquí, abre una "issue" en
+https://github.com/svs0z/KaraokeSync o escribe a través de GitHub a @svs0z.
