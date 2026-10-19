@@ -112,9 +112,29 @@ reporte**.
 |---|---|---|
 | **Rápida** | Ventanas de 32 ms. La más veloz | Para probar si la letra cuadra, o para muchas canciones |
 | **Equilibrada** ← *por defecto* | Ventanas de 10 ms | **Es la que debes usar.** Buen equilibrio |
-| **Alta precisión** | 10 ms, Demucs reforzado y un modelo de reconocimiento enorme (`large-v3`), con marcas por palabra | Solo si tienes una GPU NVIDIA o mucha paciencia: en un ordenador normal puede tardar **más de una hora por canción** y descarga unos 3 GB |
+| **Alta precisión** | 10 ms, Demucs reforzado, marcas por palabra y subtítulos por palabra | Solo si tienes una GPU NVIDIA o mucha paciencia: en un ordenador normal Demucs tarda **varios minutos por canción**. El modelo de voz es el mismo en los tres presets |
 
-Casillas:
+> El modelo de reconocimiento es **siempre el pequeño** (`base`, 145 MB) en los tres
+> presets: se descarga una vez y tarda segundos. El modelo enorme (`large-v3`,
+> 3 GB) solo se usa si se pide a mano con `--model large-v3`; por eso ya no hay
+> esperas de diez minutos al ajustar una letra.
+
+### Archivos a generar
+
+Cinco casillas, todas marcadas. Desmarca lo que no necesites:
+
+| Casilla | Qué genera |
+|---|---|
+| **Letra sincronizada (.lrc)** | El archivo que se carga en el reproductor o en el karaoke |
+| **Editor interactivo (.html)** | La página para corregir los tiempos a mano |
+| **Reporte (.txt)** | El informe que se abre en el Bloc de notas |
+| **Subtítulos (.srt)** | Para vídeo |
+| **Datos (.json)** | Todo el detalle, para otras herramientas |
+
+Por ejemplo: deja solo **.lrc** y **editor** y el análisis escribirá únicamente
+esos dos archivos.
+
+### Precisión
 
 - **Separar voz e instrumental con Demucs** — *activada por defecto*. Es lo que
   hace que la detección sea precisa: separa la voz del acompañamiento antes de
@@ -611,7 +631,7 @@ Para ir más rápido:
 - Elige precisión **Rápida**.
 - Desmarca **Separar voz e instrumental** (mucho más rápido, menos preciso).
 - Repite la misma canción: la segunda vez tarda **segundos**.
-- Si tienes GPU NVIDIA, el programa la usa sola (no hay que instalar nada).
+- Si tienes GPU NVIDIA, instálala con
 
 ### Repetir el análisis de una canción ya hecha
 
