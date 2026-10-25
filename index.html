@@ -1,0 +1,3446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KaraokeSync Studio</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="shortcut icon" href="/favicon.ico">
+<style>
+  :root {
+    --bg: #070b12;
+    --bg-soft: #0c1220;
+    --card: #111a2b;
+    --card-2: #0e1626;
+    --border: #1f2d44;
+    --border-soft: #182337;
+    --primary: #22d3a5;
+    --primary-dim: rgba(34, 211, 165, .14);
+    --primary-glow: rgba(34, 211, 165, .35);
+    --accent: #56b8ff;
+    --accent-dim: rgba(86, 184, 255, .12);
+    --text: #eaf1fb;
+    --muted: #8fa2bd;
+    --muted-2: #64748b;
+    --warning: #f7b955;
+    --danger: #ff6b6b;
+    --radius: 14px;
+    --shadow: 0 18px 45px rgba(0, 0, 0, .35);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background:
+      radial-gradient(1100px 500px at 12% -10%, rgba(34, 211, 165, .10), transparent 60%),
+      radial-gradient(900px 420px at 92% 0%, rgba(86, 184, 255, .10), transparent 55%),
+      var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+    min-height: 100vh;
+    padding: 18px clamp(12px, 2.4vw, 28px) 34px;
+  }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #24344e; border-radius: 8px; border: 2px solid var(--bg); }
+  ::-webkit-scrollbar-thumb:hover { background: #314767; }
+
+  /* ---------- Cabecera ---------- */
+  header {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    background: linear-gradient(180deg, rgba(20, 30, 48, .92), rgba(13, 20, 33, .92));
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 14px 20px; margin-bottom: 18px; box-shadow: var(--shadow);
+    position: sticky; top: 10px; z-index: 40; backdrop-filter: blur(10px);
+  }
+  .brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+  .logo {
+    width: 42px; height: 42px; border-radius: 12px; flex: 0 0 auto;
+    background: linear-gradient(145deg, var(--primary), #0ea5a0 55%, var(--accent));
+    display: grid; place-items: center; font-size: 21px;
+    box-shadow: 0 0 22px var(--primary-glow); overflow: hidden;
+  }
+  .logo img {
+    width: 100%; height: 100%; object-fit: contain; border-radius: 10px;
+    display: block;
+  }
+  .brand h1 {
+    font-size: 19px; letter-spacing: -.02em; font-weight: 700;
+    background: linear-gradient(90deg, #ffffff, #b6ffe8 65%, #9ad8ff);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    white-space: nowrap;
+  }
+  .brand small { display: block; color: var(--muted); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+  .header-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 7px; padding: 6px 11px;
+    border-radius: 999px; border: 1px solid var(--border);
+    background: rgba(14, 22, 38, .7); color: var(--muted); font-size: 12px; font-weight: 600;
+    white-space: nowrap;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 9px var(--primary); }
+  .dot.busy { background: var(--warning); box-shadow: 0 0 10px var(--warning); animation: pulse 1.1s infinite ease-in-out; }
+  .dot.err { background: var(--danger); box-shadow: 0 0 10px var(--danger); }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .45; transform: scale(.82); } }
+
+  /* ---------- Selector de idioma ---------- */
+  .lang-switcher {
+    display: inline-flex; align-items: center; gap: 2px; padding: 3px;
+    background: rgba(10, 18, 32, .8); border: 1px solid var(--border);
+    border-radius: 9px;
+  }
+  .lang-switcher .lang-btn {
+    border: none; background: transparent; color: var(--muted);
+    font-family: inherit; font-size: 11px; font-weight: 800; letter-spacing: .04em;
+    padding: 5px 8px; border-radius: 6px; cursor: pointer; transition: .14s;
+  }
+  .lang-switcher .lang-btn:hover { color: var(--text); background: #1a2740; }
+  .lang-switcher .lang-btn[aria-pressed="true"] {
+    background: var(--primary-dim); color: var(--primary);
+    box-shadow: inset 0 0 0 1px rgba(34, 211, 165, .35);
+  }
+
+  /* ---------- Rejilla ---------- */
+  .layout {
+    display: grid; gap: 18px;
+    grid-template-columns: minmax(340px, 1fr) minmax(430px, 1.25fr);
+    align-items: start;
+  }
+  @media (max-width: 1080px) { .layout { grid-template-columns: 1fr; } }
+  .column { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+
+  .card {
+    background: linear-gradient(180deg, rgba(19, 28, 46, .96), rgba(13, 20, 33, .96));
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 18px; box-shadow: var(--shadow); min-width: 0;
+  }
+  .card + .card { margin-top: 0; }
+  .card-head {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    margin-bottom: 14px;
+  }
+  .card-head h2 {
+    font-size: 13px; font-weight: 700; letter-spacing: .10em; text-transform: uppercase;
+    color: #d8e6fa; display: flex; align-items: center; gap: 9px;
+  }
+  .step {
+    width: 22px; height: 22px; border-radius: 7px; display: grid; place-items: center;
+    background: var(--primary-dim); color: var(--primary); font-size: 11px; font-weight: 800;
+    border: 1px solid rgba(34, 211, 165, .3); letter-spacing: 0;
+  }
+  .hint { color: var(--muted-2); font-size: 11px; }
+  .card-head a { color: var(--accent); text-decoration: none; font-size: 11px; }
+  .card-head a:hover { text-decoration: underline; }
+
+  /* ---------- Controles ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    background: #182539; color: var(--text); border: 1px solid var(--border);
+    padding: 9px 14px; border-radius: 9px; font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: .15s ease; white-space: nowrap; font-family: inherit;
+  }
+  .btn:hover:not(:disabled) { background: #22334d; border-color: #2c405e; transform: translateY(-1px); }
+  .btn:active:not(:disabled) { transform: translateY(0); }
+  .btn:disabled { opacity: .45; cursor: not-allowed; }
+  .btn.primary {
+    background: linear-gradient(135deg, #1fd6a3, #12b394);
+    color: #04140f; border: none; font-weight: 800;
+    box-shadow: 0 8px 24px rgba(34, 211, 165, .28);
+  }
+  .btn.primary:hover:not(:disabled) { background: linear-gradient(135deg, #2ee7b2, #16c2a1); }
+  .btn.accent { background: linear-gradient(135deg, #5cc0ff, #2f9bea); color: #041320; border: none; font-weight: 800; }
+  .btn.ghost { background: transparent; }
+  .btn.danger { color: var(--danger); border-color: rgba(255, 107, 107, .35); background: rgba(255, 107, 107, .07); }
+  .btn.danger:hover:not(:disabled) { background: rgba(255, 107, 107, .16); }
+  .btn.small { padding: 6px 10px; font-size: 11.5px; border-radius: 7px; }
+  .btn.block { width: 100%; }
+
+  .input, select.input, textarea {
+    width: 100%; background: #0a1220; border: 1px solid var(--border);
+    color: var(--text); padding: 10px 12px; border-radius: 9px;
+    font-size: 13px; font-family: inherit; outline: none; transition: border-color .15s, box-shadow .15s;
+  }
+  .input:focus, select.input:focus, textarea:focus {
+    border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-dim);
+  }
+  .input::placeholder, textarea::placeholder { color: #4f637f; }
+  select.input { cursor: pointer; }
+
+  .row { display: flex; gap: 8px; align-items: center; min-width: 0; }
+  .row > .input { min-width: 0; flex: 1; }
+  .field { display: flex; flex-direction: column; gap: 7px; }
+  .field > label { font-size: 11.5px; color: var(--muted); font-weight: 600; }
+
+  /* ---------- Zona de audio ---------- */
+  .dropzone {
+    border: 1.5px dashed #2b405e; border-radius: 12px; padding: 20px 16px;
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    background: rgba(10, 18, 32, .55); cursor: pointer;
+    transition: .18s ease; text-align: center;
+  }
+  .dropzone:hover, .dropzone.drag { border-color: var(--primary); background: var(--primary-dim); }
+  .dropzone .icon { font-size: 27px; filter: drop-shadow(0 0 10px rgba(34,211,165,.35)); }
+  .dropzone strong { font-size: 13.5px; }
+  .dropzone span { font-size: 11.5px; color: var(--muted); }
+
+  .meta-box {
+    display: none; margin-top: 12px; padding: 11px 13px; border-radius: 10px;
+    background: var(--accent-dim); border: 1px solid rgba(86, 184, 255, .28);
+    font-size: 12.5px; gap: 8px; flex-direction: column;
+  }
+  .meta-box.show { display: flex; }
+  .meta-box .title { font-weight: 700; color: #cdeaff; font-size: 13.5px; word-break: break-word; }
+  .meta-box .sub { color: var(--muted); display: flex; gap: 10px; flex-wrap: wrap; }
+  .meta-box .tag { background: rgba(86,184,255,.14); padding: 2px 7px; border-radius: 5px; font-size: 10.5px; font-weight: 700; color: var(--accent); }
+
+  /* ---------- LRCLIB ---------- */
+  .results {
+    display: none; flex-direction: column; gap: 7px; margin-top: 10px;
+    max-height: 250px; overflow-y: auto; padding-right: 3px;
+  }
+  .results.show { display: flex; }
+  .result {
+    display: flex; justify-content: space-between; align-items: center; gap: 10px;
+    padding: 9px 11px; border-radius: 9px; background: #0a1220;
+    border: 1px solid var(--border-soft); cursor: pointer; transition: .14s;
+  }
+  .result:hover { border-color: var(--primary); background: var(--primary-dim); }
+  .result .info { min-width: 0; }
+  .result .info strong { display: block; font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .result .info span { font-size: 11px; color: var(--muted); }
+  .badge {
+    font-size: 9.5px; font-weight: 800; letter-spacing: .03em; padding: 3px 7px;
+    border-radius: 5px; white-space: nowrap; text-transform: uppercase;
+  }
+  .badge.synced { background: rgba(34, 211, 165, .16); color: var(--primary); border: 1px solid rgba(34,211,165,.35); }
+  .badge.plain { background: rgba(247, 185, 85, .14); color: var(--warning); border: 1px solid rgba(247,185,85,.3); }
+  .badge.instr { background: rgba(143, 162, 189, .14); color: var(--muted); border: 1px solid var(--border); }
+
+  textarea.lyrics {
+    min-height: 150px; max-height: 320px; resize: vertical;
+    font-family: "Cascadia Mono", Consolas, "Courier New", monospace; font-size: 12px;
+    line-height: 1.55; margin-top: 10px;
+  }
+  .lyrics-status { margin-top: 8px; font-size: 11.5px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+
+  /* ---------- Opciones ---------- */
+  .checks { display: flex; flex-direction: column; gap: 9px; }
+  .check {
+    display: flex; align-items: center; gap: 9px; cursor: pointer;
+    padding: 9px 11px; background: #0a1220; border: 1px solid var(--border-soft);
+    border-radius: 9px; transition: .14s; font-size: 12.5px;
+  }
+  .check:hover { border-color: #2b405e; }
+  .check input {
+    appearance: none; width: 17px; height: 17px; border-radius: 5px; flex: 0 0 auto;
+    border: 1.5px solid #33507a; background: #0c1626; cursor: pointer; position: relative;
+  }
+  .check input:checked { background: var(--primary); border-color: var(--primary); }
+  .check input:checked::after {
+    content: "✓"; position: absolute; inset: 0; display: grid; place-items: center;
+    color: #04140f; font-size: 12px; font-weight: 900;
+  }
+  .check input:disabled { opacity: .5; }
+  .check .label-main { font-weight: 600; }
+  .check .label-sub { color: var(--muted-2); font-size: 11px; }
+
+  .format-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
+  .format-grid .check { padding: 8px 9px; font-size: 11.5px; justify-content: center; }
+  .format-grid .check input { width: 15px; height: 15px; }
+
+  /* ---------- Progreso ---------- */
+  .progress-panel { display: none; }
+  .progress-panel.show { display: block; }
+  .bar-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .bar-head .stage { font-size: 12.5px; font-weight: 700; color: #cdeaff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bar-head .pct { font-size: 20px; font-weight: 800; color: var(--primary); font-variant-numeric: tabular-nums; }
+  .bar { height: 9px; background: #0a1322; border-radius: 999px; overflow: hidden; border: 1px solid var(--border-soft); }
+  .bar > div {
+    height: 100%; width: 0%; border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent), var(--primary));
+    box-shadow: 0 0 14px var(--primary-glow); transition: width .35s ease;
+  }
+  .progress-msg { margin-top: 8px; font-size: 12px; color: var(--muted); min-height: 17px; word-break: break-word; }
+  .logs {
+    margin-top: 11px; background: #060a11; border: 1px solid var(--border-soft);
+    border-radius: 9px; padding: 9px 11px; font-family: Consolas, "Cascadia Mono", monospace;
+    font-size: 10.8px; line-height: 1.55; color: #8ea4c1; height: 128px; overflow-y: auto;
+    white-space: pre-wrap; word-break: break-word;
+  }
+  .logs .err { color: var(--danger); }
+  .logs .ok { color: var(--primary); }
+
+  /* ---------- Reproductor ---------- */
+  /* Sin position:sticky: al hacer scroll el reproductor tapaba la barra del
+     editor (+ Linea, Ordenar, Carpeta). Cada tarjeta conserva su sitio. */
+  .player-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 11px; }
+  .source-tabs { display: inline-flex; background: #0a1220; border: 1px solid var(--border); border-radius: 9px; padding: 3px; gap: 3px; }
+  .source-tabs button {
+    border: none; background: transparent; color: var(--muted); padding: 6px 11px;
+    font-size: 11.5px; font-weight: 700; border-radius: 7px; cursor: pointer; font-family: inherit;
+    transition: .14s;
+  }
+  .source-tabs button.on { background: var(--primary-dim); color: var(--primary); }
+  .source-tabs button:disabled { opacity: .38; cursor: not-allowed; }
+  audio { width: 100%; height: 42px; filter: invert(.91) hue-rotate(180deg) saturate(.7); border-radius: 8px; }
+  .player-meta { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 9px; font-size: 11.5px; color: var(--muted); flex-wrap: wrap; }
+  .speed { display: inline-flex; align-items: center; gap: 6px; }
+  .speed select { background: #0a1220; color: var(--text); border: 1px solid var(--border); border-radius: 7px; padding: 4px 7px; font-size: 11.5px; font-family: inherit; }
+
+  /* ---------- Escenario karaoke en vivo ---------- */
+  .stage-card { padding: 16px 18px 18px; }
+  .stage {
+    position: relative; overflow: hidden; border-radius: 12px;
+    background:
+      radial-gradient(520px 200px at 50% 0%, rgba(34, 211, 165, .16), transparent 70%),
+      linear-gradient(180deg, #0a1220, #070d17);
+    border: 1px solid #1d3550; padding: 20px 20px 14px;
+    display: flex; flex-direction: column; gap: 9px;
+    min-height: 166px; justify-content: center; text-align: center;
+  }
+  .stage-kicker {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted-2);
+  }
+  .stage-kicker .live { color: var(--primary); display: inline-flex; align-items: center; gap: 6px; }
+  .stage-kicker .live::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--primary); box-shadow: 0 0 8px var(--primary);
+  }
+  .stage-text {
+    font-size: 40px; font-weight: 800; line-height: 1.12; letter-spacing: -.02em;
+    color: #fff; text-shadow: 0 0 26px rgba(34, 211, 165, .26);
+    word-break: break-word; min-height: 46px; transition: font-size .12s ease;
+  }
+  .stage-next { font-size: 15px; color: #7f93ae; min-height: 21px; }
+  .stage-next .lbl {
+    color: #4f637f; font-weight: 700; font-size: 10.5px; letter-spacing: .08em;
+    text-transform: uppercase; margin-right: 7px;
+  }
+  .stage-progress { height: 5px; background: #101c2e; border-radius: 999px; overflow: hidden; margin-top: 2px; }
+  .stage-progress > div {
+    height: 100%; width: 0%; border-radius: 999px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    box-shadow: 0 0 10px var(--primary-glow); transition: width .08s linear;
+  }
+  .stage-controls {
+    display: flex; flex-wrap: wrap; gap: 14px; align-items: center;
+    justify-content: space-between; margin-top: 11px; font-size: 11.5px; color: var(--muted);
+  }
+  .stage-controls .check { background: transparent; border: none; padding: 0; }
+  .stage-controls input[type="range"] { width: 132px; accent-color: var(--primary); vertical-align: middle; }
+  .transport { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 11px; }
+  .transport .shift-group { display: inline-flex; gap: 4px; align-items: center; flex-wrap: wrap; }
+  .mode-badge {
+    margin-left: auto; font-size: 10.5px; color: var(--warning);
+    border: 1px solid rgba(247, 185, 85, .35); background: rgba(247, 185, 85, .08);
+    padding: 4px 9px; border-radius: 999px; white-space: nowrap;
+  }
+  .mode-badge:empty { display: none; }
+  .timeline-wrap { margin-top: 12px; }
+  #timeline {
+    width: 100%; height: 74px; display: block; border-radius: 10px;
+    background: #080e19; border: 1px solid var(--border-soft);
+    cursor: pointer; touch-action: none;
+  }
+  .timeline-scale {
+    display: flex; justify-content: space-between; font-size: 10px; color: var(--muted-2);
+    margin-top: 4px; font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- Editor ---------- */
+  .toolbar { display: flex; gap: 7px; flex-wrap: wrap; }
+  .editor-hint {
+    display: flex; gap: 8px; align-items: flex-start; font-size: 11.5px; color: var(--muted);
+    background: rgba(86, 184, 255, .06); border: 1px solid rgba(86, 184, 255, .18);
+    border-radius: 9px; padding: 9px 11px; margin-bottom: 12px;
+  }
+  /* La lista de lineas es el UNICO contenedor que se desplaza mientras suena
+     la cancion: position:relative + overflow-y:auto permiten mover solo esta
+     caja (ver desplazarSoloContenedorLineas) sin arrastrar la pagina entera. */
+  .lines {
+    display: flex; flex-direction: column; gap: 6px;
+    max-height: 46vh; overflow-y: auto; padding-right: 5px;
+    position: relative; scroll-behavior: smooth;
+  }
+  /* En escritorio el Escenario Karaoke en Vivo, el reproductor y la barra de
+     tiempo quedan siempre visibles arriba: la letra se desliza por dentro de
+     su propio recuadro, nunca la pagina. */
+  @media (min-width: 1120px) {
+    .lines {
+      max-height: calc(100vh - 500px);
+      min-height: 240px;
+      position: relative;
+    }
+    .column.derecha { align-self: start; }
+  }
+  .empty {
+    text-align: center; color: var(--muted-2); font-size: 12.5px; padding: 34px 16px;
+    border: 1px dashed var(--border); border-radius: 10px; line-height: 1.7;
+  }
+  .line {
+    display: grid; grid-template-columns: 158px minmax(0, 1fr) auto 26px;
+    gap: 8px; align-items: center;
+    background: #0a1220; border: 1px solid var(--border-soft); border-radius: 9px;
+    padding: 7px 9px; transition: .13s;
+  }
+  .line:hover { border-color: #2b405e; }
+  .line.active {
+    border-color: var(--primary); background: rgba(34, 211, 165, .10);
+    box-shadow: 0 0 0 1px rgba(34,211,165,.25), 0 0 18px rgba(34,211,165,.10);
+  }
+  .line .time {
+    font-family: Consolas, "Cascadia Mono", monospace; font-size: 11.5px; font-weight: 700;
+    color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: -.02em;
+  }
+  .times { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .times .trow { display: flex; align-items: center; gap: 3px; }
+  .times .trow input {
+    width: 66px; background: #0c1626; border: 1px solid var(--border-soft);
+    color: var(--accent); font-family: Consolas, "Cascadia Mono", monospace;
+    font-size: 10px; padding: 2px 4px; border-radius: 4px; outline: none;
+    font-variant-numeric: tabular-nums;
+  }
+  .times .trow input:focus { border-color: var(--accent); background: #101d31; }
+  .times .sep { color: #3f5675; font-size: 9px; }
+  .line input.txt {
+    background: transparent; border: 1px solid transparent; color: var(--text);
+    font-size: 12.8px; padding: 5px 6px; border-radius: 6px; outline: none;
+    width: 100%; font-family: inherit;
+  }
+  .line input.txt:hover { border-color: var(--border-soft); }
+  .line input.txt:focus { border-color: var(--accent); background: #0c1626; }
+  .nudges { display: flex; gap: 3px; }
+  .nudge {
+    background: #16233a; border: 1px solid var(--border-soft); color: #b9cbe3;
+    border-radius: 5px; padding: 4px 6px; font-size: 10px; font-weight: 700;
+    cursor: pointer; font-family: inherit; transition: .13s; min-width: 32px;
+  }
+  .nudge:hover { background: #22334d; color: #fff; border-color: #2c405e; }
+  .nudge.accent { color: var(--accent); }
+  .nudge.ok { color: var(--primary); }
+  .del {
+    background: transparent; border: none; color: #5a7395; cursor: pointer;
+    font-size: 16px; line-height: 1; border-radius: 6px; padding: 3px;
+    display: grid; place-items: center; transition: .13s;
+  }
+  .del:hover { color: var(--danger); background: rgba(255, 107, 107, .12); }
+  .save-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; margin-top: 13px; }
+  @media (max-width: 640px) {
+    .save-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .format-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  /* ---------- Avisos ---------- */
+  .toasts { position: fixed; right: 18px; bottom: 18px; display: flex; flex-direction: column; gap: 9px; z-index: 90; max-width: min(380px, calc(100vw - 36px)); }
+  .toast {
+    padding: 11px 14px; border-radius: 10px; background: #16233a; border: 1px solid var(--border);
+    box-shadow: var(--shadow); font-size: 12.5px; animation: slide .22s ease; word-break: break-word;
+  }
+  .toast.ok { border-color: rgba(34,211,165,.45); background: rgba(16, 44, 38, .95); }
+  .toast.err { border-color: rgba(255,107,107,.5); background: rgba(48, 18, 22, .95); }
+  .toast.warn { border-color: rgba(247,185,85,.45); background: rgba(47, 36, 14, .95); }
+  @keyframes slide { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  footer { margin-top: 22px; text-align: center; color: #4f637f; font-size: 11px; }
+  footer kbd { background: #16233a; border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; font-family: inherit; font-size: 10.5px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="logo"><img src="data:image/png;base64,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" alt="KaraokeSync"></div>
+    <div>
+      <h1>KaraokeSync Studio</h1>
+      <small data-i18n="app.tagline">All in one · local engine</small>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="lang-switcher" id="lang-switcher" role="group"
+         data-i18n-aria-label="lang.label" aria-label="Interface language">
+      <button type="button" class="lang-btn" data-lang="en" title="English" aria-pressed="true">EN</button>
+      <button type="button" class="lang-btn" data-lang="es" title="Español" aria-pressed="false">ES</button>
+      <button type="button" class="lang-btn" data-lang="pt" title="Português" aria-pressed="false">PT</button>
+      <button type="button" class="lang-btn" data-lang="fr" title="Français" aria-pressed="false">FR</button>
+    </div>
+    <span class="pill"><span class="dot" id="status-dot"></span><span id="status-text" data-i18n="status.ready">Ready</span></span>
+    <button class="btn small ghost" id="btn-shutdown" data-i18n="btn.shutdown" data-i18n-title="btn.shutdownTitle" title="Stops the local server">Shut down</button>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- =================== COLUMNA IZQUIERDA =================== -->
+  <div class="column">
+
+    <!-- 1. Audio -->
+    <section class="card">
+      <div class="card-head">
+        <h2><span class="step">1</span> <span data-i18n="card.song">Song</span></h2>
+        <span class="hint">MP3 · FLAC · WAV · M4A · OGG</span>
+      </div>
+
+      <div class="dropzone" id="dropzone" data-i18n-title="drop.title" title="Open the Windows file picker">
+        <div class="icon">🎧</div>
+        <strong data-i18n="drop.strong">Choose an audio file</strong>
+        <span data-i18n-html="drop.span">The Windows picker opens (real path, no <em>fakepath</em>)</span>
+      </div>
+
+      <div class="field" style="margin-top: 11px;">
+        <label for="audio-path" data-i18n="field.audioPath">Audio path</label>
+        <div class="row">
+          <input id="audio-path" class="input" type="text" spellcheck="false"
+                 data-i18n-placeholder="ph.audioPath"
+                 placeholder="C:\Users\...\song.mp3" autocomplete="off">
+          <button class="btn" id="btn-load" data-i18n="btn.load" data-i18n-title="btn.loadTitle"
+                  title="Read metadata and prepare playback">Load</button>
+        </div>
+      </div>
+
+      <div class="meta-box" id="meta-box">
+        <div class="title" id="meta-title">—</div>
+        <div class="sub">
+          <span id="meta-artist">—</span>
+          <span id="meta-duration">--:--</span>
+          <span class="tag" id="meta-source">ffprobe</span>
+        </div>
+      </div>
+
+      <div class="field" style="margin-top: 12px;">
+        <label for="output-dir" data-i18n="field.outputDir">Output folder</label>
+        <div class="row">
+          <input id="output-dir" class="input" type="text" spellcheck="false"
+                 data-i18n-placeholder="ph.outputDir"
+                 placeholder="Default: the audio file's folder" autocomplete="off">
+          <button class="btn" id="btn-pick-folder" data-i18n-title="btn.pickFolderTitle"
+                  title="Choose the output folder">📂</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Letra -->
+    <section class="card">
+      <div class="card-head">
+        <h2><span class="step">2</span> <span data-i18n="card.lyrics">Lyrics</span></h2>
+        <a href="https://lrclib.net" target="_blank" rel="noopener">lrclib.net ↗</a>
+      </div>
+
+      <div class="row" style="margin-bottom: 9px; flex-wrap: wrap;">
+        <button class="btn small" id="btn-pick-lyrics" data-i18n="btn.pickLyrics">📄 .lrc / .txt / .srt file</button>
+        <button class="btn small" id="btn-search-auto" data-i18n="btn.searchAuto"
+                data-i18n-title="btn.searchAutoTitle" title="Search using the audio metadata">✨ Search by metadata</button>
+      </div>
+
+      <div class="row">
+        <input id="lrclib-query" class="input" type="text" spellcheck="false"
+               data-i18n-placeholder="ph.search"
+               placeholder="Search LRCLIB: artist, title or a line…" autocomplete="off">
+        <button class="btn accent" id="btn-search" data-i18n="btn.search">Search</button>
+      </div>
+
+      <div class="results" id="results"></div>
+
+      <textarea id="lyrics-text" class="lyrics" spellcheck="false"
+                data-i18n-placeholder="ph.lyrics"
+                placeholder="Paste the lyrics here, or pick one of the LRCLIB results…"></textarea>
+
+      <div class="lyrics-status">
+        <span class="badge instr" id="lyrics-badge" data-i18n="lyrics.none">No lyrics</span>
+        <span id="lyrics-info" data-i18n="lyrics.noneInfo">Lyrics are optional: without them only when it is sung is detected.</span>
+      </div>
+    </section>
+
+    <!-- 3. Opciones -->
+    <section class="card">
+      <div class="card-head">
+        <h2><span class="step">3</span> <span data-i18n="card.sync">Synchronization</span></h2>
+        <span class="hint" id="engine-hint" data-i18n="hint.engine">local engine</span>
+      </div>
+
+      <div class="field" style="margin-bottom: 11px;">
+        <label for="preset" data-i18n="label.preset">Precision preset</label>
+        <select id="preset" class="input">
+          <option value="rapida" data-i18n="preset.fast">Fast — less waiting</option>
+          <option value="equilibrada" selected data-i18n="preset.balanced">Balanced — recommended</option>
+          <option value="alta" data-i18n="preset.high">High — maximum precision</option>
+        </select>
+      </div>
+
+      <div class="checks" style="margin-bottom: 11px;">
+        <label class="check">
+          <input type="checkbox" id="opt-demucs" checked>
+          <span><span class="label-main" data-i18n="check.demucs">Separate sources with Demucs</span><br>
+          <span class="label-sub" data-i18n="check.demucsSub">More accurate on dense songs; much slower.</span></span>
+        </label>
+        <label class="check">
+          <input type="checkbox" id="opt-stems">
+          <span><span class="label-main" data-i18n="check.stems">Save stems</span><br>
+          <span class="label-sub" data-i18n-html="check.stemsSub">Keeps <code>vocals.wav</code> and <code>no_vocals.wav</code> in the output.</span></span>
+        </label>
+      </div>
+
+      <div class="field" style="margin-bottom: 13px;">
+        <label data-i18n="label.formats">Files to generate</label>
+        <div class="format-grid">
+          <label class="check"><input type="checkbox" class="fmt" value="report" checked><span data-i18n="fmt.report">Report</span></label>
+          <label class="check"><input type="checkbox" class="fmt" value="lrc" checked><span>LRC</span></label>
+          <label class="check"><input type="checkbox" class="fmt" value="srt" checked><span>SRT</span></label>
+          <label class="check"><input type="checkbox" class="fmt" value="json" checked><span>JSON</span></label>
+          <label class="check"><input type="checkbox" class="fmt" value="editor_html"><span data-i18n="fmt.editorHtml">HTML editor</span></label>
+        </div>
+      </div>
+
+      <div class="row" style="gap: 8px;">
+        <button class="btn primary block" id="btn-process" style="flex: 2;" data-i18n="btn.process">⚡ Sync karaoke</button>
+        <button class="btn danger" id="btn-cancel" style="flex: 1;" disabled data-i18n="btn.cancel">Cancel</button>
+      </div>
+
+      <div class="progress-panel" id="progress-panel" style="margin-top: 15px;">
+        <div class="bar-head">
+          <span class="stage" id="progress-stage" data-i18n="progress.starting">Starting…</span>
+          <span class="pct" id="progress-pct">0%</span>
+        </div>
+        <div class="bar"><div id="progress-fill"></div></div>
+        <div class="progress-msg" id="progress-msg" data-i18n="progress.preparing">Preparing the engine…</div>
+        <div class="logs" id="logs"></div>
+      </div>
+
+      <div id="artifacts" style="display: none; margin-top: 13px;"></div>
+    </section>
+  </div>
+
+  <!-- =================== COLUMNA DERECHA =================== -->
+  <div class="column derecha">
+
+    <!-- Reproductor -->
+    <section class="card player-card" style="padding: 15px 18px;">
+      <div class="player-top">
+        <div class="source-tabs" id="source-tabs">
+          <button data-source="original" class="on" data-i18n="source.original">Original</button>
+          <button data-source="voz" disabled data-i18n="source.vocals">Vocals</button>
+          <button data-source="instrumental" disabled data-i18n="source.instrumental">Instrumental</button>
+        </div>
+        <div class="speed">
+          <span data-i18n="label.speed">Speed</span>
+          <select id="speed">
+            <option value="0.75">0.75×</option>
+            <option value="0.9">0.90×</option>
+            <option value="1" selected>1.00×</option>
+            <option value="1.1">1.10×</option>
+            <option value="1.25">1.25×</option>
+          </select>
+        </div>
+      </div>
+      <audio id="player" controls preload="metadata"></audio>
+      <div class="player-meta">
+        <span id="player-info" data-i18n="player.noAudio">No audio loaded</span>
+        <span id="player-time">00:00.00 / 00:00.00</span>
+      </div>
+    </section>
+
+    <!-- Escenario karaoke en vivo + linea de tiempo -->
+    <section class="card stage-card">
+      <div class="stage" id="stage">
+        <div class="stage-kicker">
+          <span class="live" data-i18n="stage.live">Live karaoke</span>
+          <span id="stage-state" data-i18n="stage.waiting">Standing by</span>
+        </div>
+        <div class="stage-text" id="stage-text" data-i18n="stage.loadLyrics">Load lyrics and press ▶</div>
+        <div class="stage-next" id="stage-next"><span class="lbl" data-i18n="stage.next">Next</span>—</div>
+        <div class="stage-progress"><div id="stage-fill"></div></div>
+      </div>
+
+      <div class="stage-controls">
+        <label class="check"><input type="checkbox" id="chk-next" checked><span data-i18n="stage.showNext">Show next line</span></label>
+        <label><span data-i18n="stage.textSize">Text size</span> <input type="range" id="stage-size" min="22" max="72" value="40"></label>
+      </div>
+
+      <div class="transport">
+        <button class="btn primary" id="btn-play-toggle" data-i18n="btn.play"
+                data-i18n-title="btn.playTitle" title="Play or pause (Space)">▶ Play</button>
+        <div class="shift-group">
+          <span class="hint" data-i18n="shift.all">Whole lyrics:</span>
+          <button class="btn small" data-shift="-250" data-i18n-title="shift.earlier250" title="Move all lyrics 250 ms earlier">−250 ms</button>
+          <button class="btn small" data-shift="-50" data-i18n-title="shift.earlier50" title="Move all lyrics 50 ms earlier">−50 ms</button>
+          <button class="btn small" data-shift="50" data-i18n-title="shift.later50" title="Move all lyrics 50 ms later">+50 ms</button>
+          <button class="btn small" data-shift="250" data-i18n-title="shift.later250" title="Move all lyrics 250 ms later">+250 ms</button>
+        </div>
+        <button class="btn small" id="btn-undo" disabled data-i18n="btn.undo"
+                data-i18n-title="btn.undoTitle" title="Undo the last change (Ctrl+Z)">↶ Undo</button>
+        <span class="mode-badge" id="mode-badge"></span>
+      </div>
+
+      <div class="timeline-wrap">
+        <canvas id="timeline" width="1200" height="74"
+                data-i18n-aria-label="timeline.aria"
+                aria-label="Timeline: click to seek, drag a block to move the line"></canvas>
+        <div class="timeline-scale">
+          <span id="timeline-start">0:00</span>
+          <span id="timeline-mid">0:00</span>
+          <span id="timeline-end">0:00</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Editor -->
+    <section class="card">
+      <div class="card-head">
+        <h2><span class="step">4</span> <span data-i18n="editor.title">Timing editor</span></h2>
+        <div class="toolbar">
+          <button class="btn small" id="btn-add-line" data-i18n="btn.addLine"
+                  data-i18n-title="btn.addLineTitle" title="Add a line at the current instant">＋ Line</button>
+          <button class="btn small" id="btn-sort" data-i18n="btn.sort"
+                  data-i18n-title="btn.sortTitle" title="Sort by time">↕ Sort</button>
+          <button class="btn small" id="btn-open-folder" data-i18n="btn.folder"
+                  data-i18n-title="btn.folderTitle" title="Open the output folder">📂 Folder</button>
+        </div>
+      </div>
+
+      <div class="editor-hint">
+        <span>⏱</span>
+        <span data-i18n-html="editor.hint">Play with <strong>Space</strong> and use <strong>⏱</strong> to mark the current instant.
+        <strong>−0.1 s</strong> / <strong>+0.1 s</strong> fine-tune the mark; <strong>▶</strong> jumps to that point and
+        <strong>＋</strong> inserts a line below. <strong>Ctrl+Z</strong> undoes.</span>
+      </div>
+
+      <div class="lines" id="lines">
+        <div class="empty" data-i18n-html="editor.empty">
+          The editor fills in when synchronization finishes,<br>
+          when you pick timed LRC lyrics or when you load a <code>.lrc</code> file.
+        </div>
+      </div>
+
+      <div class="save-row">
+        <button class="btn small" id="btn-save-lrc">💾 .lrc</button>
+        <button class="btn small" id="btn-save-srt">💾 .srt</button>
+        <button class="btn small" id="btn-save-json">💾 .json</button>
+        <button class="btn primary small" id="btn-save-all" data-i18n="btn.saveAll">Save all</button>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+<!-- Modo web (Cloudflare Pages): el navegador abre estos selectores cuando no
+     hay servidor Python local. Un <input type="file"> no necesita backend. -->
+<input type="file" id="web-audio-file" accept="audio/*,.flac,.mp3,.wav,.m4a,.ogg,.opus" hidden>
+<input type="file" id="web-lyrics-file" accept=".lrc,.txt,.srt" hidden>
+<footer data-i18n-html="footer.text">
+  KaraokeSync Studio · audio never leaves your computer except the LRCLIB lyrics search ·
+  shortcuts: <kbd>Space</kbd> play · <kbd>Ctrl</kbd>+<kbd>Z</kbd> undo ·
+  <kbd>Ctrl</kbd>+<kbd>Enter</kbd> process · <kbd>Esc</kbd> close notices
+</footer>
+
+<script>
+"use strict";
+
+// ===========================================================================
+// Estado de la interfaz
+// ===========================================================================
+const App = {
+  audioPath: "",
+  outputDir: "",
+  meta: null,
+  lines: [],
+  results: [],
+  polling: null,
+  processing: false,
+  artifacts: {},
+  sources: {},
+  activeSource: "original",
+  // --- Reproduccion y sincronizacion en vivo ---
+  syntheticMode: false,
+  syntheticPlaying: false,
+  syntheticTimeMs: 0,
+  currentTimeMs: 0,
+  activeLineIdx: -2,
+  rafId: null,
+  lastFrameTs: 0,
+  dragTimeline: null,
+  undoStack: [],
+  editSnapshot: null,
+  // --- Idioma y estado de la letra cargada (para repintar al cambiarlo) ---
+  lang: "en",
+  lyricsBadge: null,
+  // --- Modo hibrido: servidor Python local o web estatica ---
+  localServer: true,
+  webAudio: false,
+  webAudioUrl: null,
+};
+
+const $ = (id) => document.getElementById(id);
+const fmt2 = (n) => String(n).padStart(2, "0");
+
+// ===========================================================================
+// Interfaz multilenguaje
+// ---------------------------------------------------------------------------
+// Ingles por defecto; el usuario puede cambiar a espanol, portugues o frances
+// en un clic y la preferencia se guarda en localStorage ("karaokesync_lang").
+// Los textos estaticos llevan data-i18n*; los dinamicos usan t(clave, vars).
+// ===========================================================================
+const I18N = {
+  en: {
+    "lang.label": "Interface language",
+    "app.tagline": "All in one · local engine",
+    "status.ready": "Ready",
+    "status.waitingPicker": "Waiting for the picker…",
+    "status.processing": "Processing…",
+    "status.completed": "Completed",
+    "status.cancelled": "Cancelled",
+    "status.webMode": "Web mode",
+    "status.error": "Error",
+    "btn.shutdown": "Shut down",
+    "btn.shutdownTitle": "Stops the local server",
+    "btn.load": "Load",
+    "btn.loadTitle": "Read metadata and prepare playback",
+    "btn.pickFolderTitle": "Choose the output folder",
+    "card.song": "Song",
+    "drop.title": "Open the Windows file picker",
+    "drop.strong": "Choose an audio file",
+    "drop.span": "The Windows picker opens (real path, no <em>fakepath</em>)",
+    "field.audioPath": "Audio path",
+    "ph.audioPath": "C:\\Users\\...\\song.mp3",
+    "field.outputDir": "Output folder",
+    "ph.outputDir": "Default: the audio file's folder",
+    "card.lyrics": "Lyrics",
+    "btn.pickLyrics": "📄 .lrc / .txt / .srt file",
+    "btn.searchAuto": "✨ Search by metadata",
+    "btn.searchAutoTitle": "Search using the audio metadata",
+    "ph.search": "Search LRCLIB: artist, title or a line…",
+    "btn.search": "Search",
+    "ph.lyrics": "Paste the lyrics here, or pick one of the LRCLIB results…",
+    "lyrics.none": "No lyrics",
+    "lyrics.noneInfo": "Lyrics are optional: without them only when it is sung is detected.",
+    "lyrics.plain": "Plain text",
+    "lyrics.plainInfoName": "{name}: the engine will spread the lyrics over the vocal segments.",
+    "lyrics.plainInfo": "No time marks: the engine will spread the lyrics over the vocal segments.",
+    "lyrics.synced": "Synced LRC",
+    "lyrics.syncedInfoName": "{name}: the time marks are kept as reference.",
+    "lyrics.syncedInfo": "The lyrics carry time marks: they are used as reference.",
+    "lyrics.searching": "Searching lrclib.net…",
+    "lyrics.noResults": "No results. Try another title, the artist or a line.",
+    "lyrics.unknownArtist": "Unknown",
+    "lyrics.noAlbum": "No album",
+    "lyrics.instrumental": "Instrumental",
+    "lyrics.resultSynced": "Synced LRC",
+    "lyrics.resultPlain": "Plain text",
+    "lyrics.searchError": "Error querying LRCLIB: {error}",
+    "card.sync": "Synchronization",
+    "hint.engine": "local engine",
+    "label.preset": "Precision preset",
+    "preset.fast": "Fast — less waiting",
+    "preset.balanced": "Balanced — recommended",
+    "preset.high": "High — maximum precision",
+    "check.demucs": "Separate sources with Demucs",
+    "check.demucsSub": "More accurate on dense songs; much slower.",
+    "check.stems": "Save stems",
+    "check.stemsSub": "Keeps <code>vocals.wav</code> and <code>no_vocals.wav</code> in the output.",
+    "label.formats": "Files to generate",
+    "fmt.report": "Report",
+    "fmt.editorHtml": "HTML editor",
+    "btn.process": "⚡ Sync karaoke",
+    "btn.cancel": "Cancel",
+    "progress.starting": "Starting…",
+    "progress.preparing": "Preparing the engine…",
+    "progress.completedSuccess": "Processing completed successfully",
+    "artifacts.label": "Generated files",
+    "source.original": "Original",
+    "source.vocals": "Vocals",
+    "source.instrumental": "Instrumental",
+    "label.speed": "Speed",
+    "player.noAudio": "No audio loaded",
+    "player.info": "{title} — {artist}",
+    "stage.live": "Live karaoke",
+    "stage.waiting": "Standing by",
+    "stage.loadLyrics": "Load lyrics and press ▶",
+    "stage.next": "Next",
+    "stage.noLyrics": "No lyrics",
+    "stage.intro": "Intro",
+    "stage.endOfLine": "End of line",
+    "stage.singing": "Singing",
+    "stage.paused": "Paused",
+    "stage.validacion": "Validation",
+    "stage.decodificacion": "Decoding",
+    "stage.separacion": "Separation",
+    "stage.vad": "VAD",
+    "stage.energia": "Energy",
+    "stage.clasificacion": "Classification",
+    "stage.letra": "Lyrics",
+    "stage.exportacion": "Export",
+    "stage.completado": "Completed",
+    "stage.cancelado": "Cancelled",
+    "stage.error": "Error",
+    "stage.iniciando": "Starting",
+    "stage.showNext": "Show next line",
+    "stage.textSize": "Text size",
+    "btn.play": "▶ Play",
+    "btn.pause": "⏸ Pause",
+    "btn.playTitle": "Play or pause (Space)",
+    "btn.undo": "↶ Undo",
+    "btn.undoCount": "↶ Undo ({n})",
+    "btn.undoTitle": "Undo the last change (Ctrl+Z)",
+    "shift.all": "Whole lyrics:",
+    "shift.earlier250": "Move all lyrics 250 ms earlier",
+    "shift.earlier50": "Move all lyrics 50 ms earlier",
+    "shift.later50": "Move all lyrics 50 ms later",
+    "shift.later250": "Move all lyrics 250 ms later",
+    "badge.previewNoAudio": "Preview without audio",
+    "badge.noAudioPreview": "No audio · preview",
+    "timeline.aria": "Timeline: click to seek, drag a block to move the line",
+    "editor.title": "Timing editor",
+    "btn.addLine": "＋ Line",
+    "btn.addLineTitle": "Add a line at the current instant",
+    "btn.sort": "↕ Sort",
+    "btn.sortTitle": "Sort by time",
+    "btn.folder": "📂 Folder",
+    "btn.folderTitle": "Open the output folder",
+    "editor.hint": "Play with <strong>Space</strong> and use <strong>⏱</strong> to mark the current instant. <strong>−0.1 s</strong> / <strong>+0.1 s</strong> fine-tune the mark; <strong>▶</strong> jumps to that point and <strong>＋</strong> inserts a line below. <strong>Ctrl+Z</strong> undoes.",
+    "editor.empty": "The editor fills in when synchronization finishes,<br>when you pick timed LRC lyrics or when you load a <code>.lrc</code> file.",
+    "editor.lineText": "Line text…",
+    "editor.startMs": "Start of line {n} in milliseconds",
+    "editor.endMs": "End of line {n} in milliseconds",
+    "editor.startTitle": "Start in milliseconds",
+    "editor.endTitle": "End in milliseconds",
+    "editor.earlier100": "Move 100 ms earlier",
+    "editor.later100": "Move 100 ms later",
+    "editor.mark": "Mark the current audio instant",
+    "editor.seek": "Play from this line",
+    "editor.insert": "Insert a new line below",
+    "editor.delete": "Delete line",
+    "editor.timeTitle": "Start: {start} · End: {end}",
+    "btn.saveAll": "Save all",
+    "footer.text": "KaraokeSync Studio · audio never leaves your computer except the LRCLIB lyrics search · shortcuts: <kbd>Space</kbd> play · <kbd>Ctrl</kbd>+<kbd>Z</kbd> undo · <kbd>Ctrl</kbd>+<kbd>Enter</kbd> process · <kbd>Esc</kbd> close notices",
+    "meta.untitled": "Untitled",
+    "meta.unknownArtist": "Unknown artist",
+    "meta.id3": "ID3 tags",
+    "meta.filename": "file name",
+    "meta.noMetadata": "Could not read the metadata",
+    "toast.undoEmpty": "Nothing to undo",
+    "toast.undoDone": "Change undone",
+    "toast.needLyrics": "Load lyrics to see the live karaoke",
+    "toast.audioPreview": "Could not play the audio: silent preview",
+    "toast.noLinesToShift": "No lines to shift",
+    "toast.shiftedLater": "All lyrics delayed {ms} ms",
+    "toast.shiftedEarlier": "All lyrics advanced {ms} ms",
+    "toast.pickerError": "Could not open the picker",
+    "toast.pickerErrorDetail": "Error opening the picker: {error}",
+    "toast.emptyAudioPath": "The audio path is empty",
+    "toast.needAudioPath": "Enter the audio path first",
+    "toast.needAudioMetadata": "Load the audio first so its metadata can be used",
+    "toast.metaError": "Could not read the metadata: {error}",
+    "toast.metaErrorShort": "Could not read the metadata",
+    "toast.folderError": "Could not open the folder picker",
+    "toast.errorDetail": "Error: {error}",
+    "toast.lyricsLoaded": "Lyrics loaded: {name}",
+    "toast.needQuery": "Type what you want to search",
+    "toast.noUsableLyrics": "That result has no usable lyrics",
+    "toast.syncedLoaded": "Synced lyrics loaded ({n} lines)",
+    "toast.plainLoaded": "Plain lyrics loaded: the engine will spread them over the song",
+    "toast.needSong": "Choose the song first",
+    "toast.needFormat": "Tick at least one output file",
+    "toast.startError": "Could not start processing",
+    "toast.startErrorDetail": "Error starting: {error}",
+    "toast.cancelRequested": "Cancellation requested: it will stop at the next checkpoint",
+    "toast.noProcess": "No process is running",
+    "toast.cancelError": "Error cancelling: {error}",
+    "toast.cancelled": "Processing cancelled",
+    "toast.engineError": "Engine error: {error}",
+    "toast.syncDone": "Synchronization completed: {n} lines",
+    "toast.lineAlready": "The line already starts at the current instant",
+    "toast.lineMarked": "Line {n} marked at {time}",
+    "toast.plainNoTimes": "Lyrics without timings: use the player and ⏱ to mark each line",
+    "toast.noLinesToSort": "No lines to sort",
+    "toast.linesSorted": "Lines sorted by time",
+    "toast.noLinesToSave": "No lines to save",
+    "toast.needOutputDir": "Set the output folder",
+    "toast.saveError": "Could not save",
+    "toast.savedIn": "Saved to {names}",
+    "toast.saveErrorDetail": "Error saving: {error}",
+    "toast.noOutputFolder": "There is no output folder yet",
+    "toast.folderOpenError": "Could not open the folder",
+    "toast.browserNoPath": "The browser cannot read the path of \"{name}\": use the Windows picker",
+    "toast.audioLoadError": "Could not load the audio: the silent preview will be used",
+    "toast.webAudioLoaded": "Audio loaded in the browser: {name}",
+    "toast.webMetadata": "Web mode: metadata is taken from the file name",
+    "toast.webNeedLyrics": "Paste or load lyrics before syncing in web mode",
+    "toast.webSyncDone": "Web mode: lyrics synced in your browser. To separate .wav with AI (Demucs), run KaraokeSync-GUI.bat on your PC.",
+    "toast.webSaved": "Downloaded {names} in your browser",
+    "toast.webNoFolder": "Web mode: files are downloaded directly by the browser",
+    "toast.demucsAutoOff": "This LRC already has timings: Demucs is turned off so it syncs in seconds (tick it again if you want stems).",
+    "toast.demucsBackForStems": "Saving stems needs Demucs: it is turned on again.",
+    "confirm.shutdown": "Stop the KaraokeSync Studio server?",
+    "shutdown.title": "KaraokeSync Studio stopped",
+    "shutdown.text": "You can close this tab now. Open it again with <code>KaraokeSync-GUI.bat</code>."
+  },
+  es: {
+    "lang.label": "Idioma de la interfaz",
+    "app.tagline": "Todo en uno · motor local",
+    "status.ready": "Listo",
+    "status.waitingPicker": "Esperando al selector…",
+    "status.processing": "Procesando…",
+    "status.completed": "Completado",
+    "status.cancelled": "Cancelado",
+    "status.webMode": "Modo web",
+    "status.error": "Error",
+    "btn.shutdown": "Apagar",
+    "btn.shutdownTitle": "Detiene el servidor local",
+    "btn.load": "Cargar",
+    "btn.loadTitle": "Leer metadatos y preparar la reproducción",
+    "btn.pickFolderTitle": "Elegir la carpeta de salida",
+    "card.song": "Canción",
+    "drop.title": "Abrir el selector de archivos de Windows",
+    "drop.strong": "Elegir archivo de audio",
+    "drop.span": "Se abre el explorador de Windows (ruta real, sin <em>fakepath</em>)",
+    "field.audioPath": "Ruta del audio",
+    "ph.audioPath": "C:\\Users\\...\\cancion.mp3",
+    "field.outputDir": "Carpeta de salida",
+    "ph.outputDir": "Por defecto: la carpeta del audio",
+    "card.lyrics": "Letra",
+    "btn.pickLyrics": "📄 Archivo .lrc / .txt / .srt",
+    "btn.searchAuto": "✨ Buscar por metadatos",
+    "btn.searchAutoTitle": "Busca con los metadatos del audio",
+    "ph.search": "Buscar en LRCLIB: artista, título o un verso…",
+    "btn.search": "Buscar",
+    "ph.lyrics": "Pega aquí la letra, o selecciónala de los resultados de LRCLIB…",
+    "lyrics.none": "Sin letra",
+    "lyrics.noneInfo": "La letra es opcional: sin ella solo se detecta cuándo se canta.",
+    "lyrics.plain": "Texto plano",
+    "lyrics.plainInfoName": "{name}: el motor repartirá la letra por los tramos de voz.",
+    "lyrics.plainInfo": "Sin marcas de tiempo: el motor repartirá la letra por los tramos de voz.",
+    "lyrics.synced": "LRC sincronizado",
+    "lyrics.syncedInfoName": "{name}: se respetarán las marcas como referencia.",
+    "lyrics.syncedInfo": "La letra trae marcas: se usarán como referencia de los tiempos.",
+    "lyrics.searching": "Buscando en lrclib.net…",
+    "lyrics.noResults": "Sin resultados. Prueba con otro título, el artista o un verso.",
+    "lyrics.unknownArtist": "Desconocido",
+    "lyrics.noAlbum": "Sin álbum",
+    "lyrics.instrumental": "Instrumental",
+    "lyrics.resultSynced": "LRC sincronizado",
+    "lyrics.resultPlain": "Texto plano",
+    "lyrics.searchError": "Error consultando LRCLIB: {error}",
+    "card.sync": "Sincronización",
+    "hint.engine": "motor local",
+    "label.preset": "Preset de precisión",
+    "preset.fast": "Rápida — menos espera",
+    "preset.balanced": "Equilibrada — recomendada",
+    "preset.high": "Alta — máxima precisión",
+    "check.demucs": "Separar fuentes con Demucs",
+    "check.demucsSub": "Más preciso en canciones densas; bastante más lento.",
+    "check.stems": "Guardar stems",
+    "check.stemsSub": "Deja <code>vocals.wav</code> y <code>no_vocals.wav</code> en la salida.",
+    "label.formats": "Archivos a generar",
+    "fmt.report": "Reporte",
+    "fmt.editorHtml": "Editor HTML",
+    "btn.process": "⚡ Sincronizar karaoke",
+    "btn.cancel": "Cancelar",
+    "progress.starting": "Iniciando…",
+    "progress.preparing": "Preparando el motor…",
+    "progress.completedSuccess": "Procesado completado con éxito",
+    "artifacts.label": "Archivos generados",
+    "source.original": "Original",
+    "source.vocals": "Voz",
+    "source.instrumental": "Instrumental",
+    "label.speed": "Velocidad",
+    "player.noAudio": "Sin audio cargado",
+    "player.info": "{title} — {artist}",
+    "stage.live": "Karaoke en vivo",
+    "stage.waiting": "En espera",
+    "stage.loadLyrics": "Carga una letra y pulsa ▶",
+    "stage.next": "Siguiente",
+    "stage.noLyrics": "Sin letra",
+    "stage.intro": "Introducción",
+    "stage.endOfLine": "Fin de línea",
+    "stage.singing": "Cantando",
+    "stage.paused": "En pausa",
+    "stage.validacion": "Validación",
+    "stage.decodificacion": "Decodificación",
+    "stage.separacion": "Separación",
+    "stage.vad": "VAD",
+    "stage.energia": "Energía",
+    "stage.clasificacion": "Clasificación",
+    "stage.letra": "Letra",
+    "stage.exportacion": "Exportación",
+    "stage.completado": "Completado",
+    "stage.cancelado": "Cancelado",
+    "stage.error": "Error",
+    "stage.iniciando": "Iniciando",
+    "stage.showNext": "Mostrar siguiente",
+    "stage.textSize": "Tamaño del texto",
+    "btn.play": "▶ Reproducir",
+    "btn.pause": "⏸ Pausar",
+    "btn.playTitle": "Reproducir o pausar (Espacio)",
+    "btn.undo": "↶ Deshacer",
+    "btn.undoCount": "↶ Deshacer ({n})",
+    "btn.undoTitle": "Deshacer el último cambio (Ctrl+Z)",
+    "shift.all": "Toda la letra:",
+    "shift.earlier250": "Adelantar toda la letra 250 ms",
+    "shift.earlier50": "Adelantar toda la letra 50 ms",
+    "shift.later50": "Retrasar toda la letra 50 ms",
+    "shift.later250": "Retrasar toda la letra 250 ms",
+    "badge.previewNoAudio": "Vista previa sin audio",
+    "badge.noAudioPreview": "Sin audio · vista previa",
+    "timeline.aria": "Línea de tiempo: clic para saltar, arrastra un bloque para mover la línea",
+    "editor.title": "Editor de tiempos",
+    "btn.addLine": "＋ Línea",
+    "btn.addLineTitle": "Añade una línea en el instante actual",
+    "btn.sort": "↕ Ordenar",
+    "btn.sortTitle": "Reordena por tiempo",
+    "btn.folder": "📂 Carpeta",
+    "btn.folderTitle": "Abrir la carpeta de salida",
+    "editor.hint": "Reproduce con <strong>Espacio</strong> y usa <strong>⏱</strong> para marcar el instante actual. <strong>−0,1 s</strong> / <strong>+0,1 s</strong> afinan la marca; <strong>▶</strong> salta a ese punto y <strong>＋</strong> inserta una línea debajo. <strong>Ctrl+Z</strong> deshace.",
+    "editor.empty": "El editor se rellena al terminar la sincronización,<br>al elegir una letra LRC con tiempos o al cargar un <code>.lrc</code>.",
+    "editor.lineText": "Texto de la línea…",
+    "editor.startMs": "Inicio de la línea {n} en milisegundos",
+    "editor.endMs": "Fin de la línea {n} en milisegundos",
+    "editor.startTitle": "Inicio en milisegundos",
+    "editor.endTitle": "Fin en milisegundos",
+    "editor.earlier100": "Adelantar 100 ms",
+    "editor.later100": "Retrasar 100 ms",
+    "editor.mark": "Marcar el instante actual del audio",
+    "editor.seek": "Reproducir desde esta línea",
+    "editor.insert": "Insertar una línea nueva debajo",
+    "editor.delete": "Eliminar línea",
+    "editor.timeTitle": "Inicio: {start} · Fin: {end}",
+    "btn.saveAll": "Guardar todo",
+    "footer.text": "KaraokeSync Studio · el audio no sale de tu equipo salvo la búsqueda de letras en LRCLIB · atajos: <kbd>Espacio</kbd> reproducir · <kbd>Ctrl</kbd>+<kbd>Z</kbd> deshacer · <kbd>Ctrl</kbd>+<kbd>Intro</kbd> procesar · <kbd>Esc</kbd> cerrar avisos",
+    "meta.untitled": "Sin título",
+    "meta.unknownArtist": "Artista desconocido",
+    "meta.id3": "etiquetas ID3",
+    "meta.filename": "nombre del archivo",
+    "meta.noMetadata": "No se pudieron leer los metadatos",
+    "toast.undoEmpty": "No hay cambios que deshacer",
+    "toast.undoDone": "Cambio deshecho",
+    "toast.needLyrics": "Carga una letra para ver el karaoke en vivo",
+    "toast.audioPreview": "No se pudo reproducir el audio: vista previa sin sonido",
+    "toast.noLinesToShift": "No hay líneas que desplazar",
+    "toast.shiftedLater": "Toda la letra retrasada {ms} ms",
+    "toast.shiftedEarlier": "Toda la letra adelantada {ms} ms",
+    "toast.pickerError": "No se pudo abrir el selector",
+    "toast.pickerErrorDetail": "Error al abrir el selector: {error}",
+    "toast.emptyAudioPath": "La ruta del audio está vacía",
+    "toast.needAudioPath": "Indica primero la ruta del audio",
+    "toast.needAudioMetadata": "Carga primero el audio para usar sus metadatos",
+    "toast.metaError": "No se pudieron leer los metadatos: {error}",
+    "toast.metaErrorShort": "No se pudieron leer los metadatos",
+    "toast.folderError": "No se pudo abrir el selector de carpetas",
+    "toast.errorDetail": "Error: {error}",
+    "toast.lyricsLoaded": "Letra cargada: {name}",
+    "toast.needQuery": "Escribe qué quieres buscar",
+    "toast.noUsableLyrics": "Ese resultado no trae letra utilizable",
+    "toast.syncedLoaded": "Letra sincronizada cargada ({n} líneas)",
+    "toast.plainLoaded": "Letra de texto plano cargada: el motor la repartirá por la canción",
+    "toast.needSong": "Elige primero la canción",
+    "toast.needFormat": "Marca al menos un archivo de salida",
+    "toast.startError": "No se pudo iniciar el procesamiento",
+    "toast.startErrorDetail": "Error al iniciar: {error}",
+    "toast.cancelRequested": "Cancelación solicitada: se detendrá en el próximo punto de control",
+    "toast.noProcess": "No hay ningún proceso en marcha",
+    "toast.cancelError": "Error al cancelar: {error}",
+    "toast.cancelled": "Procesamiento cancelado",
+    "toast.engineError": "Error del motor: {error}",
+    "toast.syncDone": "Sincronización completada: {n} líneas",
+    "toast.lineAlready": "La línea ya empieza en el instante actual",
+    "toast.lineMarked": "Línea {n} marcada en {time}",
+    "toast.plainNoTimes": "Letra sin tiempos: usa el reproductor y ⏱ para marcar cada línea",
+    "toast.noLinesToSort": "No hay líneas que ordenar",
+    "toast.linesSorted": "Líneas ordenadas por tiempo",
+    "toast.noLinesToSave": "No hay líneas que guardar",
+    "toast.needOutputDir": "Indica la carpeta de salida",
+    "toast.saveError": "No se pudo guardar",
+    "toast.savedIn": "Guardado en {names}",
+    "toast.saveErrorDetail": "Error al guardar: {error}",
+    "toast.noOutputFolder": "Todavía no hay carpeta de salida",
+    "toast.folderOpenError": "No se pudo abrir la carpeta",
+    "toast.browserNoPath": "El navegador no puede leer la ruta de \"{name}\": usa el selector de Windows",
+    "toast.audioLoadError": "No se pudo cargar el audio: se usará la vista previa sin sonido",
+    "toast.webAudioLoaded": "Audio cargado en el navegador: {name}",
+    "toast.webMetadata": "Modo web: los metadatos se toman del nombre del archivo",
+    "toast.webNeedLyrics": "Pega o carga una letra antes de sincronizar en modo web",
+    "toast.webSyncDone": "Modo web: letra sincronizada en tu navegador. Para separar .wav con IA (Demucs), ejecuta KaraokeSync-GUI.bat en tu PC.",
+    "toast.webSaved": "Descargado {names} en tu navegador",
+    "toast.webNoFolder": "Modo web: los archivos los descarga directamente el navegador",
+    "toast.demucsAutoOff": "Este LRC ya trae tiempos: se desactiva Demucs para sincronizar en segundos (vuelve a marcarlo si quieres separar stems).",
+    "toast.demucsBackForStems": "Guardar stems necesita Demucs: se vuelve a activar.",
+    "confirm.shutdown": "¿Detener el servidor de KaraokeSync Studio?",
+    "shutdown.title": "KaraokeSync Studio detenido",
+    "shutdown.text": "Ya puedes cerrar esta pestaña. Vuelve a abrirlo con <code>KaraokeSync-GUI.bat</code>."
+  },
+  pt: {
+    "lang.label": "Idioma da interface",
+    "app.tagline": "Tudo em um · motor local",
+    "status.ready": "Pronto",
+    "status.waitingPicker": "À espera do seletor…",
+    "status.processing": "A processar…",
+    "status.completed": "Concluído",
+    "status.cancelled": "Cancelado",
+    "status.webMode": "Modo web",
+    "status.error": "Erro",
+    "btn.shutdown": "Desligar",
+    "btn.shutdownTitle": "Para o servidor local",
+    "btn.load": "Carregar",
+    "btn.loadTitle": "Ler metadados e preparar a reprodução",
+    "btn.pickFolderTitle": "Escolher a pasta de saída",
+    "card.song": "Canção",
+    "drop.title": "Abrir o seletor de ficheiros do Windows",
+    "drop.strong": "Escolher ficheiro de áudio",
+    "drop.span": "Abre-se o explorador do Windows (caminho real, sem <em>fakepath</em>)",
+    "field.audioPath": "Caminho do áudio",
+    "ph.audioPath": "C:\\Users\\...\\cancao.mp3",
+    "field.outputDir": "Pasta de saída",
+    "ph.outputDir": "Por defeito: a pasta do áudio",
+    "card.lyrics": "Letra",
+    "btn.pickLyrics": "📄 Ficheiro .lrc / .txt / .srt",
+    "btn.searchAuto": "✨ Procurar pelos metadados",
+    "btn.searchAutoTitle": "Procura com os metadados do áudio",
+    "ph.search": "Procurar no LRCLIB: artista, título ou um verso…",
+    "btn.search": "Procurar",
+    "ph.lyrics": "Cola aqui a letra ou escolhe-a nos resultados do LRCLIB…",
+    "lyrics.none": "Sem letra",
+    "lyrics.noneInfo": "A letra é opcional: sem ela só se deteta quando se canta.",
+    "lyrics.plain": "Texto simples",
+    "lyrics.plainInfoName": "{name}: o motor vai distribuir a letra pelos segmentos de voz.",
+    "lyrics.plainInfo": "Sem marcas de tempo: o motor vai distribuir a letra pelos segmentos de voz.",
+    "lyrics.synced": "LRC sincronizado",
+    "lyrics.syncedInfoName": "{name}: as marcas são respeitadas como referência.",
+    "lyrics.syncedInfo": "A letra traz marcas: são usadas como referência dos tempos.",
+    "lyrics.searching": "A procurar em lrclib.net…",
+    "lyrics.noResults": "Sem resultados. Tenta outro título, o artista ou um verso.",
+    "lyrics.unknownArtist": "Desconhecido",
+    "lyrics.noAlbum": "Sem álbum",
+    "lyrics.instrumental": "Instrumental",
+    "lyrics.resultSynced": "LRC sincronizado",
+    "lyrics.resultPlain": "Texto simples",
+    "lyrics.searchError": "Erro ao consultar o LRCLIB: {error}",
+    "card.sync": "Sincronização",
+    "hint.engine": "motor local",
+    "label.preset": "Predefinição de precisão",
+    "preset.fast": "Rápida — menos espera",
+    "preset.balanced": "Equilibrada — recomendada",
+    "preset.high": "Alta — precisão máxima",
+    "check.demucs": "Separar fontes com Demucs",
+    "check.demucsSub": "Mais preciso em canções densas; bastante mais lento.",
+    "check.stems": "Guardar stems",
+    "check.stemsSub": "Deixa <code>vocals.wav</code> e <code>no_vocals.wav</code> na saída.",
+    "label.formats": "Ficheiros a gerar",
+    "fmt.report": "Relatório",
+    "fmt.editorHtml": "Editor HTML",
+    "btn.process": "⚡ Sincronizar karaoke",
+    "btn.cancel": "Cancelar",
+    "progress.starting": "A iniciar…",
+    "progress.preparing": "A preparar o motor…",
+    "progress.completedSuccess": "Processamento concluído com sucesso",
+    "artifacts.label": "Ficheiros gerados",
+    "source.original": "Original",
+    "source.vocals": "Voz",
+    "source.instrumental": "Instrumental",
+    "label.speed": "Velocidade",
+    "player.noAudio": "Sem áudio carregado",
+    "player.info": "{title} — {artist}",
+    "stage.live": "Karaoke ao vivo",
+    "stage.waiting": "Em espera",
+    "stage.loadLyrics": "Carrega uma letra e prime ▶",
+    "stage.next": "Seguinte",
+    "stage.noLyrics": "Sem letra",
+    "stage.intro": "Introdução",
+    "stage.endOfLine": "Fim da linha",
+    "stage.singing": "A cantar",
+    "stage.paused": "Em pausa",
+    "stage.validacion": "Validação",
+    "stage.decodificacion": "Descodificação",
+    "stage.separacion": "Separação",
+    "stage.vad": "VAD",
+    "stage.energia": "Energia",
+    "stage.clasificacion": "Classificação",
+    "stage.letra": "Letra",
+    "stage.exportacion": "Exportação",
+    "stage.completado": "Concluído",
+    "stage.cancelado": "Cancelado",
+    "stage.error": "Erro",
+    "stage.iniciando": "A iniciar",
+    "stage.showNext": "Mostrar seguinte",
+    "stage.textSize": "Tamanho do texto",
+    "btn.play": "▶ Reproduzir",
+    "btn.pause": "⏸ Pausar",
+    "btn.playTitle": "Reproduzir ou pausar (Espaço)",
+    "btn.undo": "↶ Desfazer",
+    "btn.undoCount": "↶ Desfazer ({n})",
+    "btn.undoTitle": "Desfazer a última alteração (Ctrl+Z)",
+    "shift.all": "Toda a letra:",
+    "shift.earlier250": "Adiantar toda a letra 250 ms",
+    "shift.earlier50": "Adiantar toda a letra 50 ms",
+    "shift.later50": "Atrasar toda a letra 50 ms",
+    "shift.later250": "Atrasar toda a letra 250 ms",
+    "badge.previewNoAudio": "Pré-visualização sem áudio",
+    "badge.noAudioPreview": "Sem áudio · pré-visualização",
+    "timeline.aria": "Linha do tempo: clica para saltar, arrasta um bloco para mover a linha",
+    "editor.title": "Editor de tempos",
+    "btn.addLine": "＋ Linha",
+    "btn.addLineTitle": "Adiciona uma linha no instante atual",
+    "btn.sort": "↕ Ordenar",
+    "btn.sortTitle": "Reordena por tempo",
+    "btn.folder": "📂 Pasta",
+    "btn.folderTitle": "Abrir a pasta de saída",
+    "editor.hint": "Reproduz com <strong>Espaço</strong> e usa <strong>⏱</strong> para marcar o instante atual. <strong>−0,1 s</strong> / <strong>+0,1 s</strong> afinam a marca; <strong>▶</strong> salta para esse ponto e <strong>＋</strong> insere uma linha abaixo. <strong>Ctrl+Z</strong> desfaz.",
+    "editor.empty": "O editor preenche-se ao terminar a sincronização,<br>ao escolher uma letra LRC com tempos ou ao carregar um <code>.lrc</code>.",
+    "editor.lineText": "Texto da linha…",
+    "editor.startMs": "Início da linha {n} em milissegundos",
+    "editor.endMs": "Fim da linha {n} em milissegundos",
+    "editor.startTitle": "Início em milissegundos",
+    "editor.endTitle": "Fim em milissegundos",
+    "editor.earlier100": "Adiantar 100 ms",
+    "editor.later100": "Atrasar 100 ms",
+    "editor.mark": "Marcar o instante atual do áudio",
+    "editor.seek": "Reproduzir a partir desta linha",
+    "editor.insert": "Inserir uma nova linha abaixo",
+    "editor.delete": "Eliminar linha",
+    "editor.timeTitle": "Início: {start} · Fim: {end}",
+    "btn.saveAll": "Guardar tudo",
+    "footer.text": "KaraokeSync Studio · o áudio não sai do teu computador exceto a procura de letras no LRCLIB · atalhos: <kbd>Espaço</kbd> reproduzir · <kbd>Ctrl</kbd>+<kbd>Z</kbd> desfazer · <kbd>Ctrl</kbd>+<kbd>Enter</kbd> processar · <kbd>Esc</kbd> fechar avisos",
+    "meta.untitled": "Sem título",
+    "meta.unknownArtist": "Artista desconhecido",
+    "meta.id3": "etiquetas ID3",
+    "meta.filename": "nome do ficheiro",
+    "meta.noMetadata": "Não foi possível ler os metadados",
+    "toast.undoEmpty": "Não há alterações para desfazer",
+    "toast.undoDone": "Alteração desfeita",
+    "toast.needLyrics": "Carrega uma letra para ver o karaoke ao vivo",
+    "toast.audioPreview": "Não foi possível reproduzir o áudio: pré-visualização sem som",
+    "toast.noLinesToShift": "Não há linhas para deslocar",
+    "toast.shiftedLater": "Toda a letra atrasada {ms} ms",
+    "toast.shiftedEarlier": "Toda a letra adiantada {ms} ms",
+    "toast.pickerError": "Não foi possível abrir o seletor",
+    "toast.pickerErrorDetail": "Erro ao abrir o seletor: {error}",
+    "toast.emptyAudioPath": "O caminho do áudio está vazio",
+    "toast.needAudioPath": "Indica primeiro o caminho do áudio",
+    "toast.needAudioMetadata": "Carrega primeiro o áudio para usar os metadados",
+    "toast.metaError": "Não foi possível ler os metadados: {error}",
+    "toast.metaErrorShort": "Não foi possível ler os metadados",
+    "toast.folderError": "Não foi possível abrir o seletor de pastas",
+    "toast.errorDetail": "Erro: {error}",
+    "toast.lyricsLoaded": "Letra carregada: {name}",
+    "toast.needQuery": "Escreve o que queres procurar",
+    "toast.noUsableLyrics": "Esse resultado não traz letra utilizável",
+    "toast.syncedLoaded": "Letra sincronizada carregada ({n} linhas)",
+    "toast.plainLoaded": "Letra de texto simples carregada: o motor distribuí-la-á pela canção",
+    "toast.needSong": "Escolhe primeiro a canção",
+    "toast.needFormat": "Marca pelo menos um ficheiro de saída",
+    "toast.startError": "Não foi possível iniciar o processamento",
+    "toast.startErrorDetail": "Erro ao iniciar: {error}",
+    "toast.cancelRequested": "Cancelamento pedido: vai parar no próximo ponto de controlo",
+    "toast.noProcess": "Não há nenhum processo em curso",
+    "toast.cancelError": "Erro ao cancelar: {error}",
+    "toast.cancelled": "Processamento cancelado",
+    "toast.engineError": "Erro do motor: {error}",
+    "toast.syncDone": "Sincronização concluída: {n} linhas",
+    "toast.lineAlready": "A linha já começa no instante atual",
+    "toast.lineMarked": "Linha {n} marcada em {time}",
+    "toast.plainNoTimes": "Letra sem tempos: usa o reprodutor e ⏱ para marcar cada linha",
+    "toast.noLinesToSort": "Não há linhas para ordenar",
+    "toast.linesSorted": "Linhas ordenadas por tempo",
+    "toast.noLinesToSave": "Não há linhas para guardar",
+    "toast.needOutputDir": "Indica a pasta de saída",
+    "toast.saveError": "Não foi possível guardar",
+    "toast.savedIn": "Guardado em {names}",
+    "toast.saveErrorDetail": "Erro ao guardar: {error}",
+    "toast.noOutputFolder": "Ainda não há pasta de saída",
+    "toast.folderOpenError": "Não foi possível abrir a pasta",
+    "toast.browserNoPath": "O navegador não pode ler o caminho de \"{name}\": usa o seletor do Windows",
+    "toast.audioLoadError": "Não foi possível carregar o áudio: usa-se a pré-visualização sem som",
+    "toast.webAudioLoaded": "Áudio carregado no navegador: {name}",
+    "toast.webMetadata": "Modo web: os metadados são tirados do nome do ficheiro",
+    "toast.webNeedLyrics": "Cola ou carrega uma letra antes de sincronizar no modo web",
+    "toast.webSyncDone": "Modo web: letra sincronizada no teu navegador. Para separar .wav com IA (Demucs), executa KaraokeSync-GUI.bat no teu PC.",
+    "toast.webSaved": "Descarregado {names} no teu navegador",
+    "toast.webNoFolder": "Modo web: os ficheiros são descarregados diretamente pelo navegador",
+    "toast.demucsAutoOff": "Este LRC já traz tempos: o Demucs é desativado para sincronizar em segundos (volta a marcá-lo se quiseres separar stems).",
+    "toast.demucsBackForStems": "Guardar stems precisa do Demucs: volta a ser ativado.",
+    "confirm.shutdown": "Parar o servidor do KaraokeSync Studio?",
+    "shutdown.title": "KaraokeSync Studio parado",
+    "shutdown.text": "Já podes fechar este separador. Abre-o outra vez com <code>KaraokeSync-GUI.bat</code>."
+  },
+  fr: {
+    "lang.label": "Langue de l'interface",
+    "app.tagline": "Tout-en-un · moteur local",
+    "status.ready": "Prêt",
+    "status.waitingPicker": "En attente du sélecteur…",
+    "status.processing": "Traitement…",
+    "status.completed": "Terminé",
+    "status.cancelled": "Annulé",
+    "status.webMode": "Mode web",
+    "status.error": "Erreur",
+    "btn.shutdown": "Arrêter",
+    "btn.shutdownTitle": "Arrête le serveur local",
+    "btn.load": "Charger",
+    "btn.loadTitle": "Lire les métadonnées et préparer la lecture",
+    "btn.pickFolderTitle": "Choisir le dossier de sortie",
+    "card.song": "Chanson",
+    "drop.title": "Ouvrir le sélecteur de fichiers Windows",
+    "drop.strong": "Choisir un fichier audio",
+    "drop.span": "Le sélecteur Windows s'ouvre (chemin réel, sans <em>fakepath</em>)",
+    "field.audioPath": "Chemin de l'audio",
+    "ph.audioPath": "C:\\Users\\...\\chanson.mp3",
+    "field.outputDir": "Dossier de sortie",
+    "ph.outputDir": "Par défaut : le dossier de l'audio",
+    "card.lyrics": "Paroles",
+    "btn.pickLyrics": "📄 Fichier .lrc / .txt / .srt",
+    "btn.searchAuto": "✨ Chercher par métadonnées",
+    "btn.searchAutoTitle": "Chercher avec les métadonnées de l'audio",
+    "ph.search": "Chercher dans LRCLIB : artiste, titre ou un vers…",
+    "btn.search": "Chercher",
+    "ph.lyrics": "Colle les paroles ici, ou choisis-les dans les résultats LRCLIB…",
+    "lyrics.none": "Sans paroles",
+    "lyrics.noneInfo": "Les paroles sont optionnelles : sans elles, on détecte seulement quand on chante.",
+    "lyrics.plain": "Texte brut",
+    "lyrics.plainInfoName": "{name} : le moteur répartira les paroles sur les segments de voix.",
+    "lyrics.plainInfo": "Sans repères de temps : le moteur répartira les paroles sur les segments de voix.",
+    "lyrics.synced": "LRC synchronisé",
+    "lyrics.syncedInfoName": "{name} : les repères sont respectés comme référence.",
+    "lyrics.syncedInfo": "Les paroles ont des repères : ils servent de référence pour les temps.",
+    "lyrics.searching": "Recherche sur lrclib.net…",
+    "lyrics.noResults": "Aucun résultat. Essaie un autre titre, l'artiste ou un vers.",
+    "lyrics.unknownArtist": "Inconnu",
+    "lyrics.noAlbum": "Sans album",
+    "lyrics.instrumental": "Instrumental",
+    "lyrics.resultSynced": "LRC synchronisé",
+    "lyrics.resultPlain": "Texte brut",
+    "lyrics.searchError": "Erreur en interrogeant LRCLIB : {error}",
+    "card.sync": "Synchronisation",
+    "hint.engine": "moteur local",
+    "label.preset": "Préréglage de précision",
+    "preset.fast": "Rapide — moins d'attente",
+    "preset.balanced": "Équilibré — recommandé",
+    "preset.high": "Haute — précision maximale",
+    "check.demucs": "Séparer les sources avec Demucs",
+    "check.demucsSub": "Plus précis sur les chansons denses ; bien plus lent.",
+    "check.stems": "Enregistrer les stems",
+    "check.stemsSub": "Laisse <code>vocals.wav</code> et <code>no_vocals.wav</code> dans la sortie.",
+    "label.formats": "Fichiers à générer",
+    "fmt.report": "Rapport",
+    "fmt.editorHtml": "Éditeur HTML",
+    "btn.process": "⚡ Synchroniser le karaoké",
+    "btn.cancel": "Annuler",
+    "progress.starting": "Démarrage…",
+    "progress.preparing": "Préparation du moteur…",
+    "progress.completedSuccess": "Traitement terminé avec succès",
+    "artifacts.label": "Fichiers générés",
+    "source.original": "Original",
+    "source.vocals": "Voix",
+    "source.instrumental": "Instrumental",
+    "label.speed": "Vitesse",
+    "player.noAudio": "Aucun audio chargé",
+    "player.info": "{title} — {artist}",
+    "stage.live": "Karaoké en direct",
+    "stage.waiting": "En attente",
+    "stage.loadLyrics": "Charge des paroles et appuie sur ▶",
+    "stage.next": "Suivant",
+    "stage.noLyrics": "Sans paroles",
+    "stage.intro": "Introduction",
+    "stage.endOfLine": "Fin de ligne",
+    "stage.singing": "En chantant",
+    "stage.paused": "En pause",
+    "stage.validacion": "Validation",
+    "stage.decodificacion": "Décodage",
+    "stage.separacion": "Séparation",
+    "stage.vad": "VAD",
+    "stage.energia": "Énergie",
+    "stage.clasificacion": "Classification",
+    "stage.letra": "Paroles",
+    "stage.exportacion": "Exportation",
+    "stage.completado": "Terminé",
+    "stage.cancelado": "Annulé",
+    "stage.error": "Erreur",
+    "stage.iniciando": "Démarrage",
+    "stage.showNext": "Afficher la suivante",
+    "stage.textSize": "Taille du texte",
+    "btn.play": "▶ Lire",
+    "btn.pause": "⏸ Pause",
+    "btn.playTitle": "Lire ou mettre en pause (Espace)",
+    "btn.undo": "↶ Annuler",
+    "btn.undoCount": "↶ Annuler ({n})",
+    "btn.undoTitle": "Annuler la dernière modification (Ctrl+Z)",
+    "shift.all": "Toutes les paroles :",
+    "shift.earlier250": "Avancer toutes les paroles de 250 ms",
+    "shift.earlier50": "Avancer toutes les paroles de 50 ms",
+    "shift.later50": "Retarder toutes les paroles de 50 ms",
+    "shift.later250": "Retarder toutes les paroles de 250 ms",
+    "badge.previewNoAudio": "Aperçu sans audio",
+    "badge.noAudioPreview": "Sans audio · aperçu",
+    "timeline.aria": "Chronologie : clique pour sauter, fais glisser un bloc pour déplacer la ligne",
+    "editor.title": "Éditeur de temps",
+    "btn.addLine": "＋ Ligne",
+    "btn.addLineTitle": "Ajoute une ligne à l'instant actuel",
+    "btn.sort": "↕ Trier",
+    "btn.sortTitle": "Trier par temps",
+    "btn.folder": "📂 Dossier",
+    "btn.folderTitle": "Ouvrir le dossier de sortie",
+    "editor.hint": "Lis avec <strong>Espace</strong> et utilise <strong>⏱</strong> pour marquer l'instant actuel. <strong>−0,1 s</strong> / <strong>+0,1 s</strong> affinent la marque ; <strong>▶</strong> saute à ce point et <strong>＋</strong> insère une ligne en dessous. <strong>Ctrl+Z</strong> annule.",
+    "editor.empty": "L'éditeur se remplit à la fin de la synchronisation,<br>en choisissant des paroles LRC avec temps ou en chargeant un <code>.lrc</code>.",
+    "editor.lineText": "Texte de la ligne…",
+    "editor.startMs": "Début de la ligne {n} en millisecondes",
+    "editor.endMs": "Fin de la ligne {n} en millisecondes",
+    "editor.startTitle": "Début en millisecondes",
+    "editor.endTitle": "Fin en millisecondes",
+    "editor.earlier100": "Avancer de 100 ms",
+    "editor.later100": "Retarder de 100 ms",
+    "editor.mark": "Marquer l'instant actuel de l'audio",
+    "editor.seek": "Lire à partir de cette ligne",
+    "editor.insert": "Insérer une nouvelle ligne en dessous",
+    "editor.delete": "Supprimer la ligne",
+    "editor.timeTitle": "Début : {start} · Fin : {end}",
+    "btn.saveAll": "Tout enregistrer",
+    "footer.text": "KaraokeSync Studio · l'audio ne quitte pas ton ordinateur sauf la recherche de paroles sur LRCLIB · raccourcis : <kbd>Espace</kbd> lire · <kbd>Ctrl</kbd>+<kbd>Z</kbd> annuler · <kbd>Ctrl</kbd>+<kbd>Entrée</kbd> traiter · <kbd>Esc</kbd> fermer les avis",
+    "meta.untitled": "Sans titre",
+    "meta.unknownArtist": "Artiste inconnu",
+    "meta.id3": "balises ID3",
+    "meta.filename": "nom du fichier",
+    "meta.noMetadata": "Impossible de lire les métadonnées",
+    "toast.undoEmpty": "Aucune modification à annuler",
+    "toast.undoDone": "Modification annulée",
+    "toast.needLyrics": "Charge des paroles pour voir le karaoké en direct",
+    "toast.audioPreview": "Impossible de lire l'audio : aperçu sans son",
+    "toast.noLinesToShift": "Aucune ligne à décaler",
+    "toast.shiftedLater": "Toutes les paroles retardées de {ms} ms",
+    "toast.shiftedEarlier": "Toutes les paroles avancées de {ms} ms",
+    "toast.pickerError": "Impossible d'ouvrir le sélecteur",
+    "toast.pickerErrorDetail": "Erreur en ouvrant le sélecteur : {error}",
+    "toast.emptyAudioPath": "Le chemin de l'audio est vide",
+    "toast.needAudioPath": "Indique d'abord le chemin de l'audio",
+    "toast.needAudioMetadata": "Charge d'abord l'audio pour utiliser ses métadonnées",
+    "toast.metaError": "Impossible de lire les métadonnées : {error}",
+    "toast.metaErrorShort": "Impossible de lire les métadonnées",
+    "toast.folderError": "Impossible d'ouvrir le sélecteur de dossiers",
+    "toast.errorDetail": "Erreur : {error}",
+    "toast.lyricsLoaded": "Paroles chargées : {name}",
+    "toast.needQuery": "Écris ce que tu veux chercher",
+    "toast.noUsableLyrics": "Ce résultat n'a pas de paroles utilisables",
+    "toast.syncedLoaded": "Paroles synchronisées chargées ({n} lignes)",
+    "toast.plainLoaded": "Paroles en texte brut chargées : le moteur les répartira sur la chanson",
+    "toast.needSong": "Choisis d'abord la chanson",
+    "toast.needFormat": "Coche au moins un fichier de sortie",
+    "toast.startError": "Impossible de lancer le traitement",
+    "toast.startErrorDetail": "Erreur au démarrage : {error}",
+    "toast.cancelRequested": "Annulation demandée : elle s'arrêtera au prochain point de contrôle",
+    "toast.noProcess": "Aucun traitement en cours",
+    "toast.cancelError": "Erreur en annulant : {error}",
+    "toast.cancelled": "Traitement annulé",
+    "toast.engineError": "Erreur du moteur : {error}",
+    "toast.syncDone": "Synchronisation terminée : {n} lignes",
+    "toast.lineAlready": "La ligne commence déjà à l'instant actuel",
+    "toast.lineMarked": "Ligne {n} marquée à {time}",
+    "toast.plainNoTimes": "Paroles sans temps : utilise le lecteur et ⏱ pour marquer chaque ligne",
+    "toast.noLinesToSort": "Aucune ligne à trier",
+    "toast.linesSorted": "Lignes triées par temps",
+    "toast.noLinesToSave": "Aucune ligne à enregistrer",
+    "toast.needOutputDir": "Indique le dossier de sortie",
+    "toast.saveError": "Impossible d'enregistrer",
+    "toast.savedIn": "Enregistré dans {names}",
+    "toast.saveErrorDetail": "Erreur en enregistrant : {error}",
+    "toast.noOutputFolder": "Il n'y a pas encore de dossier de sortie",
+    "toast.folderOpenError": "Impossible d'ouvrir le dossier",
+    "toast.browserNoPath": "Le navigateur ne peut pas lire le chemin de \"{name}\" : utilise le sélecteur Windows",
+    "toast.audioLoadError": "Impossible de charger l'audio : l'aperçu sans son sera utilisé",
+    "toast.webAudioLoaded": "Audio chargé dans le navigateur : {name}",
+    "toast.webMetadata": "Mode web : les métadonnées viennent du nom du fichier",
+    "toast.webNeedLyrics": "Colle ou charge des paroles avant de synchroniser en mode web",
+    "toast.webSyncDone": "Mode web : paroles synchronisées dans ton navigateur. Pour séparer les .wav avec l'IA (Demucs), lance KaraokeSync-GUI.bat sur ton PC.",
+    "toast.webSaved": "Téléchargé {names} dans ton navigateur",
+    "toast.webNoFolder": "Mode web : les fichiers sont téléchargés directement par le navigateur",
+    "toast.demucsAutoOff": "Ce LRC a déjà des temps : Demucs est désactivé pour synchroniser en quelques secondes (recoche-le pour séparer les stems).",
+    "toast.demucsBackForStems": "Enregistrer les stems nécessite Demucs : il est réactivé.",
+    "confirm.shutdown": "Arrêter le serveur KaraokeSync Studio ?",
+    "shutdown.title": "KaraokeSync Studio arrêté",
+    "shutdown.text": "Tu peux fermer cet onglet. Rouvre-le avec <code>KaraokeSync-GUI.bat</code>."
+  }
+};
+
+const IDIOMAS = ["en", "es", "pt", "fr"];
+const CLAVE_IDIOMA = "karaokesync_lang";
+let currentLang = "en";
+
+function normalizarIdioma(valor) {
+  const limpio = String(valor || "").toLowerCase().slice(0, 2);
+  return IDIOMAS.includes(limpio) ? limpio : "en";
+}
+
+function idiomaGuardado() {
+  try {
+    return normalizarIdioma(window.localStorage.getItem(CLAVE_IDIOMA) || "en");
+  } catch (error) {
+    // file:// o modo privado sin almacenamiento: se usa el valor por defecto.
+    return "en";
+  }
+}
+
+function guardarIdioma(idioma) {
+  try { window.localStorage.setItem(CLAVE_IDIOMA, idioma); } catch (error) { /* sin almacenamiento */ }
+}
+
+function t(clave, vars) {
+  const diccionario = I18N[currentLang] || I18N.en;
+  let texto = diccionario[clave];
+  if (texto === undefined) texto = I18N.en[clave];
+  if (texto === undefined) texto = clave;
+  if (vars) {
+    Object.keys(vars).forEach((nombre) => {
+      texto = texto.split(`{${nombre}}`).join(String(vars[nombre]));
+    });
+  }
+  return texto;
+}
+
+function applyLanguage(idioma) {
+  currentLang = normalizarIdioma(idioma);
+  guardarIdioma(currentLang);
+  document.documentElement.lang = currentLang;
+  document.querySelectorAll("[data-i18n]").forEach((nodo) => {
+    nodo.textContent = t(nodo.dataset.i18n);
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach((nodo) => {
+    nodo.innerHTML = t(nodo.dataset.i18nHtml);
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((nodo) => {
+    nodo.placeholder = t(nodo.dataset.i18nPlaceholder);
+  });
+  document.querySelectorAll("[data-i18n-title]").forEach((nodo) => {
+    nodo.title = t(nodo.dataset.i18nTitle);
+  });
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((nodo) => {
+    nodo.setAttribute("aria-label", t(nodo.dataset.i18nAriaLabel));
+  });
+  document.querySelectorAll("#lang-switcher .lang-btn").forEach((boton) => {
+    boton.setAttribute("aria-pressed", boton.dataset.lang === currentLang ? "true" : "false");
+  });
+  // Lo que se genera desde JavaScript (estados, botones, filas) se repinta para
+  // que el cambio de idioma sea inmediato y completo.
+  if (App.meta) {
+    $("player-info").textContent = t("player.info", {
+      title: App.meta.title || basenameOf(App.audioPath),
+      artist: App.meta.artist || t("meta.unknownArtist"),
+    });
+  }
+  actualizarBotonUndo();
+  actualizarBotonPlay();
+  if (App.lines.length) renderLineas();
+  else actualizarReproduccion();
+  if (App.lyricsBadge) {
+    actualizarEstadoLetra(App.lyricsBadge.conTiempos, App.lyricsBadge.nombre);
+  }
+  if ($("artifacts") && $("artifacts").style.display !== "none"
+      && Object.keys(App.artifacts).length) {
+    mostrarArtefactos(App.artifacts);
+  }
+  if (!App.processing) setStatus(estadoBase());
+}
+
+function iniciarSelectorIdioma() {
+  document.querySelectorAll("#lang-switcher .lang-btn").forEach((boton) => {
+    boton.addEventListener("click", () => applyLanguage(boton.dataset.lang));
+  });
+}
+
+
+function escapeHtml(value) {
+  return String(value == null ? "" : value)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
+function toMmSs(seconds) {
+  if (!isFinite(seconds) || seconds < 0) return "--:--";
+  const total = Math.floor(seconds);
+  const m = Math.floor(total / 60);
+  const s = total % 60;
+  return `${m}:${fmt2(s)}`;
+}
+
+function msToClock(ms) {
+  const total = Math.max(0, Math.round(ms));
+  const m = Math.floor(total / 60000);
+  const s = Math.floor((total % 60000) / 1000);
+  const cs = Math.floor((total % 1000) / 10);
+  return `${fmt2(m)}:${fmt2(s)}.${fmt2(cs)}`;
+}
+
+// ===========================================================================
+// Reloj, deshacer y reproduccion (audio real o vista previa sintetica)
+// ===========================================================================
+function maxEndMs() {
+  return App.lines.reduce((maximo, linea) => Math.max(maximo, Number(linea.end_ms) || 0), 0);
+}
+
+function duracionTotalMs() {
+  const player = $("player");
+  const duracionAudio = Number(player.duration);
+  if (!App.syntheticMode && isFinite(duracionAudio) && duracionAudio > 0) {
+    return duracionAudio * 1000;
+  }
+  const finLetra = maxEndMs();
+  return finLetra > 0 ? finLetra + 3000 : 0;
+}
+
+function ahoraMs() {
+  if (App.syntheticMode) return App.syntheticTimeMs;
+  return Number($("player").currentTime || 0) * 1000;
+}
+
+function tieneFuenteAudio() {
+  const player = $("player");
+  const fuente = player.getAttribute("src") || player.currentSrc || "";
+  return Boolean(fuente.trim());
+}
+
+function puedeReproducirAudio() {
+  const player = $("player");
+  return tieneFuenteAudio() && player.readyState > 0 && !player.error;
+}
+
+// --- Pila de deshacer: maximo 50 estados completos ------------------------
+function snapshotLineas() {
+  return App.lines.map((linea) => ({
+    start_ms: Math.round(linea.start_ms),
+    end_ms: Math.round(linea.end_ms),
+    text: linea.text,
+  }));
+}
+
+function pushUndo(estado) {
+  App.undoStack.push(estado || snapshotLineas());
+  while (App.undoStack.length > 50) App.undoStack.shift();
+  actualizarBotonUndo();
+}
+
+function actualizarBotonUndo() {
+  const boton = $("btn-undo");
+  if (!boton) return;
+  boton.disabled = App.undoStack.length === 0;
+  const etiqueta = App.undoStack.length
+    ? t("btn.undoCount", { n: App.undoStack.length })
+    : t("btn.undo");
+  if (boton.textContent !== etiqueta) boton.textContent = etiqueta;
+}
+
+function undo() {
+  // Si el usuario esta escribiendo, el cambio aun no habia llegado al
+  // historial: se apila la foto previa para que Ctrl+Z restaure el texto
+  // anterior en lugar de saltarse ese paso.
+  if (App.editSnapshot && JSON.stringify(App.editSnapshot) !== JSON.stringify(App.lines)) {
+    pushUndo(App.editSnapshot);
+  }
+  App.editSnapshot = null;
+  if (!App.undoStack.length) {
+    toast(t("toast.undoEmpty"), "warn", 2000);
+    return;
+  }
+  App.lines = App.undoStack.pop();
+  App.activeLineIdx = -2;
+  renderLineas();
+  actualizarBotonUndo();
+  toast(t("toast.undoDone"), "ok", 1500);
+}
+
+// --- Escenario, linea de tiempo y boton de reproduccion -------------------
+function indiceLineaActiva(ms) {
+  let indice = -1;
+  for (let i = 0; i < App.lines.length; i += 1) {
+    if (App.lines[i].start_ms <= ms + 20) indice = i;
+  }
+  return indice;
+}
+
+function actualizarBotonPlay() {
+  const player = $("player");
+  const reproduciendo = App.syntheticMode
+    ? App.syntheticPlaying
+    : (!player.paused && !player.ended);
+  const boton = $("btn-play-toggle");
+  if (boton) {
+    const etiqueta = reproduciendo ? t("btn.pause") : t("btn.play");
+    if (boton.textContent !== etiqueta) boton.textContent = etiqueta;
+  }
+  const badge = $("mode-badge");
+  if (badge) {
+    let texto = "";
+    if (App.syntheticMode) texto = t("badge.previewNoAudio");
+    else if (!tieneFuenteAudio()) texto = t("badge.noAudioPreview");
+    if (badge.textContent !== texto) badge.textContent = texto;
+  }
+}
+
+function actualizarEscenario(ms, indice) {
+  const texto = $("stage-text");
+  const siguienteEl = $("stage-next");
+  const relleno = $("stage-fill");
+  const estado = $("stage-state");
+  if (!texto || !siguienteEl || !relleno || !estado) return;
+
+  const mostrarSiguiente = $("chk-next") ? $("chk-next").checked : true;
+
+  if (!App.lines.length) {
+    texto.textContent = t("stage.loadLyrics");
+    siguienteEl.innerHTML = `<span class="lbl">${escapeHtml(t("stage.next"))}</span>—`;
+    relleno.style.width = "0%";
+    estado.textContent = t("stage.noLyrics");
+    return;
+  }
+
+  if (indice < 0) {
+    texto.textContent = "…";
+    relleno.style.width = "0%";
+    const primera = App.lines[0];
+    siguienteEl.innerHTML = mostrarSiguiente
+      ? `<span class="lbl">${escapeHtml(t("stage.next"))}</span>${escapeHtml(primera.text || "—")}`
+      : "";
+    estado.textContent = t("stage.intro");
+    return;
+  }
+
+  const linea = App.lines[indice];
+  texto.textContent = linea.text || "…";
+  const duracion = Math.max(1, linea.end_ms - linea.start_ms);
+  const progreso = Math.max(0, Math.min(1, (ms - linea.start_ms) / duracion));
+  relleno.style.width = `${(progreso * 100).toFixed(1)}%`;
+  const reproduciendo = App.syntheticMode
+    ? App.syntheticPlaying
+    : !$("player").paused;
+  estado.textContent = progreso >= 1
+    ? t("stage.endOfLine")
+    : (reproduciendo ? t("stage.singing") : t("stage.paused"));
+
+  const siguiente = App.lines[indice + 1];
+  siguienteEl.innerHTML = (mostrarSiguiente && siguiente)
+    ? `<span class="lbl">${escapeHtml(t("stage.next"))}</span>${escapeHtml(siguiente.text || "—")}`
+    : "";
+}
+
+function dibujarTimeline(ms, indiceActivo) {
+  const canvas = $("timeline");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+  const ancho = canvas.width;
+  const alto = canvas.height;
+  const total = Math.max(1, duracionTotalMs());
+  const x = (valor) => Math.max(0, Math.min(ancho, (valor / total) * ancho));
+
+  ctx.clearRect(0, 0, ancho, alto);
+  ctx.fillStyle = "#0a1322";
+  ctx.fillRect(0, 0, ancho, alto);
+
+  // Barra base y progreso recorrido.
+  ctx.fillStyle = "#16243a";
+  ctx.fillRect(0, alto / 2 - 4, ancho, 8);
+  if (ms > 0) {
+    ctx.fillStyle = "rgba(86, 184, 255, .35)";
+    ctx.fillRect(0, alto / 2 - 4, x(ms), 8);
+  }
+
+  // Bloques verdes: una linea = un bloque (start_ms -> end_ms).
+  App.lines.forEach((linea, i) => {
+    const x0 = x(linea.start_ms);
+    const x1 = Math.max(x0 + 2, x(linea.end_ms));
+    ctx.fillStyle = i === indiceActivo ? "#2ee7b2" : "#1f9e77";
+    ctx.fillRect(x0, alto / 2 - 16, Math.max(2, x1 - x0), 12);
+  });
+
+  // Marcas cada 30 s (cada minuto en canciones largas).
+  ctx.fillStyle = "#2c3e5a";
+  const paso = total > 300000 ? 60000 : 30000;
+  for (let t = 0; t <= total; t += paso) {
+    ctx.fillRect(x(t), alto - 14, 1, 8);
+  }
+
+  // Aguja de posicion actual.
+  ctx.fillStyle = "#ffd8a8";
+  ctx.fillRect(x(ms) - 1, 6, 2, alto - 12);
+
+  const inicio = $("timeline-start");
+  const medio = $("timeline-mid");
+  const fin = $("timeline-end");
+  if (inicio) inicio.textContent = toMmSs(0);
+  if (medio) medio.textContent = msToClock(total / 2);
+  if (fin) fin.textContent = msToClock(total);
+}
+
+// ---------------------------------------------------------------------------
+// Auto-scroll SOLO dentro de la caja de lineas.
+// ---------------------------------------------------------------------------
+// El auto-scroll nativo del navegador no se usa aqui a proposito: desplaza
+// TODOS los contenedores padre, incluido `window`. Mientras la cancion avanzaba,
+// el Escenario Karaoke en Vivo se iba hacia arriba y habia que subir la pagina a
+// mano. Esta funcion mueve exclusivamente el scrollTop de `#lines`, asi que
+// `window.scrollY` no cambia ni un pixel.
+function desplazarSoloContenedorLineas(contenedor, fila) {
+  if (!contenedor || !fila) return;
+  // offsetTop es relativo al offsetParent: si `#lines` es ese padre (lleva
+  // position:relative) ya viene relativo a el; si no, hay que restar su offset.
+  const desdeContenedor = fila.offsetParent === contenedor
+    ? fila.offsetTop
+    : fila.offsetTop - contenedor.offsetTop;
+  const destinoTop = desdeContenedor
+    - (contenedor.clientHeight / 2) + (fila.clientHeight / 2);
+  const maximo = Math.max(0, contenedor.scrollHeight - contenedor.clientHeight);
+  contenedor.scrollTo({
+    top: Math.max(0, Math.min(maximo, destinoTop)),
+    behavior: "smooth",
+  });
+}
+
+function actualizarReproduccion() {
+  const ms = ahoraMs();
+  App.currentTimeMs = ms;
+  const reloj = $("player-time");
+  if (reloj) reloj.textContent = `${msToClock(ms)} / ${msToClock(duracionTotalMs())}`;
+
+  const indice = indiceLineaActiva(ms);
+  if (indice !== App.activeLineIdx) {
+    App.activeLineIdx = indice;
+    document.querySelectorAll(".line").forEach((fila, i) => {
+      fila.classList.toggle("active", i === indice);
+    });
+    if (indice >= 0) {
+      const fila = document.getElementById(`line-${indice}`);
+      const contenedor = $("lines");
+      if (fila && contenedor) desplazarSoloContenedorLineas(contenedor, fila);
+    }
+  }
+
+  actualizarEscenario(ms, indice);
+  dibujarTimeline(ms, indice);
+  actualizarBotonPlay();
+}
+
+// --- Reloj sintetico de respaldo ------------------------------------------
+function arrancarBucle() {
+  if (App.rafId) return;
+  const paso = (ts) => {
+    App.rafId = requestAnimationFrame(paso);
+    const player = $("player");
+    const reproduciendo = App.syntheticMode
+      ? App.syntheticPlaying
+      : (!player.paused && !player.ended);
+    if (!reproduciendo) {
+      cancelAnimationFrame(App.rafId);
+      App.rafId = null;
+      actualizarReproduccion();
+      return;
+    }
+    if (App.syntheticMode) {
+      const dt = Math.min(250, Math.max(0, ts - (App.lastFrameTs || ts)));
+      App.lastFrameTs = ts;
+      App.syntheticTimeMs += dt;
+      const fin = maxEndMs() + 3000;
+      if (App.syntheticTimeMs >= fin) {
+        App.syntheticTimeMs = fin;
+        App.syntheticPlaying = false;
+        actualizarBotonPlay();
+      }
+    }
+    actualizarReproduccion();
+  };
+  App.rafId = requestAnimationFrame(paso);
+}
+
+function asegurarLineasParaPreview() {
+  if (App.lines.length) return true;
+  const caja = $("lyrics-text");
+  const texto = caja ? caja.value : "";
+  if (!texto.trim()) return false;
+  parseLrc(texto);
+  return App.lines.length > 0;
+}
+
+function iniciarRelojSintetico(desdeMs) {
+  if (!asegurarLineasParaPreview()) {
+    toast(t("toast.needLyrics"), "warn");
+    return;
+  }
+  const fin = maxEndMs() + 3000;
+  if (typeof desdeMs === "number") {
+    App.syntheticTimeMs = Math.max(0, desdeMs);
+  } else if (!App.syntheticMode) {
+    App.syntheticTimeMs = ahoraMs();
+  }
+  if (App.syntheticTimeMs >= fin - 50) App.syntheticTimeMs = 0;
+  App.syntheticMode = true;
+  App.syntheticPlaying = true;
+  App.lastFrameTs = performance.now();
+  arrancarBucle();
+  actualizarReproduccion();
+}
+
+function pausarRelojSintetico() {
+  App.syntheticPlaying = false;
+  actualizarBotonPlay();
+  actualizarReproduccion();
+}
+
+async function alternarReproduccion() {
+  const player = $("player");
+
+  // Si el usuario pego una letra pero aun no hay lineas (texto plano), se
+  // generan lineas provisionales para que el escenario tenga algo que mostrar.
+  if (!App.lines.length) asegurarLineasParaPreview();
+
+  if (App.syntheticMode) {
+    if (App.syntheticPlaying) pausarRelojSintetico();
+    else iniciarRelojSintetico();
+    return;
+  }
+
+  if (!player.paused) {
+    player.pause();
+    return;
+  }
+
+  if (!tieneFuenteAudio()) {
+    const ruta = App.audioPath || $("audio-path").value.trim();
+    if (ruta) {
+      App.audioPath = ruta;
+      await cargarReproductor(ruta);
+    }
+  }
+
+  if (tieneFuenteAudio()) {
+    try {
+      if (player.ended) player.currentTime = 0;
+      await player.play();
+      App.syntheticMode = false;
+      App.syntheticPlaying = false;
+      arrancarBucle();
+      actualizarReproduccion();
+      return;
+    } catch (error) {
+      // El navegador no puede reproducir el archivo (codec, file:// bloqueado,
+      // permisos...): se sigue con la vista previa, que nunca deja al usuario
+      // pulsando un boton que no hace nada.
+      console.warn("No se pudo reproducir el audio; se usa la vista previa:", error);
+      toast(t("toast.audioPreview"), "warn", 5000);
+    }
+  }
+
+  iniciarRelojSintetico();
+}
+
+function seekToMs(ms) {
+  const total = duracionTotalMs();
+  const objetivo = Math.max(0, Math.min(Math.max(0, total - 50), ms));
+
+  if (App.syntheticMode) {
+    App.syntheticTimeMs = objetivo;
+    actualizarReproduccion();
+    return;
+  }
+
+  if (!tieneFuenteAudio() || $("player").error) {
+    // Sin audio utilizable se coloca la aguja igualmente: el usuario ve donde
+    // saltaria y puede marcar tiempos o ajustar lineas.
+    App.syntheticMode = true;
+    App.syntheticPlaying = false;
+    App.syntheticTimeMs = objetivo;
+    actualizarBotonPlay();
+    actualizarReproduccion();
+    return;
+  }
+
+  try {
+    $("player").currentTime = objetivo / 1000;
+  } catch (error) {
+    App.syntheticMode = true;
+    App.syntheticPlaying = false;
+    App.syntheticTimeMs = objetivo;
+  }
+  actualizarReproduccion();
+}
+
+function msEnTimeline(evento) {
+  const canvas = $("timeline");
+  const rect = canvas.getBoundingClientRect();
+  const fraccion = (evento.clientX - rect.left) / Math.max(1, rect.width);
+  return Math.max(0, Math.min(1, fraccion)) * duracionTotalMs();
+}
+
+function indiceLineaEnMs(ms, margen = 150) {
+  let mejor = -1;
+  let distancia = Infinity;
+  App.lines.forEach((linea, i) => {
+    if (ms >= linea.start_ms - margen && ms <= linea.end_ms + margen) {
+      const d = Math.abs(ms - (linea.start_ms + linea.end_ms) / 2);
+      if (d < distancia) {
+        distancia = d;
+        mejor = i;
+      }
+    }
+  });
+  return mejor;
+}
+
+function actualizarCamposLinea(indice) {
+  const fila = document.getElementById(`line-${indice}`);
+  const linea = App.lines[indice];
+  if (!fila || !linea) return;
+  const inicio = fila.querySelector('input[data-field="start_ms"]');
+  const fin = fila.querySelector('input[data-field="end_ms"]');
+  const etiqueta = fila.querySelector(".time");
+  if (inicio) inicio.value = Math.round(linea.start_ms);
+  if (fin) fin.value = Math.round(linea.end_ms);
+  if (etiqueta) {
+    etiqueta.textContent = msToClock(linea.start_ms);
+    etiqueta.title = t("editor.timeTitle", {
+      start: msToClock(linea.start_ms), end: msToClock(linea.end_ms),
+    });
+  }
+}
+
+function shiftAllLines(deltaMs) {
+  if (!App.lines.length) {
+    toast(t("toast.noLinesToShift"), "warn");
+    return;
+  }
+  const delta = Number(deltaMs) || 0;
+  pushUndo();
+  App.lines.forEach((linea) => {
+    linea.start_ms = Math.max(0, linea.start_ms + delta);
+    linea.end_ms = Math.max(linea.start_ms + 300, linea.end_ms + delta);
+  });
+  renderLineas();
+  toast(t(delta > 0 ? "toast.shiftedLater" : "toast.shiftedEarlier", { ms: Math.abs(delta) }), "ok", 1800);
+}
+
+function folderOf(path) {
+  const limpio = String(path || "").trim();
+  const corte = Math.max(limpio.lastIndexOf("\\"), limpio.lastIndexOf("/"));
+  return corte > 0 ? limpio.slice(0, corte) : "";
+}
+
+function basenameOf(path) {
+  const limpio = String(path || "").trim().replace(/[\\/]+$/, "");
+  const corte = Math.max(limpio.lastIndexOf("\\"), limpio.lastIndexOf("/"));
+  const nombre = corte >= 0 ? limpio.slice(corte + 1) : limpio;
+  return nombre.replace(/\.[^.]+$/, "");
+}
+
+// ===========================================================================
+// Avisos
+// ===========================================================================
+function toast(message, kind = "info", timeout = 4200) {
+  const box = document.createElement("div");
+  box.className = `toast ${kind === "info" ? "" : kind}`;
+  box.textContent = message;
+  $("toasts").appendChild(box);
+  setTimeout(() => {
+    box.style.transition = "opacity .25s, transform .25s";
+    box.style.opacity = "0";
+    box.style.transform = "translateY(6px)";
+    setTimeout(() => box.remove(), 260);
+  }, timeout);
+}
+
+function setStatus(text, kind = "idle") {
+  $("status-text").textContent = text;
+  const dot = $("status-dot");
+  dot.className = "dot" + (kind === "busy" ? " busy" : kind === "err" ? " err" : "");
+}
+
+async function apiGet(url) {
+  const response = await fetch(url, { cache: "no-store" });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return response.json();
+}
+
+async function apiPost(url, body) {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body || {}),
+  });
+  const text = await response.text();
+  let data = {};
+  try { data = text ? JSON.parse(text) : {}; } catch (_) { data = { error: text }; }
+  if (!response.ok && data.error === undefined) {
+    data.error = `HTTP ${response.status}`;
+  }
+  return data;
+}
+
+// ===========================================================================
+// Modo hibrido: servidor Python local o web estatica (Cloudflare Pages)
+// ===========================================================================
+function entrarModoWeb() {
+  const yaEstaba = !App.localServer;
+  App.localServer = false;
+  App.processing = false;
+  if (App.polling) { clearInterval(App.polling); App.polling = null; }
+  const boton = $("btn-shutdown");
+  if (boton) boton.style.display = "none";
+  const procesar = $("btn-process");
+  if (procesar) procesar.disabled = false;
+  const cancelar = $("btn-cancel");
+  if (cancelar) cancelar.disabled = true;
+  if (!yaEstaba) setStatus(t("status.webMode"));
+}
+
+function abrirSelectorArchivoWeb(id) {
+  const input = $(id);
+  if (!input) return;
+  input.value = "";
+  input.click();
+}
+
+function limpiarNombreAudio(nombre) {
+  const base = basenameOf(nombre || "").replace(/_+/g, " ").replace(/\s+/g, " ").trim();
+  const limpio = base.replace(/^\d{1,3}\s*[.\-–—]\s*/, "").trim();
+  const partes = limpio.split(/\s*[–—]\s*|\s+-\s+/);
+  let artista = "";
+  let titulo = limpio;
+  if (partes.length >= 2) {
+    artista = partes[0].trim();
+    titulo = partes.slice(1).join(" - ").trim();
+  }
+  return { artist: artista, title: titulo || limpio };
+}
+
+function cargarAudioWeb(file) {
+  if (!file) return;
+  if (App.webAudioUrl) {
+    try { URL.revokeObjectURL(App.webAudioUrl); } catch (_) { /* ya liberado */ }
+  }
+  App.webAudioUrl = URL.createObjectURL(file);
+  App.webAudio = true;
+  App.audioPath = file.name;
+  $("audio-path").value = file.name;
+  App.sources = { original: App.webAudioUrl };
+  App.activeSource = "original";
+  App.syntheticMode = false;
+  App.syntheticPlaying = false;
+  App.syntheticTimeMs = 0;
+
+  const info = limpiarNombreAudio(file.name);
+  App.meta = {
+    title: info.title,
+    artist: info.artist,
+    album: "",
+    duration: 0,
+    duration_text: "--:--",
+    source: "file",
+    query: [info.artist, info.title].filter(Boolean).join(" ").trim(),
+  };
+  $("meta-box").classList.add("show");
+  $("meta-title").textContent = info.title || t("meta.untitled");
+  $("meta-artist").textContent = info.artist || t("meta.unknownArtist");
+  $("meta-duration").textContent = "--:--";
+  $("meta-source").textContent = t("meta.filename");
+  if (App.meta.query && !$("lrclib-query").value.trim()) {
+    $("lrclib-query").value = App.meta.query;
+  }
+  $("player-info").textContent = t("player.info", {
+    title: info.title || file.name,
+    artist: info.artist || t("meta.unknownArtist"),
+  });
+
+  const player = $("player");
+  player.src = App.webAudioUrl;
+  player.load();
+  player.addEventListener("loadedmetadata", () => {
+    $("meta-duration").textContent = toMmSs(player.duration);
+    actualizarReproduccion();
+  }, { once: true });
+  player.play().catch(() => { /* el navegador puede pedir otro gesto */ });
+
+  document.querySelectorAll("#source-tabs button").forEach((boton) => {
+    boton.disabled = boton.dataset.source !== "original";
+    boton.classList.toggle("on", boton.dataset.source === "original");
+  });
+  actualizarBotonPlay();
+  actualizarReproduccion();
+  toast(t("toast.webAudioLoaded", { name: file.name }), "ok");
+}
+
+async function cargarLetraWeb(file) {
+  if (!file) return;
+  try {
+    const texto = await file.text();
+    $("lyrics-text").value = texto;
+    const conTiempos = textoTraeTiempos(texto);
+    actualizarEstadoLetra(conTiempos, file.name);
+    if (conTiempos) {
+      autoDesactivarDemucs();
+      parseLrc(texto);
+    }
+    toast(t("toast.lyricsLoaded", { name: file.name }), "ok");
+  } catch (error) {
+    toast(t("toast.errorDetail", { error }), "err");
+  }
+}
+
+// Reparte texto plano a lo largo de la duracion real del audio en el navegador.
+function parseTextoPlanoConDuracion(texto, duracionMs) {
+  const renglones = String(texto || "").split(/\r?\n/)
+    .map((linea) => linea.trim())
+    .filter((linea) => linea && !/^\[[a-z]+:/i.test(linea));
+  if (!renglones.length) { parseLrc(texto); return; }
+  const total = duracionMs > 0 ? duracionMs : renglones.length * 4000;
+  const hueco = total / renglones.length;
+  App.lines = renglones.map((linea, i) => {
+    const inicio = Math.round(i * hueco);
+    const fin = Math.round(Math.min(total, (i + 1) * hueco));
+    return { start_ms: inicio, end_ms: Math.max(inicio + 300, fin), text: linea };
+  });
+  actualizarEstadoLetra(false, App.lyricsBadge ? App.lyricsBadge.nombre : "");
+  renderLineas();
+}
+
+function sincronizarEnNavegador() {
+  const texto = $("lyrics-text").value.trim();
+  if (!texto) { toast(t("toast.webNeedLyrics"), "warn"); return; }
+  if (textoTraeTiempos(texto)) {
+    parseLrc($("lyrics-text").value);
+  } else {
+    parseTextoPlanoConDuracion(texto, duracionTotalMs());
+  }
+  toast(t("toast.webSyncDone"), "warn", 9000);
+  setStatus(t("status.webMode"));
+}
+
+// --- LRCLIB directo desde el navegador (sin servidor Python) --------------
+function normalizarResultadoLRCLIB(crudo) {
+  const synced = crudo.syncedLyrics || crudo.synced_lyrics || "";
+  const plain = crudo.plainLyrics || crudo.plain_lyrics || "";
+  const duracion = Number(crudo.duration || 0);
+  const titulo = crudo.trackName || crudo.track_name || "";
+  const artista = crudo.artistName || crudo.artist_name || "";
+  return {
+    id: crudo.id,
+    track_name: titulo,
+    artist_name: artista,
+    album_name: crudo.albumName || crudo.album_name || "",
+    duration: duracion,
+    synced_lyrics: synced,
+    plain_lyrics: plain,
+    has_synced: Boolean(synced),
+    // Campos que ya usa la interfaz en modo local.
+    title: titulo,
+    artist: artista,
+    album: crudo.albumName || crudo.album_name || "",
+    duration_text: duracion > 0 ? toMmSs(duracion) : "--:--",
+    instrumental: Boolean(crudo.instrumental),
+    synced,
+    plain,
+  };
+}
+
+async function buscarLRCLIBDirecto(query) {
+  const respuesta = await fetch(
+    `https://lrclib.net/api/search?q=${encodeURIComponent(query)}`,
+    { headers: { "Accept": "application/json" } },
+  );
+  if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
+  const crudo = await respuesta.json();
+  return Array.isArray(crudo) ? crudo.map(normalizarResultadoLRCLIB) : [];
+}
+
+// --- Guardado directo en el navegador (Blob + <a download>) ---------------
+function descargarArchivo(nombre, contenido, tipo) {
+  const blob = new Blob([contenido], { type: tipo });
+  const url = URL.createObjectURL(blob);
+  const enlace = document.createElement("a");
+  enlace.href = url;
+  enlace.download = nombre;
+  document.body.appendChild(enlace);
+  enlace.click();
+  enlace.remove();
+  setTimeout(() => { try { URL.revokeObjectURL(url); } catch (_) { /* ya liberado */ } }, 1200);
+}
+
+function marcaLrc(ms) {
+  const total = Math.max(0, Math.round(ms));
+  const minutos = Math.floor(total / 60000);
+  const segundos = Math.floor((total % 60000) / 1000);
+  const centesimas = Math.floor((total % 1000) / 10);
+  return `[${fmt2(minutos)}:${fmt2(segundos)}.${fmt2(centesimas)}]`;
+}
+
+function marcaSrt(ms) {
+  const total = Math.max(0, Math.round(ms));
+  const horas = Math.floor(total / 3600000);
+  const minutos = Math.floor((total % 3600000) / 60000);
+  const segundos = Math.floor((total % 60000) / 1000);
+  const milesimas = total % 1000;
+  return `${fmt2(horas)}:${fmt2(minutos)}:${fmt2(segundos)},${String(milesimas).padStart(3, "0")}`;
+}
+
+function construirLrc() {
+  const cabecera = [];
+  const meta = App.meta || {};
+  if (meta.title) cabecera.push(`[ti:${meta.title}]`);
+  if (meta.artist) cabecera.push(`[ar:${meta.artist}]`);
+  if (meta.album) cabecera.push(`[al:${meta.album}]`);
+  cabecera.push("[re:KaraokeSync]");
+  const cuerpo = App.lines
+    .filter((linea) => (linea.text || "").trim())
+    .map((linea) => `${marcaLrc(linea.start_ms)}${linea.text.trim()}`);
+  const cierre = App.lines.length ? marcaLrc(App.lines[App.lines.length - 1].end_ms) : "";
+  return `${cabecera.join("\r\n")}\r\n\r\n${cuerpo.join("\r\n")}\r\n${cierre ? `${cierre}\r\n` : ""}`;
+}
+
+function construirSrt() {
+  const lineas = App.lines.filter((linea) => (linea.text || "").trim());
+  return lineas.map((linea, i) => {
+    const inicio = marcaSrt(linea.start_ms);
+    const fin = marcaSrt(Math.max(linea.start_ms + 1, linea.end_ms));
+    return `${i + 1}\r\n${inicio} --> ${fin}\r\n${linea.text.trim()}\r\n`;
+  }).join("\r\n");
+}
+
+function construirJson() {
+  const meta = App.meta || {};
+  const payload = {
+    herramienta: "KaraokeSync 1.0.0 (web)",
+    generado: new Date().toISOString(),
+    audio: App.audioPath || "",
+    titulo: meta.title || "",
+    artista: meta.artist || "",
+    album: meta.album || "",
+    editado_en: "KaraokeSync Studio (modo web)",
+    lineas: App.lines.map((linea, i) => ({
+      indice: i,
+      inicio_ms: Math.round(linea.start_ms),
+      fin_ms: Math.round(linea.end_ms),
+      texto: linea.text,
+    })),
+  };
+  return JSON.stringify(payload, null, 2);
+}
+
+function descargarEnNavegador(formatos) {
+  const base = basenameOf(App.audioPath || "") || "karaokesync";
+  const generados = [];
+  if (formatos.includes("lrc")) {
+    descargarArchivo(`${base}.lrc`, construirLrc(), "text/plain;charset=utf-8");
+    generados.push(".lrc");
+  }
+  if (formatos.includes("srt")) {
+    descargarArchivo(`${base}.srt`, construirSrt(), "text/plain;charset=utf-8");
+    generados.push(".srt");
+  }
+  if (formatos.includes("json")) {
+    descargarArchivo(`${base}.json`, construirJson(), "application/json;charset=utf-8");
+    generados.push(".json");
+  }
+  if (!generados.length) { toast(t("toast.needFormat"), "warn"); return; }
+  toast(t("toast.webSaved", { names: generados.join(", ") }), "ok");
+}
+
+// ===========================================================================
+// 1. Audio
+// ===========================================================================
+async function elegirAudio() {
+  if (!App.localServer || App.webAudio) { abrirSelectorArchivoWeb("web-audio-file"); return; }
+  try {
+    setStatus(t("status.waitingPicker"), "busy");
+    const data = await apiPost("/api/dialogo/audio", {});
+    if (data.cancelled) { setStatus(estadoBase()); return; }
+    if (!data.ok) {
+      toast(data.error || t("toast.pickerError"), "err");
+      setStatus(t("status.ready"));
+      abrirSelectorArchivoWeb("web-audio-file");
+      return;
+    }
+    await fijarAudio(data.path, data.metadata);
+  } catch (error) {
+    toast(t("toast.pickerErrorDetail", { error }), "err");
+    setStatus(t("status.ready"));
+    abrirSelectorArchivoWeb("web-audio-file");
+  }
+}
+
+async function fijarAudio(path, metadata) {
+  const limpio = String(path || "").trim();
+  if (!limpio) { toast(t("toast.emptyAudioPath"), "warn"); return; }
+  App.audioPath = limpio;
+  $("audio-path").value = limpio;
+  if ($("output-dir").value.trim() === "") {
+    const carpeta = folderOf(limpio);
+    if (carpeta) { $("output-dir").value = carpeta; App.outputDir = carpeta; }
+  }
+  await cargarReproductor(limpio);
+  await leerMetadatos(metadata);
+}
+
+async function leerMetadatos(metadata) {
+  if (!App.localServer || App.webAudio) {
+    // En web el audio es un File del navegador: no hay ruta ni ffprobe.
+    if (!App.audioPath) { toast(t("toast.needAudioPath"), "warn"); return; }
+    toast(t("toast.webMetadata"), "warn", 4500);
+    return;
+  }
+  const ruta = $("audio-path").value.trim();
+  if (!ruta) { toast(t("toast.needAudioPath"), "warn"); return; }
+  try {
+    const meta = metadata || await apiGet(`/api/audio/metadata?path=${encodeURIComponent(ruta)}`);
+    if (!meta || meta.ok === false) {
+      toast(meta && meta.error ? meta.error : t("toast.metaErrorShort"), "warn");
+      if (meta && meta.ok === false) return;
+    }
+    App.meta = meta;
+    $("meta-box").classList.add("show");
+    $("meta-title").textContent = meta.title || basenameOf(ruta) || t("meta.untitled");
+    $("meta-artist").textContent = meta.artist || t("meta.unknownArtist");
+    $("meta-duration").textContent = meta.duration_text || toMmSs(parseFloat(meta.duration || 0));
+    $("meta-source").textContent = meta.source === "ffprobe" ? t("meta.id3") : t("meta.filename");
+
+    if (!$("lrclib-query").value.trim()) {
+      $("lrclib-query").value = (meta.query || "").trim();
+    }
+    $("player-info").textContent = t("player.info", {
+      title: meta.title || basenameOf(ruta),
+      artist: meta.artist || t("meta.unknownArtist"),
+    });
+    // Si el motor aún no ha generado stems, el reproductor usa el original.
+    if (Object.keys(App.sources).length === 0 || App.activeSource === "original") {
+      activarFuente("original");
+    }
+  } catch (error) {
+    toast(t("toast.metaError", { error }), "err");
+  }
+}
+
+async function elegirCarpeta() {
+  if (!App.localServer || App.webAudio) { toast(t("toast.webNoFolder"), "warn"); return; }
+  try {
+    const data = await apiPost("/api/dialogo/carpeta", {});
+    if (data.cancelled) return;
+    if (!data.ok) { toast(data.error || t("toast.pickerError"), "err"); return; }
+    $("output-dir").value = data.path;
+    App.outputDir = data.path;
+  } catch (error) {
+    toast(t("toast.errorDetail", { error }), "err");
+  }
+}
+
+// ===========================================================================
+// 2. Letra
+// ===========================================================================
+function textoTraeTiempos(texto) {
+  const crudo = String(texto || "");
+  return /\[\d{1,3}:\d{2}/.test(crudo)
+    || /\d{2}:\d{2}:\d{2}[,.]\d{3}\s*-->/.test(crudo);
+}
+
+// Si la letra ya trae marcas LRC/SRT y NO se piden stems, Demucs solo añade
+// minutos de CPU sin mejorar la sincronizacion (las marcas del archivo mandan).
+// Se desactiva solo el check visible: el usuario puede volver a marcarlo, y si
+// pide stems se reactiva solo.
+function autoDesactivarDemucs() {
+  const casilla = $("opt-demucs");
+  const stems = $("opt-stems");
+  if (!casilla || !casilla.checked) return false;
+  if (stems && stems.checked) return false;
+  if (!textoTraeTiempos($("lyrics-text").value)) return false;
+  casilla.checked = false;
+  toast(t("toast.demucsAutoOff"), "warn", 6500);
+  return true;
+}
+
+async function elegirLetra() {
+  if (!App.localServer) { abrirSelectorArchivoWeb("web-lyrics-file"); return; }
+  try {
+    const data = await apiPost("/api/dialogo/letra", {});
+    if (data.cancelled) return;
+    if (!data.ok) {
+      toast(data.error || t("toast.pickerError"), "err");
+      abrirSelectorArchivoWeb("web-lyrics-file");
+      return;
+    }
+    if (typeof data.content === "string") {
+      $("lyrics-text").value = data.content;
+      const conTiempos = Boolean(data.has_timestamps);
+      actualizarEstadoLetra(conTiempos, data.name || "");
+      if (conTiempos) {
+        autoDesactivarDemucs();
+        parseLrc($("lyrics-text").value);
+      }
+      toast(t("toast.lyricsLoaded", { name: data.name || data.path }), "ok");
+    } else if (data.warning) {
+      toast(data.warning, "warn");
+    }
+  } catch (error) {
+    toast(t("toast.errorDetail", { error }), "err");
+    abrirSelectorArchivoWeb("web-lyrics-file");
+  }
+}
+
+function actualizarEstadoLetra(conTiempos, nombre) {
+  const badge = $("lyrics-badge");
+  App.lyricsBadge = { conTiempos: Boolean(conTiempos), nombre: nombre || "" };
+  if (!conTiempos) {
+    badge.className = "badge plain";
+    badge.textContent = t("lyrics.plain");
+    $("lyrics-info").textContent = nombre
+      ? t("lyrics.plainInfoName", { name: nombre })
+      : t("lyrics.plainInfo");
+  } else {
+    badge.className = "badge synced";
+    badge.textContent = t("lyrics.synced");
+    $("lyrics-info").textContent = nombre
+      ? t("lyrics.syncedInfoName", { name: nombre })
+      : t("lyrics.syncedInfo");
+  }
+}
+
+async function buscarLRCLIB() {
+  const query = $("lrclib-query").value.trim();
+  if (!query) { toast(t("toast.needQuery"), "warn"); return; }
+  const box = $("results");
+  box.classList.add("show");
+  box.innerHTML = `<div class='empty' style='padding:16px;'>${escapeHtml(t("lyrics.searching"))}</div>`;
+  try {
+    let data = null;
+    if (App.localServer) {
+      try {
+        data = await apiGet(`/api/lrclib/search?q=${encodeURIComponent(query)}`);
+      } catch (error) {
+        // /api/* no disponible (Cloudflare Pages): LRCLIB se consulta directo.
+        data = null;
+      }
+    }
+    if (!data || data.ok === false || !Array.isArray(data.results)) {
+      data = { ok: true, results: await buscarLRCLIBDirecto(query) };
+    }
+    App.results = (data && data.results) || [];
+    if (App.results.length === 0) {
+      box.innerHTML = `<div class='empty' style='padding:16px;'>${escapeHtml(t("lyrics.noResults"))}</div>`;
+      return;
+    }
+    box.innerHTML = App.results.map((item, index) => {
+      const clase = item.instrumental ? "instr" : item.has_synced ? "synced" : "plain";
+      const etiqueta = item.instrumental
+        ? t("lyrics.instrumental")
+        : (item.has_synced ? t("lyrics.resultSynced") : t("lyrics.resultPlain"));
+      return `<div class="result" data-index="${index}">
+        <div class="info">
+          <strong>${escapeHtml(item.artist || t("lyrics.unknownArtist"))} — ${escapeHtml(item.title || "")}</strong>
+          <span>${escapeHtml(item.album || t("lyrics.noAlbum"))} · ${escapeHtml(item.duration_text || "--:--")}</span>
+        </div>
+        <span class="badge ${clase}">${escapeHtml(etiqueta)}</span>
+      </div>`;
+    }).join("");
+  } catch (error) {
+    box.innerHTML = `<div class="empty" style="padding:16px;color:var(--danger);">${escapeHtml(t("lyrics.searchError", { error }))}</div>`;
+  }
+}
+
+function elegirResultado(index) {
+  const item = App.results[index];
+  if (!item) return;
+  const texto = item.synced || item.plain || "";
+  if (!texto) { toast(t("toast.noUsableLyrics"), "warn"); return; }
+  $("lyrics-text").value = texto;
+  actualizarEstadoLetra(Boolean(item.has_synced), `${item.artist} — ${item.title}`);
+  $("results").classList.remove("show");
+  if (item.has_synced) {
+    autoDesactivarDemucs();
+    parseLrc(texto);
+    toast(t("toast.syncedLoaded", { n: App.lines.length }), "ok");
+  } else {
+    toast(t("toast.plainLoaded"), "warn");
+  }
+}
+
+// ===========================================================================
+// 3. Procesamiento
+// ===========================================================================
+function formatosSeleccionados() {
+  return Array.from(document.querySelectorAll(".fmt:checked")).map((el) => el.value);
+}
+
+async function iniciarProcesamiento() {
+  if (!App.localServer || App.webAudio) { sincronizarEnNavegador(); return; }
+  const audio = $("audio-path").value.trim();
+  if (!audio) { toast(t("toast.needSong"), "warn"); return; }
+  if (App.processing) return;
+
+  const formatos = formatosSeleccionados();
+  if (formatos.length === 0) { toast(t("toast.needFormat"), "warn"); return; }
+
+  App.processing = true;
+  $("btn-process").disabled = true;
+  $("btn-cancel").disabled = false;
+  $("progress-panel").classList.add("show");
+  $("artifacts").style.display = "none";
+  $("logs").innerHTML = "";
+  $("progress-fill").style.width = "0%";
+  $("progress-pct").textContent = "0%";
+  $("progress-stage").textContent = t("progress.starting");
+  $("progress-msg").textContent = t("progress.preparing");
+  setStatus(t("status.processing"), "busy");
+
+  const cuerpo = {
+    audio_path: audio,
+    output_dir: $("output-dir").value.trim(),
+    preset: $("preset").value,
+    lyrics_text: $("lyrics-text").value,
+    use_demucs: $("opt-demucs").checked,
+    keep_stems: $("opt-stems").checked,
+    formats: formatos,
+  };
+
+  try {
+    const data = await apiPost("/api/procesar", cuerpo);
+    if (!data.ok) {
+      toast(data.error || t("toast.startError"), "err");
+      finalizarProcesamiento(false);
+      return;
+    }
+    App.outputDir = data.output_dir || cuerpo.output_dir;
+    if (App.outputDir) $("output-dir").value = App.outputDir;
+    if (App.polling) clearInterval(App.polling);
+    App.polling = setInterval(consultarProgreso, 900);
+    consultarProgreso();
+  } catch (error) {
+    toast(t("toast.startErrorDetail", { error }), "err");
+    finalizarProcesamiento(false);
+  }
+}
+
+function finalizarProcesamiento(ok) {
+  App.processing = false;
+  $("btn-process").disabled = false;
+  $("btn-cancel").disabled = true;
+  if (App.polling) { clearInterval(App.polling); App.polling = null; }
+  setStatus(ok ? t("status.completed") : t("status.ready"));
+}
+
+async function cancelarProcesamiento() {
+  try {
+    const data = await apiPost("/api/cancelar", {});
+    if (data.ok && data.cancelled) {
+      toast(t("toast.cancelRequested"), "warn");
+      $("btn-cancel").disabled = true;
+    } else {
+      toast(t("toast.noProcess"), "warn");
+    }
+  } catch (error) {
+    toast(t("toast.cancelError", { error }), "err");
+  }
+}
+
+async function consultarProgreso() {
+  try {
+    const st = await apiGet("/api/progreso");
+    const pct = Number(st.percentage || 0);
+    $("progress-fill").style.width = `${pct}%`;
+    $("progress-pct").textContent = `${pct}%`;
+    // Las etapas y el mensaje final llegan del servidor en español: se traducen
+    // con el idioma activo para que EN/PT/FR no muestren texto mezclado.
+    const claveEtapa = st.stage ? `stage.${st.stage}` : "";
+    const etapaTraducida = claveEtapa ? t(claveEtapa) : "";
+    const etapa = (etapaTraducida && etapaTraducida !== claveEtapa)
+      ? etapaTraducida
+      : (st.stage || t("status.processing"));
+    const mensaje = st.done && st.ok ? t("progress.completedSuccess") : (st.message || "");
+    $("progress-stage").textContent = `${etapa} · ${mensaje}`.slice(0, 160);
+    $("progress-msg").textContent = mensaje;
+
+    const logs = $("logs");
+    const alFinal = logs.scrollTop + logs.clientHeight >= logs.scrollHeight - 24;
+    logs.innerHTML = (st.logs || []).map((linea) => {
+      const clase = /error|fallo/i.test(linea) ? "err" : /completado|listo|guardad/i.test(linea) ? "ok" : "";
+      return `<div class="${clase}">${escapeHtml(linea)}</div>`;
+    }).join("");
+    if (alFinal) logs.scrollTop = logs.scrollHeight;
+
+    if (st.running) {
+      // Si la pagina se recarga en mitad del proceso, hay que reengancharse al
+      // polling y volver a bloquear los botones.
+      App.processing = true;
+      $("btn-process").disabled = true;
+      $("btn-cancel").disabled = false;
+      $("progress-panel").classList.add("show");
+      if (!App.polling) App.polling = setInterval(consultarProgreso, 900);
+      setStatus(t("status.processing"), "busy");
+      return;
+    }
+
+    if (st.done) {
+      finalizarProcesamiento(Boolean(st.ok));
+      if (st.cancelled) {
+        toast(t("toast.cancelled"), "warn");
+        setStatus(t("status.cancelled"), "err");
+        return;
+      }
+      if (st.error) {
+        toast(t("toast.engineError", { error: st.error }), "err", 7000);
+        setStatus(t("status.error"), "err");
+        return;
+      }
+      if (st.ok) {
+        App.artifacts = st.artifacts || {};
+        if (st.output_dir) { App.outputDir = st.output_dir; $("output-dir").value = st.output_dir; }
+        if (Array.isArray(st.lines) && st.lines.length > 0) {
+          App.lines = st.lines.map((l) => ({
+            start_ms: Number(l.start_ms || 0),
+            end_ms: Number(l.end_ms || 0),
+            text: String(l.text || ""),
+          }));
+          renderLineas();
+        } else if (st.lrc_content) {
+          parseLrc(st.lrc_content);
+        }
+        prepararFuentes(st.artifacts || {});
+        mostrarArtefactos(st.artifacts || {});
+        toast(t("toast.syncDone", { n: (st.lines || []).length }), "ok");
+        setStatus(t("status.completed"));
+      }
+    }
+  } catch (error) {
+    // Sin servidor Python (Cloudflare Pages) se activa el modo web sin poner el
+    // estado en rojo: no es un error, es otro modo de funcionamiento.
+    if (App.localServer) {
+      console.warn("Sin servidor local, se activa el modo web:", error);
+      entrarModoWeb();
+    }
+  }
+}
+
+function prepararFuentes(artefactos) {
+  App.sources = { original: App.audioPath };
+  if (artefactos["stem voz"]) App.sources.voz = artefactos["stem voz"];
+  if (artefactos["stem instrumental"]) App.sources.instrumental = artefactos["stem instrumental"];
+
+  document.querySelectorAll("#source-tabs button").forEach((boton) => {
+    const fuente = boton.dataset.source;
+    boton.disabled = !App.sources[fuente];
+    boton.classList.toggle("on", fuente === App.activeSource);
+  });
+  activarFuente(App.activeSource);
+}
+
+function activarFuente(fuente) {
+  const ruta = App.sources[fuente];
+  if (!ruta) return;
+  App.activeSource = fuente;
+  const player = $("player");
+  const estabaSonando = !player.paused;
+  App.syntheticMode = false;
+  App.syntheticPlaying = false;
+  if (App.localServer && !App.webAudio) {
+    player.src = `/api/audio/stream?path=${encodeURIComponent(ruta)}`;
+  } else {
+    // En web la fuente es un Object URL del File elegido por el usuario.
+    player.src = ruta;
+  }
+  if (estabaSonando) player.play().catch(() => {});
+  document.querySelectorAll("#source-tabs button").forEach((boton) => {
+    boton.classList.toggle("on", boton.dataset.source === fuente);
+  });
+  actualizarBotonPlay();
+  actualizarReproduccion();
+}
+
+function mostrarArtefactos(artefactos) {
+  const entradas = Object.entries(artefactos).filter(([, ruta]) => ruta);
+  const contenedor = $("artifacts");
+  if (entradas.length === 0) { contenedor.style.display = "none"; return; }
+  contenedor.style.display = "block";
+  contenedor.innerHTML = `<div class="field"><label>${escapeHtml(t("artifacts.label"))}</label>
+    <div style="display:flex;flex-direction:column;gap:5px;">
+      ${entradas.map(([etiqueta, ruta]) => `
+        <div style="display:flex;justify-content:space-between;gap:10px;font-size:11.5px;
+                    background:#0a1220;border:1px solid var(--border-soft);border-radius:7px;padding:6px 9px;">
+          <span style="color:var(--muted);text-transform:capitalize;">${escapeHtml(etiqueta)}</span>
+          <span style="color:var(--accent);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"
+                title="${escapeHtml(ruta)}">${escapeHtml(ruta.split(/[\\/]/).pop())}</span>
+        </div>`).join("")}
+    </div></div>`;
+}
+
+// ===========================================================================
+// Reproductor
+// ===========================================================================
+async function cargarReproductor(ruta) {
+  App.webAudio = false;
+  if (App.webAudioUrl) {
+    try { URL.revokeObjectURL(App.webAudioUrl); } catch (_) { /* ya liberado */ }
+    App.webAudioUrl = null;
+  }
+  App.audioPath = ruta;
+  App.sources = { original: ruta };
+  App.syntheticMode = false;
+  App.syntheticPlaying = false;
+  App.syntheticTimeMs = 0;
+  document.querySelectorAll("#source-tabs button").forEach((boton) => {
+    boton.disabled = boton.dataset.source !== "original";
+    boton.classList.toggle("on", boton.dataset.source === "original");
+  });
+  App.activeSource = "original";
+  const player = $("player");
+  player.src = `/api/audio/stream?path=${encodeURIComponent(ruta)}`;
+  player.load();
+  actualizarBotonPlay();
+  actualizarReproduccion();
+}
+
+function tiempoActualMs() {
+  return ahoraMs();
+}
+
+function marcarTiempoActual(index) {
+  const linea = App.lines[index];
+  if (!linea) return;
+  const nuevoInicio = Math.max(0, Math.round(ahoraMs()));
+  if (nuevoInicio === linea.start_ms) {
+    toast(t("toast.lineAlready"), "warn", 2000);
+    return;
+  }
+  pushUndo();
+  const duracion = Math.max(500, linea.end_ms - linea.start_ms);
+  linea.start_ms = nuevoInicio;
+  linea.end_ms = linea.start_ms + duracion;
+  renderLineas();
+  toast(t("toast.lineMarked", { n: index + 1, time: msToClock(linea.start_ms) }), "ok", 2200);
+}
+
+function saltarA(index) {
+  const linea = App.lines[index];
+  if (!linea) return;
+  seekToMs(linea.start_ms);
+  if (App.syntheticMode) {
+    if (!App.syntheticPlaying) iniciarRelojSintetico(linea.start_ms);
+    return;
+  }
+  if (!puedeReproducirAudio()) {
+    iniciarRelojSintetico(linea.start_ms);
+    return;
+  }
+  $("player").play().catch(() => iniciarRelojSintetico(linea.start_ms));
+}
+
+// ===========================================================================
+// 4. Editor
+// ===========================================================================
+function parseLrc(texto) {
+  const crudo = String(texto || "").replace(/\r\n?/g, "\n");
+  const lineas = [];
+  let offset = 0;
+  const offsetMatch = crudo.match(/^\[offset:\s*([+-]?\d+)\]/im);
+  if (offsetMatch) offset = parseInt(offsetMatch[1], 10) || 0;
+
+  crudo.split("\n").forEach((linea) => {
+    const marcas = [...linea.matchAll(/\[(\d{1,3}):(\d{1,2})(?:[.:](\d{1,3}))?\]/g)];
+    if (marcas.length === 0) return;
+    const textoLinea = linea.replace(/\[[^\]]*\]/g, "").replace(/<\d{1,3}:\d{1,2}(?:[.:]\d{1,3})?>/g, "").trim();
+    marcas.forEach((marca) => {
+      const minutos = parseInt(marca[1], 10) || 0;
+      const segundos = parseInt(marca[2], 10) || 0;
+      let fraccion = 0;
+      if (marca[3]) {
+        fraccion = parseInt(marca[3], 10) / Math.pow(10, marca[3].length);
+      }
+      let ms = minutos * 60000 + segundos * 1000 + Math.round(fraccion * 1000) + offset;
+      ms = Math.max(0, ms);
+      lineas.push({ start_ms: ms, end_ms: ms + 4000, text: textoLinea });
+    });
+  });
+
+  if (lineas.length === 0) {
+    // Sin marcas: cada línea no vacía entra como texto. Se les da un hueco
+    // provisional de 4 s para que la vista previa sin audio tenga una linea
+    // activa y una siguiente, en vez de amontonarlas todas en el segundo 0.
+    let cursor = 0;
+    String(texto || "").split(/\r?\n/).forEach((linea) => {
+      const limpio = linea.trim();
+      if (limpio && !/^\[[a-z]+:/i.test(limpio)) {
+        lineas.push({ start_ms: cursor, end_ms: cursor + 4000, text: limpio });
+        cursor += 4500;
+      }
+    });
+    if (lineas.length > 0) {
+      actualizarEstadoLetra(false, "");
+      toast(t("toast.plainNoTimes"), "warn", 6000);
+    }
+    renderLineas();
+    return;
+  }
+
+  lineas.sort((a, b) => a.start_ms - b.start_ms);
+  for (let i = 0; i < lineas.length; i += 1) {
+    const siguiente = lineas[i + 1];
+    if (siguiente) {
+      lineas[i].end_ms = Math.max(lineas[i].start_ms + 300, Math.min(siguiente.start_ms, lineas[i].start_ms + 8000));
+    } else {
+      lineas[i].end_ms = lineas[i].start_ms + 4000;
+    }
+  }
+  App.lines = lineas;
+  actualizarEstadoLetra(true, "");
+  renderLineas();
+}
+
+function renderLineas() {
+  const contenedor = $("lines");
+  if (!App.lines.length) {
+    contenedor.innerHTML = `<div class="empty">${t("editor.empty")}</div>`;
+    App.activeLineIdx = -2;
+    actualizarBotonUndo();
+    actualizarReproduccion();
+    return;
+  }
+  contenedor.innerHTML = App.lines.map((linea, index) => `
+    <div class="line" id="line-${index}">
+      <div class="times">
+        <span class="time" title="${escapeHtml(t("editor.timeTitle", {
+          start: msToClock(linea.start_ms), end: msToClock(linea.end_ms),
+        }))}">${msToClock(linea.start_ms)}</span>
+        <div class="trow">
+          <input class="tinput" type="number" step="10" min="0"
+                 data-field="start_ms" data-index="${index}" value="${Math.round(linea.start_ms)}"
+                 title="${escapeHtml(t("editor.startTitle"))}"
+                 aria-label="${escapeHtml(t("editor.startMs", { n: index + 1 }))}">
+          <span class="sep">→</span>
+          <input class="tinput" type="number" step="10" min="0"
+                 data-field="end_ms" data-index="${index}" value="${Math.round(linea.end_ms)}"
+                 title="${escapeHtml(t("editor.endTitle"))}"
+                 aria-label="${escapeHtml(t("editor.endMs", { n: index + 1 }))}">
+        </div>
+      </div>
+      <input class="txt" type="text" spellcheck="false" data-index="${index}"
+             value="${escapeHtml(linea.text)}"
+             placeholder="${escapeHtml(t("editor.lineText"))}">
+      <div class="nudges">
+        <button class="nudge" data-act="nudge" data-delta="-100" data-index="${index}" title="${escapeHtml(t("editor.earlier100"))}">−0,1s</button>
+        <button class="nudge" data-act="nudge" data-delta="100" data-index="${index}" title="${escapeHtml(t("editor.later100"))}">+0,1s</button>
+        <button class="nudge accent" data-act="mark" data-index="${index}" title="${escapeHtml(t("editor.mark"))}">⏱</button>
+        <button class="nudge ok" data-act="seek" data-index="${index}" title="${escapeHtml(t("editor.seek"))}">▶</button>
+        <button class="nudge" data-act="insert" data-index="${index}" title="${escapeHtml(t("editor.insert"))}">＋</button>
+      </div>
+      <button class="del" data-act="delete" data-index="${index}" title="${escapeHtml(t("editor.delete"))}">×</button>
+    </div>`).join("");
+  App.activeLineIdx = -2;
+  actualizarBotonUndo();
+  actualizarReproduccion();
+}
+
+const DURACION_NUEVA_MS = 2000;
+const DURACION_MINIMA_MS = 300;
+
+// Busca un hueco logico para una linea nueva justo debajo de la i.
+function huecoDespuesDe(indice) {
+  const actual = App.lines[indice];
+  const siguiente = App.lines[indice + 1];
+  let inicio = actual ? actual.end_ms : 0;
+  if (siguiente && inicio + DURACION_MINIMA_MS > siguiente.start_ms) {
+    inicio = Math.round(((actual ? actual.start_ms : inicio) + siguiente.start_ms) / 2);
+  }
+  let duracion = DURACION_NUEVA_MS;
+  if (siguiente) {
+    duracion = Math.min(
+      DURACION_NUEVA_MS,
+      Math.max(DURACION_MINIMA_MS, siguiente.start_ms - inicio)
+    );
+  }
+  inicio = Math.max(0, inicio);
+  return { start: inicio, end: inicio + Math.max(DURACION_MINIMA_MS, duracion) };
+}
+
+function insertarLineaDespues(indice) {
+  pushUndo();
+  const hueco = huecoDespuesDe(indice);
+  App.lines.splice(indice + 1, 0, { start_ms: hueco.start, end_ms: hueco.end, text: "" });
+  renderLineas();
+  const fila = document.getElementById(`line-${indice + 1}`);
+  const input = fila && fila.querySelector("input.txt");
+  if (input) input.focus();
+}
+
+function añadirLinea() {
+  const inicio = Math.max(0, Math.round(ahoraMs()));
+  pushUndo();
+  const nueva = { start_ms: inicio, end_ms: inicio + DURACION_NUEVA_MS, text: "" };
+  let indice = App.lines.findIndex((linea) => linea.start_ms > nueva.start_ms);
+  if (indice < 0) indice = App.lines.length;
+  App.lines.splice(indice, 0, nueva);
+  renderLineas();
+  const input = document.querySelectorAll(".line input.txt")[indice];
+  if (input) input.focus();
+}
+
+function ordenarLineas() {
+  if (App.lines.length < 2) {
+    toast(t("toast.noLinesToSort"), "warn", 2000);
+    return;
+  }
+  pushUndo();
+  App.lines.sort((a, b) => a.start_ms - b.start_ms);
+  renderLineas();
+  toast(t("toast.linesSorted"), "ok", 2000);
+}
+
+function manejarEditor(evento) {
+  const objetivo = evento.target;
+
+  if (objetivo.matches("input.txt")) {
+    const index = Number(objetivo.dataset.index);
+    if (!App.lines[index]) return;
+    if (evento.type === "input") {
+      App.lines[index].text = objetivo.value;
+      return;
+    }
+    if (evento.type === "change" && App.editSnapshot) {
+      if (JSON.stringify(App.editSnapshot) !== JSON.stringify(App.lines)) {
+        pushUndo(App.editSnapshot);
+      }
+      App.editSnapshot = null;
+    }
+    return;
+  }
+
+  if (objetivo.matches(".tinput") && evento.type === "change") {
+    const index = Number(objetivo.dataset.index);
+    const campo = objetivo.dataset.field;
+    const linea = App.lines[index];
+    if (!linea) return;
+    const previo = App.editSnapshot || snapshotLineas();
+    let valor = Math.round(Number(objetivo.value));
+    if (!Number.isFinite(valor)) valor = campo === "start_ms" ? linea.start_ms : linea.end_ms;
+    valor = Math.max(0, valor);
+    if (campo === "start_ms") {
+      linea.start_ms = valor;
+      if (linea.end_ms < valor) linea.end_ms = valor + DURACION_MINIMA_MS;
+    } else {
+      linea.end_ms = Math.max(valor, linea.start_ms + 1);
+    }
+    if (JSON.stringify(previo) !== JSON.stringify(App.lines)) pushUndo(previo);
+    App.editSnapshot = null;
+    renderLineas();
+    return;
+  }
+
+  const boton = objetivo.closest("[data-act]");
+  if (!boton) return;
+  const index = Number(boton.dataset.index);
+  const accion = boton.dataset.act;
+  if (!App.lines[index]) return;
+
+  if (accion === "nudge") {
+    const delta = Number(boton.dataset.delta) || 0;
+    pushUndo();
+    const linea = App.lines[index];
+    linea.start_ms = Math.max(0, linea.start_ms + delta);
+    linea.end_ms = Math.max(linea.start_ms + DURACION_MINIMA_MS, linea.end_ms + delta);
+    renderLineas();
+  } else if (accion === "mark") {
+    marcarTiempoActual(index);
+  } else if (accion === "seek") {
+    saltarA(index);
+  } else if (accion === "insert") {
+    insertarLineaDespues(index);
+  } else if (accion === "delete") {
+    pushUndo();
+    App.lines.splice(index, 1);
+    renderLineas();
+  }
+}
+
+async function guardar(formatos) {
+  if (!App.lines.length) { toast(t("toast.noLinesToSave"), "warn"); return; }
+  if (!App.localServer || App.webAudio) { descargarEnNavegador(formatos); return; }
+  const carpeta = $("output-dir").value.trim() || App.outputDir || folderOf(App.audioPath);
+  if (!carpeta) { toast(t("toast.needOutputDir"), "warn"); return; }
+
+  const cuerpo = {
+    audio_path: App.audioPath || $("audio-path").value.trim(),
+    output_dir: carpeta,
+    basename: basenameOf(App.audioPath || $("audio-path").value.trim()),
+    formats: formatos,
+    lines: App.lines.map((linea) => ({
+      start_ms: Math.round(linea.start_ms),
+      end_ms: Math.round(linea.end_ms),
+      text: linea.text,
+    })),
+    metadata: {
+      ti: (App.meta && App.meta.title) || "",
+      ar: (App.meta && App.meta.artist) || "",
+      al: (App.meta && App.meta.album) || "",
+    },
+  };
+
+  try {
+    const data = await apiPost("/api/guardar_editor", cuerpo);
+    if (!data.ok) {
+      toast(data.error || t("toast.saveError"), "err");
+      return;
+    }
+    App.outputDir = data.output_dir || carpeta;
+    $("output-dir").value = App.outputDir;
+    const nombres = Object.keys(data.written || {});
+    toast(t("toast.savedIn", { names: nombres.join(", ") || $("output-dir").value.trim() }), "ok");
+    if (data.written) Object.assign(App.artifacts, data.written);
+  } catch (error) {
+    // Si /api/guardar_editor no esta disponible, se descarga en el navegador.
+    console.warn("Guardado local no disponible; se descarga en el navegador:", error);
+    descargarEnNavegador(formatos);
+  }
+}
+
+// ===========================================================================
+// Carpetas
+// ===========================================================================
+async function abrirCarpeta() {
+  if (!App.localServer || App.webAudio) { toast(t("toast.webNoFolder"), "warn"); return; }
+  const carpeta = $("output-dir").value.trim() || App.outputDir || folderOf(App.audioPath);
+  if (!carpeta) { toast(t("toast.noOutputFolder"), "warn"); return; }
+  const data = await apiPost("/api/abrir_carpeta", { folder: carpeta });
+  if (!data.ok) toast(data.error || t("toast.folderOpenError"), "err");
+}
+
+async function apagarStudio() {
+  if (!confirm(t("confirm.shutdown"))) return;
+  try { await apiPost("/api/apagar", {}); } catch (_) { /* el servidor se cierra */ }
+  document.body.innerHTML = `<div style="display:grid;place-items:center;height:100vh;font-family:Segoe UI,sans-serif;
+      color:#8fa2bd;text-align:center;padding:24px;">
+    <div><div style="font-size:42px;margin-bottom:12px;">🎤</div>
+    <h1 style="color:#eaf1fb;font-size:20px;margin-bottom:8px;">${escapeHtml(t("shutdown.title"))}</h1>
+    <p>${t("shutdown.text")}</p></div></div>`;
+}
+
+// ===========================================================================
+// Arranque y eventos
+// ===========================================================================
+function estadoBase() {
+  if (!App.localServer) return t("status.webMode");
+  return App.processing ? t("status.processing") : t("status.ready");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Idioma guardado (ingles por defecto) antes de pintar nada dinamico.
+  iniciarSelectorIdioma();
+  applyLanguage(idiomaGuardado());
+
+  $("dropzone").addEventListener("click", elegirAudio);
+  $("btn-load").addEventListener("click", () => leerMetadatos());
+  $("audio-path").addEventListener("keydown", (evento) => {
+    if (evento.key === "Enter") {
+      evento.preventDefault();
+      if (!App.localServer || App.webAudio) { abrirSelectorArchivoWeb("web-audio-file"); return; }
+      fijarAudio($("audio-path").value);
+    }
+  });
+  // Selectores nativos del navegador para el modo web (Cloudflare Pages).
+  $("web-audio-file").addEventListener("change", (evento) => {
+    const archivo = evento.target.files && evento.target.files[0];
+    if (archivo) cargarAudioWeb(archivo);
+  });
+  $("web-lyrics-file").addEventListener("change", (evento) => {
+    const archivo = evento.target.files && evento.target.files[0];
+    if (archivo) cargarLetraWeb(archivo);
+  });
+  $("btn-pick-folder").addEventListener("click", elegirCarpeta);
+
+  $("btn-pick-lyrics").addEventListener("click", elegirLetra);
+  $("btn-search").addEventListener("click", buscarLRCLIB);
+  $("lrclib-query").addEventListener("keydown", (evento) => {
+    if (evento.key === "Enter") { evento.preventDefault(); buscarLRCLIB(); }
+  });
+  $("btn-search-auto").addEventListener("click", () => {
+    const meta = App.meta;
+    const consulta = (meta && meta.query) || $("lrclib-query").value.trim();
+    if (!consulta) { toast(t("toast.needAudioMetadata"), "warn"); return; }
+    $("lrclib-query").value = consulta;
+    buscarLRCLIB();
+  });
+  $("results").addEventListener("click", (evento) => {
+    const item = evento.target.closest(".result");
+    if (item) elegirResultado(Number(item.dataset.index));
+  });
+  $("lyrics-text").addEventListener("input", () => {
+    const texto = $("lyrics-text").value;
+    const conTiempos = textoTraeTiempos(texto);
+    actualizarEstadoLetra(conTiempos, "");
+    if (conTiempos) autoDesactivarDemucs();
+  });
+
+  // Si el usuario pide stems explicitamente, Demucs vuelve a ser necesario.
+  $("opt-stems").addEventListener("change", () => {
+    if ($("opt-stems").checked && textoTraeTiempos($("lyrics-text").value)
+        && !$("opt-demucs").checked) {
+      $("opt-demucs").checked = true;
+      toast(t("toast.demucsBackForStems"), "warn", 5000);
+    }
+  });
+
+  $("btn-process").addEventListener("click", iniciarProcesamiento);
+  $("btn-cancel").addEventListener("click", cancelarProcesamiento);
+
+  document.querySelectorAll("#source-tabs button").forEach((boton) => {
+    boton.addEventListener("click", () => activarFuente(boton.dataset.source));
+  });
+  $("speed").addEventListener("change", () => {
+    $("player").playbackRate = parseFloat($("speed").value) || 1;
+  });
+
+  // --- Reproduccion en vivo: eventos del audio + bucle de 60 fps ---------
+  const player = $("player");
+  ["timeupdate", "loadedmetadata", "durationchange", "seeked"].forEach((nombre) => {
+    player.addEventListener(nombre, () => actualizarReproduccion());
+  });
+  player.addEventListener("play", () => {
+    // Si habia un reloj sintetico, el audio real toma el relevo.
+    App.syntheticMode = false;
+    App.syntheticPlaying = false;
+    arrancarBucle();
+    actualizarBotonPlay();
+    actualizarReproduccion();
+  });
+  player.addEventListener("pause", () => {
+    actualizarBotonPlay();
+    actualizarReproduccion();
+  });
+  player.addEventListener("ended", () => {
+    actualizarBotonPlay();
+    actualizarReproduccion();
+  });
+  player.addEventListener("error", () => {
+    if (tieneFuenteAudio()) {
+      toast(t("toast.audioLoadError"), "warn", 6000);
+    }
+    actualizarBotonPlay();
+  });
+
+  $("btn-play-toggle").addEventListener("click", alternarReproduccion);
+  $("btn-undo").addEventListener("click", undo);
+  document.querySelectorAll("[data-shift]").forEach((boton) => {
+    boton.addEventListener("click", () => shiftAllLines(Number(boton.dataset.shift)));
+  });
+  $("chk-next").addEventListener("change", () => actualizarReproduccion());
+  $("stage-size").addEventListener("input", (evento) => {
+    $("stage-text").style.fontSize = `${evento.target.value}px`;
+  });
+
+  // --- Linea de tiempo: clic para saltar, arrastre para mover la linea ---
+  const timeline = $("timeline");
+  timeline.addEventListener("pointerdown", (evento) => {
+    if (!evento.isPrimary) return;
+    const ms = msEnTimeline(evento);
+    const indice = indiceLineaEnMs(ms);
+    if (indice < 0) {
+      seekToMs(ms);
+      return;
+    }
+    App.dragTimeline = {
+      indice,
+      desfase: ms - App.lines[indice].start_ms,
+      movido: false,
+      snapshot: snapshotLineas(),
+    };
+    timeline.setPointerCapture(evento.pointerId);
+  });
+  timeline.addEventListener("pointermove", (evento) => {
+    const drag = App.dragTimeline;
+    if (!drag) return;
+    const linea = App.lines[drag.indice];
+    if (!linea) return;
+    if (!drag.movido) {
+      pushUndo(drag.snapshot);
+      drag.movido = true;
+    }
+    const ms = msEnTimeline(evento);
+    const duracion = Math.max(DURACION_MINIMA_MS, linea.end_ms - linea.start_ms);
+    const nuevoInicio = Math.max(0, Math.round(ms - drag.desfase));
+    linea.start_ms = nuevoInicio;
+    linea.end_ms = nuevoInicio + duracion;
+    actualizarCamposLinea(drag.indice);
+    actualizarReproduccion();
+  });
+  timeline.addEventListener("pointerup", (evento) => {
+    const drag = App.dragTimeline;
+    App.dragTimeline = null;
+    if (!drag) return;
+    if (drag.movido) {
+      renderLineas();
+    } else {
+      const linea = App.lines[drag.indice];
+      seekToMs(linea ? linea.start_ms : msEnTimeline(evento));
+    }
+  });
+  timeline.addEventListener("pointercancel", () => { App.dragTimeline = null; });
+
+  // El editor guarda una foto del estado al empezar a escribir, para que
+  // Ctrl+Z pueda volver exactamente a como estaba antes de la edicion.
+  $("lines").addEventListener("focusin", (evento) => {
+    if (evento.target.matches("input")) App.editSnapshot = snapshotLineas();
+  });
+
+  $("lines").addEventListener("click", manejarEditor);
+  $("lines").addEventListener("input", manejarEditor);
+  $("lines").addEventListener("change", manejarEditor);
+  $("btn-add-line").addEventListener("click", añadirLinea);
+  $("btn-sort").addEventListener("click", ordenarLineas);
+  $("btn-save-lrc").addEventListener("click", () => guardar(["lrc"]));
+  $("btn-save-srt").addEventListener("click", () => guardar(["srt"]));
+  $("btn-save-json").addEventListener("click", () => guardar(["json"]));
+  $("btn-save-all").addEventListener("click", () => guardar(["lrc", "srt", "json"]));
+  $("btn-open-folder").addEventListener("click", abrirCarpeta);
+  $("btn-shutdown").addEventListener("click", apagarStudio);
+
+  // Arrastrar y soltar: el navegador no entrega la ruta real (C:\fakepath), asi
+  // que se avisa y se abre el selector nativo, que si la conoce.
+  const zona = $("dropzone");
+  ["dragenter", "dragover"].forEach((nombre) => {
+    zona.addEventListener(nombre, (evento) => {
+      evento.preventDefault(); zona.classList.add("drag");
+    });
+  });
+  ["dragleave", "drop"].forEach((nombre) => {
+    zona.addEventListener(nombre, (evento) => {
+      evento.preventDefault(); zona.classList.remove("drag");
+    });
+  });
+  zona.addEventListener("drop", (evento) => {
+    const archivos = evento.dataTransfer && evento.dataTransfer.files;
+    if (!App.localServer && archivos && archivos.length) {
+      cargarAudioWeb(archivos[0]);
+      return;
+    }
+    const nombre = archivos && archivos.length ? archivos[0].name : "el archivo";
+    toast(t("toast.browserNoPath", { name: nombre }), "warn", 5000);
+    elegirAudio();
+  });
+
+  // Teclado
+  document.addEventListener("keydown", (evento) => {
+    const objetivo = evento.target;
+    const escribiendo = Boolean(objetivo)
+      && (typeof objetivo.matches === "function"
+          ? objetivo.matches("input, textarea, select") || objetivo.isContentEditable
+          : false);
+
+    if (evento.ctrlKey && (evento.key === "z" || evento.key === "Z")) {
+      evento.preventDefault();
+      undo();
+      return;
+    }
+    if (evento.code === "Space" && !escribiendo) {
+      evento.preventDefault();
+      alternarReproduccion();
+      return;
+    }
+    if (evento.ctrlKey && evento.key === "Enter") {
+      evento.preventDefault(); iniciarProcesamiento();
+    }
+    if (evento.key === "Escape") {
+      document.querySelectorAll(".toast").forEach((nodo) => nodo.remove());
+    }
+  });
+
+  // Estado inicial del servidor (por si se recarga en mitad de un proceso)
+  $("stage-text").style.fontSize = `${$("stage-size").value}px`;
+  actualizarBotonUndo();
+  actualizarBotonPlay();
+  actualizarReproduccion();
+  consultarProgreso();
+  setStatus(estadoBase());
+});
+</script>
+</body>
+</html>

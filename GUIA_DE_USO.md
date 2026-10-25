@@ -64,6 +64,36 @@ No hay que instalar Python, ni ffmpeg, ni nada más: todo va dentro.
 > La primera vez, Windows puede avisar de que el archivo no tiene firma digital.
 > Es normal: pulsa **Más información → Ejecutar de todas formas**.
 
+### KaraokeSync Studio: la interfaz de la aplicación
+
+Al abrir el programa se abre **KaraokeSync Studio**, una interfaz todo-en-uno:
+
+- **Audio y letra**: elige la canción, pega la letra o búscala en **LRCLIB**
+  (`lrclib.net`) desde el propio programa.
+- **Escenario karaoke en vivo**: la línea actual en grande, la siguiente y una
+  barra de progreso que avanza con la música.
+- **Línea de tiempo interactiva**: haz clic para saltar y arrastra los bloques
+  verdes para mover una línea.
+- **Editor de tiempos**: marca el instante actual, ajusta ±50/±250 ms, inserta
+  o borra líneas y deshaz con `Ctrl+Z`.
+- **Cuatro idiomas**: English, Español, Português y Français (inglés por
+  defecto; se cambia con el selector EN/ES/PT/FR de la cabecera).
+- **Demucs optimizado en CPU**: usa menos ventanas y varias en paralelo. En una
+  canción de 4:18 como *Dreams*, la separación pasó de ~5 min 41 s a ~1 min 25 s.
+
+### Versión web (sin instalar nada)
+
+El repositorio público incluye `index.html` y `favicon.ico` en la raíz, así que
+**Cloudflare Pages puede desplegar `svs0z/KaraokeSync` en un clic** (Framework
+preset: None; build command vacío; output directory: `/`).
+
+- Si abres la web desde Cloudflare Pages **no hay servidor Python**: la interfaz
+  lo detecta y activa el **modo web híbrido**. Puedes cargar el audio y la letra
+  desde tu equipo, buscar en LRCLIB, sincronizar en el navegador y descargar
+  `.lrc`, `.srt` y `.json`.
+- Para **separar `.wav` con IA (Demucs)** y generar el reporte completo hay que
+  usar el programa de escritorio `KaraokeSync.exe` en el PC.
+
 ## 3. Comprobar que funciona
 
 Si algo va mal, esto te dice qué. En la ventana gráfica pulsa el botón
