@@ -64,12 +64,14 @@ No hay que instalar Python, ni ffmpeg, ni nada más: todo va dentro.
 > La primera vez, Windows puede avisar de que el archivo no tiene firma digital.
 > Es normal: pulsa **Más información → Ejecutar de todas formas**.
 
-### KaraokeSync Studio: la interfaz de la aplicación
+### KaraokeSync Studio: la ventana de la aplicación
 
-Al abrir el programa se abre **KaraokeSync Studio**, una interfaz todo-en-uno:
+Al hacer doble clic en `KaraokeSync.exe` se abre **KaraokeSync Studio** en su
+propia ventana (sin barra de direcciones ni pestañas, como cualquier otro
+programa de Windows): es la interfaz todo-en-uno de la aplicación.
 
 - **Audio y letra**: elige la canción, pega la letra o búscala en **LRCLIB**
-  (`lrclib.net`) desde el propio programa.
+  (`lrclib.net`) desde la propia ventana.
 - **Escenario karaoke en vivo**: la línea actual en grande, la siguiente y una
   barra de progreso que avanza con la música.
 - **Línea de tiempo interactiva**: haz clic para saltar y arrastra los bloques
@@ -81,18 +83,8 @@ Al abrir el programa se abre **KaraokeSync Studio**, una interfaz todo-en-uno:
 - **Demucs optimizado en CPU**: usa menos ventanas y varias en paralelo. En una
   canción de 4:18 como *Dreams*, la separación pasó de ~5 min 41 s a ~1 min 25 s.
 
-### Versión web (sin instalar nada)
-
-El repositorio público incluye `index.html` y `favicon.ico` en la raíz, así que
-**Cloudflare Pages puede desplegar `svs0z/KaraokeSync` en un clic** (Framework
-preset: None; build command vacío; output directory: `/`).
-
-- Si abres la web desde Cloudflare Pages **no hay servidor Python**: la interfaz
-  lo detecta y activa el **modo web híbrido**. Puedes cargar el audio y la letra
-  desde tu equipo, buscar en LRCLIB, sincronizar en el navegador y descargar
-  `.lrc`, `.srt` y `.json`.
-- Para **separar `.wav` con IA (Demucs)** y generar el reporte completo hay que
-  usar el programa de escritorio `KaraokeSync.exe` en el PC.
+Al cerrar la ventana, el programa se detiene solo: no queda ningún proceso ni
+servidor en segundo plano.
 
 ## 3. Comprobar que funciona
 

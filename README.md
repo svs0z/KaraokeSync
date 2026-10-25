@@ -10,9 +10,9 @@
 
 > [!WARNING]
 > **Este repositorio no contiene el código fuente de Python.** Incluye la
-> documentación y la **aplicación web** (`index.html`), lista para desplegar en
-> Cloudflare Pages. El programa de escritorio —doble clic y listo, sin instalar
-> nada— está **en el botón de arriba**, o en
+> documentación de la **aplicación de escritorio** para Windows. El programa
+> —`KaraokeSync.exe`, doble clic y listo, sin instalar nada— está **en el botón
+> de arriba**, o en
 > [**Releases**](https://github.com/svs0z/KaraokeSync/releases/latest).
 
 
@@ -32,21 +32,21 @@ se canta y cuándo no**, y sincroniza la letra para karaoke.
   comprobarla, y añade o quita líneas con un clic.
 - **Exporta** `.lrc`, `.srt` y `.json`, y un **reporte `.txt`** que se abre
   perfectamente en el Bloc de notas.
-- **KaraokeSync Studio en el navegador**: escenario karaoke en vivo, línea de tiempo interactiva, editor de tiempos, buscador LRCLIB, 4 idiomas (EN/ES/PT/FR) y modo híbrido con o sin servidor local.
+- **KaraokeSync Studio**: escenario karaoke en vivo, línea de tiempo interactiva, editor de tiempos, buscador LRCLIB y 4 idiomas (EN/ES/PT/FR), todo en una ventana de escritorio propia.
 - **Funciona sin conexión** después del primer uso, y sin tarjeta gráfica.
 
-## KaraokeSync Studio en el navegador
+## KaraokeSync Studio: la interfaz de escritorio
 
-Además de la ventana de escritorio, KaraokeSync incluye **KaraokeSync Studio**,
-una interfaz web completa con dos modos:
+Doble clic en `KaraokeSync.exe` y se abre **KaraokeSync Studio** en su propia
+ventana de aplicación (sin barra de direcciones, sin pestañas y sin instalar
+nada más). Desde esa única ventana, con el motor Python incluido en el paquete,
+se hace todo:
 
-- **Modo local**: al abrirla desde el programa, usa el motor Python de tu PC
-  (Demucs, VAD, alineación) y genera reporte, `.lrc`, `.srt`, `.json` y stems.
-- **Modo web**: al abrirla desde Cloudflare Pages, detecta que no hay servidor
-  local y activa los respaldos del navegador: carga audio y letra desde tu
-  equipo, busca la letra en [LRCLIB](https://lrclib.net), sincroniza y descarga
-  `.lrc`, `.srt` y `.json`. Para separar `.wav` con IA (Demucs) hay que usar el
-  programa de escritorio.
+- elegir el audio y la letra (o buscarla en [LRCLIB](https://lrclib.net)),
+- ajustar el preset y procesar (Demucs, VAD y alineación),
+- generar el reporte y los `.lrc`, `.srt` y `.json`,
+- corregir los tiempos y volver a guardar,
+- y separar los stems cuando hagan falta.
 
 Incluye escenario karaoke en vivo, línea de tiempo interactiva, editor de
 tiempos con deshacer, buscador integrado de LRCLIB y **cuatro idiomas**
@@ -54,18 +54,8 @@ tiempos con deshacer, buscador integrado de LRCLIB y **cuatro idiomas**
 menos ventanas y varias en paralelo: *Dreams* (4:18) pasó de 5 min 41 s a
 ~1 min 25 s.
 
-### Desplegar la versión web en Cloudflare Pages
-
-Este repositorio ya trae en la raíz `index.html` (la aplicación completa) y
-`favicon.ico`. No hay que compilar ni subir el código Python:
-
-1. Cloudflare Pages → **Create a project** → **Connect to Git**.
-2. Elige `svs0z/KaraokeSync`.
-3. Framework preset: **None**. Build command: vacío. Output directory: `/`.
-4. **Save and Deploy**.
-
-La app arranca en inglés y detecta si hay servidor local. En Pages no lo hay,
-así que usa el modo web; para el motor completo, abre `KaraokeSync.exe` en tu PC.
+Al cerrar la ventana se detiene el programa entero: no queda ningún proceso en
+segundo plano.
 
 ## Cómo se usa
 
