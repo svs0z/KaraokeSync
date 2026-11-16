@@ -68,23 +68,18 @@ No hay que instalar Python, ni ffmpeg, ni nada más: todo va dentro.
 
 Al hacer doble clic en `KaraokeSync.exe` se abre **KaraokeSync Studio** en su
 propia ventana (sin barra de direcciones ni pestañas, como cualquier otro
-programa de Windows): es la interfaz todo-en-uno de la aplicación.
+programa de Windows):
 
-- **Audio y letra**: elige la canción, pega la letra o búscala en **LRCLIB**
-  (`lrclib.net`) desde la propia ventana.
-- **Escenario karaoke en vivo**: la línea actual en grande, la siguiente y una
-  barra de progreso que avanza con la música.
-- **Línea de tiempo interactiva**: haz clic para saltar y arrastra los bloques
-  verdes para mover una línea.
-- **Editor de tiempos**: marca el instante actual, ajusta ±50/±250 ms, inserta
-  o borra líneas y deshaz con `Ctrl+Z`.
-- **Cuatro idiomas**: English, Español, Português y Français (inglés por
-  defecto; se cambia con el selector EN/ES/PT/FR de la cabecera).
-- **Demucs optimizado en CPU**: usa menos ventanas y varias en paralelo. En una
-  canción de 4:18 como *Dreams*, la separación pasó de ~5 min 41 s a ~1 min 25 s.
+- elige el audio y la letra, o búscala en **LRCLIB** desde la propia ventana;
+- procesa con Demucs, VAD híbrido de Silero y alineación de la letra;
+- usa el escenario karaoke en vivo con resaltado palabra por palabra;
+- mira la banda cian de voz detectada por el VAD debajo de los bloques verdes;
+- elige **SRT palabra por palabra (CapCut / Reels / TikTok)** y **LRC mejorado**;
+- arrastra el audio o la letra directamente sobre la ventana;
+- corrige los tiempos, pulsa **📋 Copiar LRC** y guarda `.lrc`, `.srt` y `.json`.
 
-Al cerrar la ventana, el programa se detiene solo: no queda ningún proceso ni
-servidor en segundo plano.
+Al cerrar la ventana se detiene el programa: no queda ningún proceso ni servidor
+en segundo plano.
 
 ## 3. Comprobar que funciona
 
@@ -608,7 +603,8 @@ hay que leer si algo no ha salido bien:
 |---|---|
 | `<nombre>_karaokesync.txt` | **El reporte.** Se lee en el Bloc de notas |
 | `<nombre>.lrc` | **Karaoke.** Cópialo junto a la canción con el mismo nombre y el reproductor te mostrará la letra sincronizada (AIMP, foobar2000, MusicBee, Poweramp en Android, VLC…) |
-| `<nombre>.srt` | **Subtítulos.** Ábrelo con el vídeo en VLC (Arrastrar y soltar → *Subtítulo → Añadir archivo de subtítulos*). También se puede subir a YouTube |
+| `<nombre>.srt` | **Subtítulos.** Ábrelo con el vídeo en VLC (Arrastrar y soltar → *Subtítulo → Añadir archivo de subtítulos*). También se puede subir a YouTube o importar en CapCut, DaVinci Resolve y Premiere Pro. Con la casilla **SRT palabra por palabra** tendrás un subtítulo por palabra |
+| `<nombre>.lrc` mejorado | Si marcas **LRC mejorado**, el `.lrc` incluye etiquetas `<mm:ss.xx>` por palabra para reproductores compatibles |
 | `<nombre>.json` | Los mismos datos en formato de datos, por si los quieres procesar |
 | `vocals.wav`, `no_vocals.wav` | Solo si marcaste la casilla. La voz aislada y el acompañamiento, para cantar encima |
 
@@ -654,6 +650,19 @@ Para ir más rápido:
 - Desmarca **Separar voz e instrumental** (mucho más rápido, menos preciso).
 - Repite la misma canción: la segunda vez tarda **segundos**.
 - Si tienes GPU NVIDIA, instálala con
+
+### El Drag & Drop no encuentra mi audio
+
+El navegador nunca entrega la ruta real de un archivo soltado, solo su nombre.
+Studio busca ese nombre (y su tamaño) en la carpeta de salida, la carpeta del
+audio anterior, la carpeta actual, Descargas, Música, Escritorio y un nivel de
+subcarpetas dentro de Descargas y Música.
+
+Si el archivo está en otra unidad o en una carpeta muy profunda, aparecerá el
+toast `toast.browserNoPath` y se abrirá el selector de Windows. No es un error:
+usa el selector una vez y, a partir de ahí, el audio quedará asociado a la
+carpeta de salida. Las letras (`.lrc`, `.txt`, `.srt`) no tienen este problema
+porque se leen directamente en el navegador.
 
 ### Repetir el análisis de una canción ya hecha
 
@@ -762,3 +771,60 @@ dice y te da los tramos de voz, que son fiables.
 Abre una consola y ejecuta `KaraokeSync.exe --gui`: así ves el mensaje de error
 en la consola en vez de perderlo.
 
+## 13. Referencia rápida de comandos
+
+Todo esto es opcional: **con la ventana no hace falta nada de aquí**. Pero si te
+resulta más cómodo escribir, estos son los comandos útiles.
+
+> Se escriben **estando en la carpeta del programa** (los pasos del [apartado
+> 2](#paso-2-abre-una-consola-en-la-carpeta-del-programa)). Escribe el `.\` del
+> principio tal cual: si lo quitas, Windows dirá que no encuentra el comando.
+
+```powershell
+# Lo básico: canción + letra
+KaraokeSync.exe -i cancion.flac -l letra.txt
+
+# Sin letra (solo detecta cuándo se canta)
+KaraokeSync.exe -i cancion.mp3
+
+# Elegir carpeta de salida y precisión
+KaraokeSync.exe -i cancion.flac -l letra.txt -d C:\Salida -p equilibrada
+
+# Más rápido (menos preciso)
+KaraokeSync.exe -i cancion.flac -l letra.txt --no-separation
+
+# Abrir la ventana desde la consola
+KaraokeSync.exe --gui
+
+# Comprobar el equipo
+KaraokeSync.exe --diagnostico
+
+# Descargar los modelos ahora, para poder usarlo luego sin internet
+KaraokeSync.exe --descargar-modelos
+
+# Guardar los ajustes actuales en un archivo y ver todos los parámetros
+# (el archivo solo se usa si luego lo pasas con -c)
+KaraokeSync.exe --write-config mis_ajustes.yaml
+KaraokeSync.exe --list-params
+```
+
+| Opción | Para qué |
+|---|---|
+| `-i`, `--input` | La canción (MP3, FLAC, WAV, M4A, OGG…) |
+| `-l`, `--lyrics` | La letra (`.txt`, `.lrc` o `.srt`) |
+| `-o`, `--output` | Ruta del reporte `.txt` |
+| `-d`, `--outdir` | Carpeta de salida |
+| `-p`, `--precision` | `rapida`, `equilibrada` (por defecto) o `alta` |
+| `--language` | Idioma de la letra: `es`, `en`, `fr`… |
+| `--no-separation` | No usar Demucs (más rápido) |
+| `--keep-stems` | Guardar también `vocals.wav` y `no_vocals.wav` |
+| `--lrc`, `--srt`, `--json` | Ruta concreta para cada archivo |
+| `--set clave=valor` | Cambiar un parámetro suelto, p. ej. `--set alignment.min_similarity=0.30` |
+
+---
+
+**¿Y si algo no funciona?** Ejecuta `KaraokeSync.exe --diagnostico` y lee las
+incidencias del reporte: están escritas en español, explican el problema y suelen
+decir qué hacer. El programa está diseñado para **no inventarse nada**: cuando no
+puede hacer algo con precisión, lo dice en el reporte en lugar de darte datos
+falsos.

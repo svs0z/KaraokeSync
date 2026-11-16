@@ -1,113 +1,106 @@
 # KaraokeSync
 
-<p align="center"><img src="src/karaokesync/assets/logo.png" alt="KaraokeSync" width="110"></p>
+🌐 **English** | [Español](README.es.md) | [User Guide (EN)](USER_GUIDE.md) | [Guía de uso (ES)](GUIA_DE_USO.md)
 
 <p align="center">
   <a href="https://github.com/svs0z/KaraokeSync/releases/download/v1.0.0/KaraokeSync-1.0.0-win64.zip">
-    <img src="https://img.shields.io/badge/Descargar_para_Windows-559_MB-2f6f4f?style=for-the-badge" alt="Descargar KaraokeSync para Windows">
+    <img src="https://img.shields.io/badge/Download_for_Windows-559_MB-2f6f4f?style=for-the-badge" alt="Download KaraokeSync for Windows">
   </a>
 </p>
 
 > [!WARNING]
-> **Este repositorio no contiene el código fuente de Python.** Incluye la
-> documentación de la **aplicación de escritorio** para Windows. El programa
-> —`KaraokeSync.exe`, doble clic y listo, sin instalar nada— está **en el botón
-> de arriba**, o en
+> **This repository contains the documentation and the Windows application.**
+> The ready-to-run program —`KaraokeSync.exe`, double-click and go— is in the
+> button above or in
 > [**Releases**](https://github.com/svs0z/KaraokeSync/releases/latest).
+> It does not require Python, ffmpeg or command-line tools.
 
+**KaraokeSync tells you exactly when someone sings and what they sing.**
 
-**KaraokeSync escucha una canción y dice, con precisión de milisegundos, cuándo
-se canta y cuándo no**, y sincroniza la letra para karaoke.
+It analyzes a song completely on your computer and produces:
 
-## Qué hace
+1. **A millisecond-accurate timeline** of `VOZ` (Vocals),
+   `VOZ+INSTRUMENTAL` (Vocals + Music), `INSTRUMENTAL`, `SILENCIO` (Silence) and
+   `RUIDO` (Noise). Demucs `htdemucs` separates the vocal stem, and a **hybrid
+   Silero Neural VAD + vocal-stem energy** detector keeps sustained notes,
+   vibratos and melismas from being cut off early.
+2. **Aligned lyrics** when you provide them: `.lrc`, `.srt` and `.json` with line
+   and word timings. The alignment uses **stable-ts / faster-whisper forced
+   alignment** on the isolated vocal track, with ~65 ms median error in the
+   measured run. It does not blindly transcribe, invent words, translate a long
+   intro into the wrong language or loop choruses.
+3. **A `.txt` report** that opens perfectly in Notepad, with every warning and
+   every timing.
 
-- **Línea de tiempo** de la canción en cinco tipos de tramo: **VOZ**,
-  **VOZ+INSTRUMENTAL**, **INSTRUMENTAL**, **SILENCIO** y **RUIDO**, con las marcas
-  de tiempo al milisegundo.
-- **Sincronización de letra** a partir de un `.txt`, `.lrc` o `.srt`: palabra por
-  palabra o línea por línea, con avisos honestos cuando los tiempos no son de
-  fiar.
-- **Editor de tiempos** en el navegador, incluido: arrastra los bloques sobre la
-  barra, mira la letra grande como en un karaoke, oye una sola línea para
-  comprobarla, y añade o quita líneas con un clic.
-- **Exporta** `.lrc`, `.srt` y `.json`, y un **reporte `.txt`** que se abre
-  perfectamente en el Bloc de notas.
-- **KaraokeSync Studio**: escenario karaoke en vivo, línea de tiempo interactiva, editor de tiempos, buscador LRCLIB y 4 idiomas (EN/ES/PT/FR), todo en una ventana de escritorio propia.
-- **Funciona sin conexión** después del primer uso, y sin tarjeta gráfica.
+## Why KaraokeSync vs. CapCut Pro / Blind Auto-Captions
 
-## KaraokeSync Studio: la interfaz de escritorio
+| | **KaraokeSync** | CapCut Pro / blind auto-captions |
+|---|---|---|
+| Runs completely locally | **Yes** | Usually cloud or editor-account based |
+| Price | **Free** for personal, educational and evaluation use | Subscription/paid advanced caption tools |
+| Vocal separation | **Demucs `htdemucs`** before analysis | Usually works on the mixed track |
+| Invents words? | **No**; it warns and marks estimates | ASR can hallucinate, translate the wrong language or loop |
+| Long intros | Classified as instrumental, silence or noise | Blind ASR may invent lyrics or translations |
+| Word-by-word `.srt` | **Yes**, for CapCut Free, DaVinci Resolve and Premiere Pro | Some paid workflows only |
+| Music-player lyrics | `.lrc` and **Enhanced LRC** (`<mm:ss.xx>`) for MusicBee, Navidrome, Plex, AIMP, foobar2000 | Usually video captions only |
+| Your data | Stays on your computer | Depends on the service |
 
-Doble clic en `KaraokeSync.exe` y se abre **KaraokeSync Studio** en su propia
-ventana de aplicación (sin barra de direcciones, sin pestañas y sin instalar
-nada más). Desde esa única ventana, con el motor Python incluido en el paquete,
-se hace todo:
+## How it works in practice
 
-- elegir el audio y la letra (o buscarla en [LRCLIB](https://lrclib.net)),
-- ajustar el preset y procesar (Demucs, VAD y alineación),
-- generar el reporte y los `.lrc`, `.srt` y `.json`,
-- corregir los tiempos y volver a guardar,
-- y separar los stems cuando hagan falta.
+1. Open `KaraokeSync.exe`.
+2. Drag the song onto the window or choose it with the Windows picker.
+3. Paste the lyrics, load an `.lrc` / `.txt` / `.srt`, or search LRCLIB.
+4. Choose the precision preset and the outputs.
+5. Press **Sync karaoke**.
+6. Review the timeline: green blocks are lyric lines, the cyan band is detected
+   singing. Fix anything that is off in the editor.
+7. Save the `.lrc`, `.srt` and `.json`, or press **📋 Copy LRC**.
 
-Incluye escenario karaoke en vivo, línea de tiempo interactiva, editor de
-tiempos con deshacer, buscador integrado de LRCLIB y **cuatro idiomas**
-(English, Español, Português, Français; inglés por defecto). Demucs en CPU usa
-menos ventanas y varias en paralelo: *Dreams* (4:18) pasó de 5 min 41 s a
-~1 min 25 s.
+### Studio highlights
 
-Al cerrar la ventana se detiene el programa entero: no queda ningún proceso en
-segundo plano.
+- **Word-by-word SRT (CapCut / Reels / TikTok)** and **Enhanced LRC**
+  (`<mm:ss.xx>`) checkboxes.
+- Live karaoke stage with **word-by-word highlighting**.
+- Interactive timeline with a **cyan VAD vocal band** under the green lyric
+  blocks.
+- **Real drag & drop** of audio and lyrics over the window.
+- **📋 Copy LRC** to the clipboard.
+- Four interface languages: English, Español, Português and Français.
 
-## Cómo se usa
+## Requirements
 
-1. **Descarga** el paquete del botón de arriba
-   (`KaraokeSync-1.0.0-win64.zip`, unos 559 MB).
-2. **Descomprímelo** donde quieras (clic derecho → *Extraer todo…*).
-3. **Doble clic en `KaraokeSync.exe`**.
-4. Elige la canción, y la letra si la tienes, y pulsa **Generar reporte**.
+- Windows 10 or 11, 64-bit.
+- About 1.4 GB of disk space after extraction.
+- Internet only the first time, to download models. Afterwards it works offline.
+- No Python, ffmpeg or administrator permissions.
 
-La carpeta queda así:
+## Installation
 
-```
-KaraokeSync\
-├── KaraokeSync.exe        <- doble clic aquí
-└── _internal\             <- todo lo que necesita (no tocar)
-```
+1. Download `KaraokeSync-1.0.0-win64.zip` from Releases.
+2. Extract it to a folder.
+3. Double-click `KaraokeSync.exe`.
 
-La **primera canción tarda 4-5 minutos**: descarga los modelos (unos 220 MB) y
-separa la voz. Las siguientes tardan segundos.
+The first song takes a few minutes (models download and Demucs runs). Repeating
+the same song takes seconds thanks to the cache.
 
-> **Aviso del antivirus.** El `.exe` no está firmado digitalmente (firmar cuesta
-> dinero) y Windows puede pedir confirmación la primera vez: *Más información →
-> Ejecutar de todas formas*, o añade la carpeta a las exclusiones.
+## Measured accuracy
 
-## Qué necesitas
+- Pipeline mechanics against exact synthetic ground truth: **±50 ms**, and the
+  only deviation is exactly the configured padding.
+- Agreement with the official Silero implementation on real music: **0.13 s in
+  45 s** (0.3 %).
+- Real lyric alignment in the project run: **~65 ms median error**, with one
+  repeated-chorus line at 12.7 s. No automatic aligner is perfect, which is why
+  KaraokeSync includes a visual editor and never hides uncertain results.
 
-| | |
-|---|---|
-| **Sistema** | Windows 10 u 11, de 64 bits |
-| **Memoria** | Unos 4 GB libres |
-| **Disco** | 2 GB para el programa y los modelos |
-| **Sonido** | Cualquier formato habitual (`.flac`, `.mp3`, `.m4a`, `.wav`, `.ogg`) |
-| **GPU** | No hace falta; con tarjeta NVIDIA va más rápido |
-| **Conocimientos** | Ninguno |
+## Documentation
 
-## La guía
+- [Complete user guide (English)](USER_GUIDE.md)
+- [Read this README in Spanish](README.es.md)
+- [Guía de uso completa (Español)](GUIA_DE_USO.md)
 
-Todo el detalle —cómo preparar la letra, qué significa cada aviso del reporte,
-qué hacer con los archivos, errores típicos— está en
-[**GUIA_DE_USO.md**](GUIA_DE_USO.md).
+## License
 
-## Licencia
-
-Software **propietario** de **Sara Valentina Sepúlveda Ortiz (svs0z)**. Se
-permite el uso personal, educativo o de evaluación. **No** se permite venderlo,
-redistribuirlo ni usarlo comercialmente. El texto completo está en
-[**LICENSE**](LICENSE).
-
-Las letras y las grabaciones no se incluyen ni se distribuyen: cada obra tiene
-su autor y sus derechos.
-
-## Contacto
-
-- GitHub: [@svs0z](https://github.com/svs0z)
-- Incidencias y sugerencias: [Issues](https://github.com/svs0z/KaraokeSync/issues)
+**Proprietary software — all rights reserved.** Personal, educational and
+evaluation use is allowed. Commercial use, sale, redistribution or publishing a
+modified version as your own is not. See `LICENSE` in the package/repository.
