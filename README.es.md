@@ -3,7 +3,7 @@
 🌐 [English](README.md) | **Español** | [User Guide (EN)](USER_GUIDE.md) | [Guía de uso (ES)](GUIA_DE_USO.md)
 
 <p align="center">
-  <a href="https://github.com/svs0z/KaraokeSync/releases/download/v1.0.0/KaraokeSync-1.0.0-win64.zip">
+  <a href="https://github.com/svs0z/KaraokeSync/releases/download/v1.2.0/KaraokeSync-1.2.0-win64.zip">
     <img src="https://img.shields.io/badge/Descargar_para_Windows-559_MB-2f6f4f?style=for-the-badge" alt="Descargar KaraokeSync para Windows">
   </a>
 </p>
@@ -76,7 +76,7 @@ Analiza una canción completamente en tu ordenador y genera:
 
 ## Instalación
 
-1. Descarga `KaraokeSync-1.0.0-win64.zip` desde Releases.
+1. Descarga `KaraokeSync-1.2.0-win64.zip` desde Releases.
 2. Extráelo en una carpeta.
 3. Haz doble clic en `KaraokeSync.exe`.
 
