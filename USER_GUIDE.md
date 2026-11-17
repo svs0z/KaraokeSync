@@ -59,7 +59,7 @@ denied”* even though installation went well. If that happens:
 
 ## 2. Installing on Windows
 
-1. Download **`KaraokeSync-1.2.0-win64.zip`** from the *Releases* page.
+1. Download **`KaraokeSync-1.3.0-win64.zip`** from the *Releases* page.
 2. Right-click the file → **Extract All…** and choose a folder
    (for example `C:\Users\<your user>\KaraokeSync`).
 3. Open the folder and **double-click `KaraokeSync.exe`**.

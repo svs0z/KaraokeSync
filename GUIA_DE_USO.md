@@ -54,7 +54,7 @@ activado, y entonces verás errores de tipo *"No module named 'numpy'"* o
 
 ## 2. Instalación en Windows
 
-1. Descarga **`KaraokeSync-1.2.0-win64.zip`** desde la página de *Releases*.
+1. Descarga **`KaraokeSync-1.3.0-win64.zip`** desde la página de *Releases*.
 2. Clic derecho sobre el archivo → **Extraer todo…** y elige una carpeta
    (por ejemplo `C:\Users\<tu usuario>\KaraokeSync`).
 3. Entra en la carpeta y haz **doble clic en `KaraokeSync.exe`**.

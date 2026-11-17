@@ -3,7 +3,7 @@
 🌐 [English](README.md) | **Español** | [User Guide (EN)](USER_GUIDE.md) | [Guía de uso (ES)](GUIA_DE_USO.md)
 
 <p align="center">
-  <a href="https://github.com/svs0z/KaraokeSync/releases/download/v1.2.0/KaraokeSync-1.2.0-win64.zip">
+  <a href="https://github.com/svs0z/KaraokeSync/releases/download/v1.3.0/KaraokeSync-1.3.0-win64.zip">
     <img src="https://img.shields.io/badge/Descargar_para_Windows-559_MB-2f6f4f?style=for-the-badge" alt="Descargar KaraokeSync para Windows">
   </a>
 </p>
@@ -57,6 +57,7 @@ Analiza una canción completamente en tu ordenador y genera:
 
 ### Lo más útil de Studio
 
+- **Compatibilidad con vídeos (`.mp4`, `.mov`, `.mkv`, `.webm`, `.avi`, `.m4v`)**, **Subtítulos automáticos con IA (sin necesidad de letra)** y **Extraer audio (`.wav`)** + **Separar voz y fondo (`_vocals.wav` / `_no_vocals.wav`)**.
 - Casillas **SRT palabra por palabra (CapCut / Reels / TikTok)** y **LRC
   mejorado** (`<mm:ss.xx>`).
 - Escenario karaoke en vivo con **resaltado palabra por palabra**.
@@ -76,7 +77,7 @@ Analiza una canción completamente en tu ordenador y genera:
 
 ## Instalación
 
-1. Descarga `KaraokeSync-1.2.0-win64.zip` desde Releases.
+1. Descarga `KaraokeSync-1.3.0-win64.zip` desde Releases.
 2. Extráelo en una carpeta.
 3. Haz doble clic en `KaraokeSync.exe`.
 
