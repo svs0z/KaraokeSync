@@ -155,7 +155,7 @@ Choose:
 - **Enhanced LRC**: adds `<mm:ss.xx>` word tags to the `.lrc`.
 - Which files to generate: report, LRC, SRT, JSON and HTML editor.
 
-Press **⚡ Sync karaoke** and wait. You will see a progress bar, live logs and a
+Press **⚡ Synchronize** and wait. You will see a progress bar, live logs and a
 cancel button.
 
 ### 4.4 Live karaoke stage
