@@ -59,7 +59,7 @@ denied”* even though installation went well. If that happens:
 
 ## 2. Installing on Windows
 
-1. Download **`KaraokeSync-1.3.0-win64.zip`** from the *Releases* page.
+1. Download **`KaraokeSync-1.4.0-win64.zip`** from the *Releases* page.
 2. Right-click the file → **Extract All…** and choose a folder
    (for example `C:\Users\<your user>\KaraokeSync`).
 3. Open the folder and **double-click `KaraokeSync.exe`**.
@@ -75,13 +75,14 @@ package.
 Double-click `KaraokeSync.exe` and **KaraokeSync Studio** opens in its own
 application window, with no address bar or browser tabs:
 
-- choose the audio and lyrics, or search **LRCLIB** from the same window;
-- process with Demucs, hybrid Silero VAD and lyric alignment;
-- use the live karaoke stage with word-by-word highlighting;
-- see the cyan VAD vocal band under the green lyric blocks in the timeline;
-- choose **Word-by-word SRT (CapCut / Reels / TikTok)** and **Enhanced LRC**;
-- drag audio or lyric files directly onto the window;
-- fix timings, press **📋 Copy LRC** and save `.lrc`, `.srt` and `.json`.
+- choose the audio/video and lyrics, or search **LRCLIB** from the same window;
+- process with Demucs, hybrid Silero VAD, lyric alignment and optional 20 ms CTC refinement;
+- use the live karaoke stage with word-by-word highlighting, **`● ● ●` countdowns** and **Fullscreen (`F`)**;
+- see the **real audio waveform** and the cyan VAD vocal band under the green lyric blocks in the timeline;
+- choose **Word-by-word SRT (CapCut / Reels / TikTok)**, **Enhanced LRC** and **`.ass` karaoke (`\kf`)**;
+- render ready-to-share **MP4 karaoke videos (`16:9` or `9:16`)** directly from the editor;
+- drag audio, video or lyric files directly onto the window;
+- fix timings with **Tap-Sync (`T`)** or **per-line loop (`🔁`)**, press **📋 Copy LRC** / **📋 Copy SRT**, and save `.lrc`, `.srt`, `.ass` and `.json`.
 
 Closing the window stops the application: no server or background process
 remains.
@@ -153,18 +154,22 @@ Choose:
 - **Save stems**: writes `vocals.wav` and `no_vocals.wav`.
 - **Word-by-word SRT (CapCut / Reels / TikTok)**: one subtitle cue per word.
 - **Enhanced LRC**: adds `<mm:ss.xx>` word tags to the `.lrc`.
-- Which files to generate: report, LRC, SRT, JSON and HTML editor.
+- **20 ms phonetic CTC refinement (MMS_FA)**: optional pass that tightens word edges and highlights low-confidence lyrics to review by ear.
+- Which files to generate: report, LRC, SRT, **ASS (`.kf` karaoke + 3-2-1 countdown)**, JSON and HTML editor.
 
 Press **⚡ Synchronize** and wait. You will see a progress bar, live logs and a
 cancel button.
 
-### 4.4 Live karaoke stage
+### 4.4 Live karaoke stage & player
 
-The large stage shows the current line, the next line and an internal progress
-bar. When word timings exist:
+The custom player displays embedded cover art (or video thumbnail) and a **real
+audio waveform** bar beside playback/loop controls. The large stage shows the
+current line, the next line, a **3-second `● ● ●` countdown** before singing
+resumes after intros/breaks, and a **fullscreen mode (`F`)**. When word timings exist:
 
 - the **current word is highlighted**;
 - words already sung are marked;
+- low-confidence words (below 55 %) show a subtle amber underline;
 - words still to come stay dimmed.
 
 This makes timing errors obvious without reading numbers.
@@ -173,6 +178,7 @@ This makes timing errors obvious without reading numbers.
 
 The timeline shows:
 
+- a **real amplitude waveform** behind the timeline bars;
 - **green blocks**: your lyric lines, from `start_ms` to `end_ms`;
 - a **soft cyan band below the green blocks**: VAD-detected vocal segments;
 - a position needle for the current playback time.
@@ -180,19 +186,22 @@ The timeline shows:
 Use it to see where real singing happens. Click to seek, drag a green block to
 move that line, and use the global ±50/±250 ms buttons for a uniform offset.
 
-### 4.6 Timing editor
+### 4.6 Timing editor & MP4 video export
 
 The editor lets you:
 
 - edit the text of each line;
 - edit `start_ms` and `end_ms` directly;
 - move a line 100 ms earlier or later;
+- repeat a single line in a loop (`🔁`);
+- run **🥁 Tap-Sync (`T`)** to tap consecutive line timings live in one pass;
 - mark the current playback instant;
 - jump to a line;
 - insert or delete lines;
 - undo with `Ctrl+Z`;
-- press **📋 Copy LRC** to copy the current LRC to the clipboard;
-- save `.lrc`, `.srt` and `.json` directly to the output folder.
+- press **📋 Copy LRC** / **📋 Copy SRT** to copy to the clipboard;
+- save `.lrc`, `.srt`, `.ass` and `.json` directly to the output folder;
+- render a ready-to-share **🎬 Export MP4** karaoke video (**16:9** desktop/YouTube or **9:16** TikTok/Reels/Shorts, with original video, blurred cover art or dark studio backdrop and original or instrumental audio).
 
 ---
 
@@ -553,7 +562,8 @@ standalone HTML file generated with `--editor`.
 |---|---|
 | `Space` | Play / pause |
 | `Ctrl+Z` | Undo the last timing or text change (50 states) |
-| `T` | Mark the current instant in the standalone editor |
+| `T` | Tap the next line start while **Tap-Sync** is active |
+| `F` | Toggle **Fullscreen** live karaoke stage |
 | `Enter` | Confirm a numeric timing field |
 
 **Timeline colours:**
@@ -593,6 +603,8 @@ timings are estimates, check them by ear or fix them in the editor.
 | `<name>_karaokesync.txt` | **The report.** Read it in Notepad |
 | `<name>.lrc` | **Karaoke.** Copy it next to the song with the same name; the player shows synchronized lyrics (AIMP, foobar2000, MusicBee, Poweramp on Android, VLC…) |
 | `<name>.srt` | **Subtitles.** Open it with the video in VLC (drag and drop → *Subtitle → Add subtitle file*). Upload it to YouTube or import it into CapCut/DaVinci/Premiere |
+| `<name>.ass` | **Karaoke subtitles.** Smooth `\kf` word sweep and `● ● ●` vocal countdowns for Aegisub, VLC, MPV or ffmpeg burn-in |
+| `<name>_karaoke.mp4` | **Ready-to-upload karaoke video.** Generated from Studio (**🎬 Export MP4**) in `16:9` or `9:16` with original video, blurred cover art or dark backdrop |
 | Enhanced `.lrc` | Word-level `<mm:ss.xx>` tags for compatible karaoke players |
 | `<name>.json` | The same data in machine-readable form |
 | `<name>_editor.html` | Standalone timing editor |

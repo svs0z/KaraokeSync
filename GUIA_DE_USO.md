@@ -54,7 +54,7 @@ activado, y entonces verás errores de tipo *"No module named 'numpy'"* o
 
 ## 2. Instalación en Windows
 
-1. Descarga **`KaraokeSync-1.3.0-win64.zip`** desde la página de *Releases*.
+1. Descarga **`KaraokeSync-1.4.0-win64.zip`** desde la página de *Releases*.
 2. Clic derecho sobre el archivo → **Extraer todo…** y elige una carpeta
    (por ejemplo `C:\Users\<tu usuario>\KaraokeSync`).
 3. Entra en la carpeta y haz **doble clic en `KaraokeSync.exe`**.
@@ -70,13 +70,14 @@ Al hacer doble clic en `KaraokeSync.exe` se abre **KaraokeSync Studio** en su
 propia ventana (sin barra de direcciones ni pestañas, como cualquier otro
 programa de Windows):
 
-- elige el audio y la letra, o búscala en **LRCLIB** desde la propia ventana;
-- procesa con Demucs, VAD híbrido de Silero y alineación de la letra;
-- usa el escenario karaoke en vivo con resaltado palabra por palabra;
-- mira la banda cian de voz detectada por el VAD debajo de los bloques verdes;
-- elige **SRT palabra por palabra (CapCut / Reels / TikTok)** y **LRC mejorado**;
-- arrastra el audio o la letra directamente sobre la ventana;
-- corrige los tiempos, pulsa **📋 Copiar LRC** y guarda `.lrc`, `.srt` y `.json`.
+- elige el audio/vídeo y la letra, o búscala en **LRCLIB** desde la propia ventana;
+- procesa con Demucs, VAD híbrido de Silero, alineación de letra y refinado CTC opcional de 20 ms;
+- usa el escenario karaoke en vivo con resaltado palabra por palabra, **cuenta atrás `● ● ●`** y **pantalla completa (`F`)**;
+- mira la **onda real del audio** y la banda cian de voz detectada por el VAD debajo de los bloques verdes;
+- elige **SRT palabra por palabra (CapCut / Reels / TikTok)**, **LRC mejorado** y **`.ass` karaoke (`\kf`)**;
+- exporta **vídeos karaoke `.mp4` (`16:9` y `9:16`)** listos para YouTube, Reels o TikTok desde el propio editor;
+- arrastra el audio, vídeo o la letra directamente sobre la ventana;
+- corrige los tiempos con **Tap-Sync (`T`)** o **bucle por línea (`🔁`)**, pulsa **📋 Copiar LRC** / **📋 Copiar SRT** y guarda `.lrc`, `.srt`, `.ass` y `.json`.
 
 Al cerrar la ventana se detiene el programa: no queda ningún proceso ni servidor
 en segundo plano.
@@ -146,6 +147,7 @@ Cinco casillas, todas marcadas. Desmarca lo que no necesites:
 | **Editor interactivo (.html)** | La página para corregir los tiempos a mano |
 | **Reporte (.txt)** | El informe que se abre en el Bloc de notas |
 | **Subtítulos (.srt)** | Para vídeo |
+| **Karaoke avanzado (.ass)** | Barrido `\kf` por palabra y cuenta atrás `● ● ●` |
 | **Datos (.json)** | Todo el detalle, para otras herramientas |
 
 Por ejemplo: deja solo **.lrc** y **editor** y el análisis escribirá únicamente
@@ -818,7 +820,8 @@ KaraokeSync.exe --list-params
 | `--language` | Idioma de la letra: `es`, `en`, `fr`… |
 | `--no-separation` | No usar Demucs (más rápido) |
 | `--keep-stems` | Guardar también `vocals.wav` y `no_vocals.wav` |
-| `--lrc`, `--srt`, `--json` | Ruta concreta para cada archivo |
+| `--lrc`, `--srt`, `--ass`, `--json` | Ruta concreta (o solo generar `.ass`) para cada archivo |
+| `--ctc-refine` | Activar refinado fonético CTC opcional de 20 ms |
 | `--set clave=valor` | Cambiar un parámetro suelto, p. ej. `--set alignment.min_similarity=0.30` |
 
 ---

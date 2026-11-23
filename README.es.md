@@ -3,13 +3,17 @@
 🌐 [English](README.md) | **Español** | [User Guide (EN)](USER_GUIDE.md) | [Guía de uso (ES)](GUIA_DE_USO.md)
 
 <p align="center">
-  <a href="https://github.com/svs0z/KaraokeSync/releases/download/v1.3.0/KaraokeSync-1.3.0-win64.zip">
-    <img src="https://img.shields.io/badge/Descargar_para_Windows-559_MB-2f6f4f?style=for-the-badge" alt="Descargar KaraokeSync para Windows">
+  <a href="https://github.com/svs0z/KaraokeSync/releases/download/v1.4.0/KaraokeSync-1.4.0-win64.zip">
+    <img src="https://img.shields.io/badge/Descargar_para_Windows-560_MB-2f6f4f?style=for-the-badge" alt="Descargar KaraokeSync para Windows">
   </a>
 </p>
 
+<p align="center">
+  <img src="src/karaokesync/assets/studio_preview.png" alt="KaraokeSync Studio" width="900">
+</p>
+
 > [!WARNING]
-> **Este repositorio contiene la documentación y la aplicación para Windows.**
+> **Este repositorio contiene la documentación, utilidades complementarias y la aplicación para Windows.**
 > El programa listo para abrir —`KaraokeSync.exe`, doble clic y listo— está en
 > el botón de arriba o en
 > [**Releases**](https://github.com/svs0z/KaraokeSync/releases/latest).
@@ -17,17 +21,19 @@
 
 **KaraokeSync te dice exactamente cuándo se canta y qué se canta.**
 
-Analiza una canción completamente en tu ordenador y genera:
+Analiza una canción o un vídeo completamente en tu ordenador y genera:
 
 1. **Una línea de tiempo al milisegundo** con `VOZ`, `VOZ+INSTRUMENTAL`,
    `INSTRUMENTAL`, `SILENCIO` y `RUIDO`. Demucs `htdemucs` separa el stem vocal
    y un **VAD híbrido de Silero + energía del stem vocal** evita que las notas
    sostenidas, los vibratos y los melismas se corten antes de tiempo.
-2. **La letra alineada** cuando la aportas: `.lrc`, `.srt` y `.json` con marcas
-   por línea y por palabra. La alineación usa **stable-ts / faster-whisper sobre
-   la pista vocal aislada**, con ~65 ms de error mediano en la medición del
-   proyecto. No transcribe a ciegas, no inventa palabras, no traduce una intro
-   larga al idioma equivocado ni repite estribillos.
+2. **La letra alineada y vídeo karaoke** cuando la aportas (o auto-subtítulos IA
+   desde vídeo): `.lrc`, `.srt`, **`.ass` (barrido `\kf` + cuenta atrás `● ● ●`)**,
+   `.json` y **vídeo `.mp4` karaoke (`16:9` / `9:16`)**. La alineación usa
+   **stable-ts / faster-whisper sobre la pista vocal aislada** (con refinado
+   fonético CTC opcional de 20 ms), con ~65 ms de error mediano en la medición
+   del proyecto. No transcribe a ciegas, no inventa palabras, no traduce una
+   intro larga al idioma equivocado ni repite estribillos.
 3. **Un reporte `.txt`** que se abre perfectamente en el Bloc de notas, con todas
    las advertencias y todos los tiempos.
 
@@ -41,31 +47,40 @@ Analiza una canción completamente en tu ordenador y genera:
 | ¿Inventa palabras? | **No**; avisa y marca estimaciones | El ASR puede alucinar, traducir mal o repetir estribillos |
 | Introducciones largas | Instrumental, silencio o ruido | El ASR ciego puede inventar letra o traducciones |
 | `.srt` palabra por palabra | **Sí**, para CapCut Free, DaVinci Resolve y Premiere Pro | Solo en algunos flujos de pago |
+| `.ass` y vídeo MP4 karaoke | **`.ass` (`\kf` + cuenta atrás `● ● ●`)** y **exportación MP4 `16:9` / `9:16`** | Atado a editores online |
 | Letras para reproductores | `.lrc` y **LRC mejorado** (`<mm:ss.xx>`) para MusicBee, Navidrome, Plex, AIMP, foobar2000 | Normalmente solo subtítulos de vídeo |
 | Tus datos | Se quedan en tu ordenador | Depende del servicio |
 
 ## Cómo se usa en la práctica
 
 1. Abre `KaraokeSync.exe`.
-2. Arrastra la canción a la ventana o elígela con el selector de Windows.
-3. Pega la letra, carga un `.lrc` / `.txt` / `.srt` o búscala en LRCLIB.
-4. Elige el preset de precisión y los archivos de salida.
-5. Pulsa **Sincronizar karaoke**.
-6. Revisa la línea de tiempo: los bloques verdes son las líneas y la banda cian
-   es la voz detectada. Corrige lo que haga falta en el editor.
-7. Guarda `.lrc`, `.srt` y `.json`, o pulsa **📋 Copiar LRC**.
+2. Arrastra la canción o el vídeo a la ventana o elígela con el selector de Windows.
+3. Pega la letra, carga un `.lrc` / `.txt` / `.srt`, búscala en LRCLIB o déjala vacía para auto-subtítulos IA.
+4. Elige el preset de precisión, el refinado fonético CTC opcional y los archivos de salida.
+5. Pulsa **⚡ Sincronizar**.
+6. Revisa la línea de tiempo: la onda real muestra la amplitud, los bloques verdes son las líneas y la banda cian es la voz detectada. Ajusta en el editor con **Tap-Sync (`T`)** o **bucle por línea (`🔁`)**.
+7. Guarda `.lrc`, `.srt`, **`.ass`** y `.json`, exporta un **vídeo karaoke MP4 (`16:9` / `9:16`)**, o pulsa **📋 Copiar LRC** / **📋 Copiar SRT**.
 
 ### Lo más útil de Studio
 
 - **Compatibilidad con vídeos (`.mp4`, `.mov`, `.mkv`, `.webm`, `.avi`, `.m4v`)**, **Subtítulos automáticos con IA (sin necesidad de letra)** y **Extraer audio (`.wav`)** + **Separar voz y fondo (`_vocals.wav` / `_no_vocals.wav`)**.
-- Casillas **SRT palabra por palabra (CapCut / Reels / TikTok)** y **LRC
-  mejorado** (`<mm:ss.xx>`).
-- Escenario karaoke en vivo con **resaltado palabra por palabra**.
-- Línea de tiempo con **banda cian de voz detectada** debajo de los bloques
-  verdes.
-- **Drag & Drop real** de audio y letra sobre la ventana.
-- **📋 Copiar LRC** al portapapeles.
+- **Exportación `.ass` karaoke (`\kf` palabra por palabra + cuenta atrás automática `● ● ●`)** tras intros o pausas instrumentales ≥ 3,5–4 s.
+- **Exportador de vídeo karaoke MP4 (`16:9` YouTube y `9:16` TikTok/Reels/Shorts)** sobre el vídeo original, carátula difuminada o fondo oscuro, eligiendo audio original, instrumental o solo voz.
+- Casillas **SRT palabra por palabra (CapCut / Reels / TikTok)** y **LRC mejorado** (`<mm:ss.xx>`).
+- Escenario karaoke en vivo con **resaltado palabra por palabra**, **cuenta atrás `● ● ●`** y **pantalla completa (`F`)**.
+- **Forma de onda real** en el reproductor de 56 barras y en la línea de tiempo (junto a la **banda cian de voz detectada** debajo de los bloques verdes).
+- **Tap-Sync (`T`)**, **bucle por línea (`🔁`)**, resaltado de baja confianza y **refinado fonético CTC opcional de 20 ms**.
+- **Drag & Drop real** de audio, vídeo y letra sobre la ventana.
+- **📋 Copiar LRC** / **📋 Copiar SRT** al portapapeles.
 - Cuatro idiomas: English, Español, Português y Français.
+
+## Validador abierto de subtítulos (`tools/validate_subtitles.py`)
+
+Este escaparate público incluye una utilidad Python independiente sin dependencias externas ([`tools/validate_subtitles.py`](tools/validate_subtitles.py)) para validar la sintaxis, monotonicidad y etiquetas `\kf` de tus archivos `.lrc`, `.srt` y `.ass`:
+
+```bash
+python tools/validate_subtitles.py cancion.lrc cancion.srt cancion.ass
+```
 
 ## Requisitos
 
@@ -73,11 +88,11 @@ Analiza una canción completamente en tu ordenador y genera:
 - Unos 1,4 GB de disco después de extraer.
 - Internet solo la primera vez, para descargar los modelos. Después funciona sin
   conexión.
-- No hace falta Python, ni ffmpeg, ni permisos de administrador.
+- No hace falta Python, ni ffmpeg, ni permisos de administrador para usar `KaraokeSync.exe`.
 
 ## Instalación
 
-1. Descarga `KaraokeSync-1.3.0-win64.zip` desde Releases.
+1. Descarga `KaraokeSync-1.4.0-win64.zip` desde Releases.
 2. Extráelo en una carpeta.
 3. Haz doble clic en `KaraokeSync.exe`.
 
